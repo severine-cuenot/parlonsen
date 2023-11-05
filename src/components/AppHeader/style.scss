@@ -1,0 +1,74 @@
+@use '../../styles/vars';
+
+.desktop {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navbar {
+  display: block;
+  background-color: vars.$white;
+  color: vars.$dark;
+
+  &__left-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+  }
+
+  &__logo {
+    font-size: 2em;
+  }
+
+  &__burger {
+    width: 3.5em;
+    background-color: vars.$lightGrey;
+    border: none; 
+    border-radius: vars.$btnRadius;
+  }
+
+  // &__burger[aria-expanded='true'] {
+  //   background-color: vars.$dark;
+  //   color: vars.$white;
+  // }
+
+  &__burger-text {
+    display: block;
+    position: relative;
+    bottom: 3px;
+    font-size: 0.8em;
+    color: vars.$dark;
+  }
+
+  &__burger-svg {
+    height: 3em;
+    fill: vars.$white !important;
+    transition: transform 0.3s;
+  }
+
+  &__burger-svg-cross {
+    height: 3em;
+    fill: vars.$white !important; 
+    transform: rotate(45deg);
+    transition: transform 0.3s;
+  }
+
+  &__expanded {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    padding: 1em;
+  }
+
+  &__not-expanded {
+    display: none;
+  }
+
+  &__expanded--element {
+    padding: 1em;
+    border-top: 1px solid vars.$dark;
+  }
+}

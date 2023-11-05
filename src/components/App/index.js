@@ -1,13 +1,23 @@
-// == Import
-import reactLogo from './react-logo.svg';
+// React import
+import { Route, Routes} from 'react-router-dom';
+
+// Pages import
+import Home from '../../pages/Home';
+
+// Components import
+import AppHeader from '../AppHeader';
+
+// Import
 import './styles.css';
 
 // == Composant
 function App() {
   return (
     <div className="app">
-      <img src={reactLogo} alt="react logo" />
-      <h1>Composant : App</h1>
+      <AppHeader />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }

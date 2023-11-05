@@ -1,0 +1,22 @@
+@use 'reset';
+@use 'vars';
+
+@font-face {
+  font-family: 'dk-zealand-regular', sans-serif;
+  src: url('../assets/fonts/DK_Zealand.otf');
+}
+
+body {
+  background-color: vars.$dark;
+  min-height: 100vh;
+  font-family: vars.$bodyFont;
+  color: vars.$white;
+  font-size: 100%;
+  font-weight: 400;
+}
+
+.header {
+  font-family: vars.$headLinesFont;
+}
+
+

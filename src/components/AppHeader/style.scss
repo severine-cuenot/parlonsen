@@ -23,35 +23,29 @@
   }
 
   &__burger {
-    width: 3.5em;
+    width: 4em;
+    // height: 4.5em;
     background-color: vars.$lightGrey;
     border: none; 
     border-radius: vars.$btnRadius;
   }
 
-  // &__burger[aria-expanded='true'] {
-  //   background-color: vars.$dark;
-  //   color: vars.$white;
-  // }
-
   &__burger-text {
     display: block;
     position: relative;
     bottom: 3px;
-    font-size: 0.8em;
-    color: vars.$dark;
+    font-size: 1em;
+    color: vars.$white;
   }
 
   &__burger-svg {
     height: 3em;
-    fill: vars.$white !important;
     transition: transform 0.3s;
   }
 
   &__burger-svg-cross {
     height: 3em;
-    fill: vars.$white !important; 
-    transform: rotate(45deg);
+    transform: rotate(92deg);
     transition: transform 0.3s;
   }
 

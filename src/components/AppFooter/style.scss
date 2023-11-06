@@ -1,11 +1,24 @@
 @use '../../styles/vars';
 
+p {
+  line-height: 1.5em;
+}
+
+a:hover {
+  color: vars.$orange;
+}
+
+img {
+  margin-top: 1em;
+  width: 6%;
+}
+
 .footer {
   display: flex;
   flex-direction: column;
   background-color: vars.$dark;
   margin-top: auto;
-  padding: 2em 3em;
+  padding: 2em 4em;
   font-size: 0.8em;
 
   &__separation {
@@ -21,20 +34,24 @@
     margin-bottom: 2em;
   }
 
+  &__right-block {
+    width: 30%;
+  }
+
   &__right-block-title {
     font-size: 1.5em;
     letter-spacing: 0.2em;
-  }
-
-  &__right-block-text {
-    margin-top: 0.5em;
-    line-height: 1.5em;
+    margin-bottom: 0.5em;
   }
 
   &__left-block {
     display: flex;
     justify-content: space-around;
     width: 65%;
+  }
+
+  &__left-block li {
+    line-height: 1.5em;
   }
 
   &__left-block-title {
@@ -44,7 +61,10 @@
 
   &__copyright {
     display: flex;
-    margin-top: 2em;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.6em;
+    color: vars.$lightGrey;
   }
 
 }

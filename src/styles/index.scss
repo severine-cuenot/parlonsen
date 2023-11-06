@@ -19,4 +19,8 @@ body {
   font-family: vars.$headLinesFont;
 }
 
+.active {
+  font-weight: 700;
+  color: vars.$orange;
+}
 

@@ -1,6 +1,6 @@
 // React imports
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
 // imports
 import './style.scss';
@@ -19,8 +19,8 @@ function AppHeader() {
     <div>
       <div className="mobile">
         <nav className="navbar" role="navigation" aria-label="Menu de navigation">
-          <div className="navbar__left-block">
-            <span className="header navbar__logo"><Link to="/">LLLP</Link></span>
+          <div className="navbar__block">
+            <span className="header navbar__logo"><Link to="/">LLLPE</Link></span>
             <button
               title="Ouvrir le menu"
               aria-label="Ouvrir le menu"
@@ -37,26 +37,26 @@ function AppHeader() {
             </button>
           </div>
           <ul className={isExpanded ? 'navbar__expanded' : 'navbar__not-expanded'}>
-            <li onClick={handleClick} className="navbar__expanded--element"><Link to="unipopia">Unipopia</Link></li>
-            <li onClick={handleClick} className="navbar__expanded--element"><Link to="lieu">Le Lîeu</Link></li>
-            <li onClick={handleClick} className="navbar__expanded--element"><Link to="parlonsen">Le Parlons-en</Link></li>
-            <li onClick={handleClick} className="navbar__expanded--element"><Link to="multimedia">Multimédia</Link></li>
-            <li onClick={handleClick} className="navbar__expanded--element"><Link to="about">Contact</Link></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="unipopia">Unipopia</NavLink></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="lieu">Le Lîeu</NavLink></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="parlonsen">Le Parlons-en</NavLink></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="multimedia">Multimédia</NavLink></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="about">Contact</NavLink></li>
           </ul>
         </nav>
       </div>
       <div className="desktop">
-        <nav className="navbar" role="navigation" aria-label="Menu de navigation">
-          <div className="navbar__left-block header">
-            LLLP
+        <nav className="dsk-navbar" role="navigation" aria-label="Menu de navigation">
+          <div className="dsk-navbar__left-block header">
+            <Link to="/">LLLPE</Link>
           </div>
-          <div className="navbar__right-block">
-            <ul className="navbar__right-block--list">
-              <li>Unipopia</li>
-              <li>Le Lîeu</li>
-              <li>Le Parlons-en</li>
-              <li>Multimédia</li>
-              <li>Contact</li>
+          <div className="dsk-navbar__right-block">
+            <ul className="dsk-navbar__right-block--list">
+              <li className="dsk-navbar__right-block--element"><NavLink to="unipopia" activeclassname="active">Unipopia</NavLink></li>
+              <li className="dsk-navbar__right-block--element"><NavLink to="lieu" activeclassname="active">Le Lîeu</NavLink></li>
+              <li className="dsk-navbar__right-block--element"><NavLink to="parlonsen" activeclassname="active">Le Parlons-en</NavLink></li>
+              <li className="dsk-navbar__right-block--element"><NavLink to="multimedia" activeclassname="active">Multimédia</NavLink></li>
+              <li className="dsk-navbar__right-block--element"><NavLink to="about" activeclassname="active">Contact</NavLink></li>
             </ul>
           </div>
         </nav>

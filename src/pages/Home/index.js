@@ -1,8 +1,14 @@
+// Components imports
+import Category from '../../components/Category';
+import Page from '../../components/Page';
+import Hero from '../../components/hero';
+
 function Home() {
   return (
-    <div>
-      <h1 className="header">Ceci ets la page d'accueil</h1>
-    </div>
+    <Page>
+      <Hero />
+      <Category />
+    </Page>
   );
 }
 

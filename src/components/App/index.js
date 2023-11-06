@@ -13,6 +13,7 @@ import NotFound from '../../pages/404';
 
 // Components import
 import AppHeader from '../AppHeader';
+import AppFooter from '../AppFooter';
 
 // Import
 import './styles.css';
@@ -31,6 +32,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/policy" element={<Policy />} />
       </Routes>
+      <AppFooter />
     </div>
   );
 }

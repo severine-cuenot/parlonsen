@@ -1,0 +1,26 @@
+@use '../../styles/vars';
+
+.footer {
+  display: flex;
+  background-color: vars.$dark;
+  margin-top: auto;
+
+
+  &__text {
+    width: 60%;
+    padding-right: 2em;
+    
+  }
+
+  &__copyright {
+    width: 40%;
+    padding-right: 1em;
+    @media (min-width: 768px) {
+      text-align: right;
+    }
+  }
+  &__link {
+    text-decoration: underline;
+  }
+
+}

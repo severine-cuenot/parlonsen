@@ -14,7 +14,6 @@ function AppHeader() {
     setExpanded(!isExpanded);
   };
   const img = isExpanded ? crossImg : burgerImg;
-  const imgClass = isExpanded ? 'navbar__burger-svg-cross' : 'navbar__burger-svg';
 
   return (
     <div>
@@ -33,17 +32,16 @@ function AppHeader() {
               <svg
                 data-src={img}
                 alt={img}
-                className={imgClass}
               />
               <span className="navbar__burger-text">Menu</span>
             </button>
           </div>
           <ul className={isExpanded ? 'navbar__expanded' : 'navbar__not-expanded'}>
-            <li onClick={handleClick} className="navbar__expanded--element">Unipopia</li>
-            <li onClick={handleClick} className="navbar__expanded--element">Le Lîeu</li>
-            <li onClick={handleClick} className="navbar__expanded--element">Le Parlons-en</li>
-            <li onClick={handleClick} className="navbar__expanded--element">Multimédia</li>
-            <li onClick={handleClick} className="navbar__expanded--element">Contact</li>
+            <li onClick={handleClick} className="navbar__expanded--element"><Link to="unipopia">Unipopia</Link></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><Link to="lieu">Le Lîeu</Link></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><Link to="parlonsen">Le Parlons-en</Link></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><Link to="multimedia">Multimédia</Link></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><Link to="about">Contact</Link></li>
           </ul>
         </nav>
       </div>

@@ -1,9 +1,9 @@
-function Policy() {
+function Parlonsen() {
   return (
     <div>
-      <h1 className="header">Ceci ets la page Policy</h1>
+      <h1 className="header">Ceci ets la page Parlons-en</h1>
     </div>
   );
 }
 
-export default Policy;
+export default Parlonsen;

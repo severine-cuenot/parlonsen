@@ -16,21 +16,21 @@
   display: block;
   background-color: vars.$white;
   color: vars.$dark;
+  margin-bottom: 2em;
 
   &__left-block {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em;
+    padding: 1em;
   }
 
   &__logo {
-    font-size: 2em;
+    font-size: 2.5em;
   }
 
   &__burger {
-    width: 4em;
-    // height: 4.5em;
+    width: 4.5em;
     background-color: vars.$lightGrey;
     border: none; 
     border-radius: vars.$btnRadius;

@@ -6,6 +6,12 @@
   }
 }
 
+.mobile {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
 .navbar {
   display: block;
   background-color: vars.$white;
@@ -39,13 +45,13 @@
   }
 
   &__burger-svg {
-    height: 3em;
+    height: 3.5em;
     transition: transform 0.3s;
   }
 
   &__burger-svg-cross {
-    height: 3em;
-    transform: rotate(92deg);
+    height: 3.5em;
+    transform: rotate(90deg);
     transition: transform 0.3s;
   }
 

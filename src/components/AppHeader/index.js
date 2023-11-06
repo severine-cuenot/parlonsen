@@ -14,38 +14,39 @@ function AppHeader() {
     setExpanded(!isExpanded);
   };
   const img = isExpanded ? crossImg : burgerImg;
-  const imgClass = isExpanded ? 'nav-menu__burger-svg-cross' : 'nav-menu__burger-svg';
+  const imgClass = isExpanded ? 'navbar__burger-svg-cross' : 'navbar__burger-svg';
 
   return (
     <div>
-      <nav className="navbar" role="navigation" aria-label="Menu de navigation">
-        <div className="navbar__left-block">
-          <span className="header navbar__logo"><Link to="/">LLLP</Link></span>
-          <button
-            title="Ouvrir le menu"
-            aria-label="Ouvrir le menu"
-            className="navbar__burger"
-            type="button"
-            aria-expanded={isExpanded ? 'true' : 'false'}
-            onClick={handleClick}
-          >
-            <svg
-              data-src={img}
-              alt={img}
-              className={imgClass}
-            />
-            <span className="navbar__burger-text">Menu</span>
-          </button>
-        </div>
-        <ul className={isExpanded ? 'navbar__expanded' : 'navbar__not-expanded'}>
-          <li onClick={handleClick} className="navbar__expanded--element">Unipopia</li>
-          <li onClick={handleClick} className="navbar__expanded--element">Le Lîeu</li>
-          <li onClick={handleClick} className="navbar__expanded--element">Le Parlons-en</li>
-          <li onClick={handleClick} className="navbar__expanded--element">Multimédia</li>
-          <li onClick={handleClick} className="navbar__expanded--element">Contact</li>
-        </ul>
-      </nav>
-
+      <div className="mobile">
+        <nav className="navbar" role="navigation" aria-label="Menu de navigation">
+          <div className="navbar__left-block">
+            <span className="header navbar__logo"><Link to="/">LLLP</Link></span>
+            <button
+              title="Ouvrir le menu"
+              aria-label="Ouvrir le menu"
+              className="navbar__burger"
+              type="button"
+              aria-expanded={isExpanded ? 'true' : 'false'}
+              onClick={handleClick}
+            >
+              <svg
+                data-src={img}
+                alt={img}
+                className={imgClass}
+              />
+              <span className="navbar__burger-text">Menu</span>
+            </button>
+          </div>
+          <ul className={isExpanded ? 'navbar__expanded' : 'navbar__not-expanded'}>
+            <li onClick={handleClick} className="navbar__expanded--element">Unipopia</li>
+            <li onClick={handleClick} className="navbar__expanded--element">Le Lîeu</li>
+            <li onClick={handleClick} className="navbar__expanded--element">Le Parlons-en</li>
+            <li onClick={handleClick} className="navbar__expanded--element">Multimédia</li>
+            <li onClick={handleClick} className="navbar__expanded--element">Contact</li>
+          </ul>
+        </nav>
+      </div>
       <div className="desktop">
         <nav className="navbar" role="navigation" aria-label="Menu de navigation">
           <div className="navbar__left-block header">

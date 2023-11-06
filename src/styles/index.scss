@@ -2,8 +2,8 @@
 @use 'vars';
 
 @font-face {
-  font-family: 'dk-zealand-regular', sans-serif;
-  src: url('../assets/fonts/DK_Zealand.otf');
+  font-family: 'DK Zealand Regular';
+  src: url('../assets/fonts/DK Zealand.otf');
 }
 
 body {
@@ -19,4 +19,8 @@ body {
   font-family: vars.$headLinesFont;
 }
 
+.active {
+  font-weight: 700;
+  color: vars.$orange;
+}
 

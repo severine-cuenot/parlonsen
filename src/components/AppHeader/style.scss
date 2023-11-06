@@ -1,0 +1,150 @@
+@use '../../styles/vars';
+
+.desktop {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.mobile {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+// Mobile navbar
+
+.navbar {
+  display: block;
+  background-color: vars.$white;
+  color: vars.$dark;
+  margin-bottom: 2em;
+
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+  }
+
+  &__logo {
+    font-size: 2.5em;
+  }
+
+  &__burger {
+    width: 4.5em;
+    background-color: vars.$lightGrey;
+    border: none; 
+    border-radius: vars.$btnRadius;
+  }
+
+  &__burger-text {
+    display: block;
+    position: relative;
+    bottom: 3px;
+    font-size: 1em;
+    color: vars.$white;
+  }
+
+  &__burger-svg {
+    height: 3.5em;
+    transition: transform 0.3s;
+  }
+
+  &__burger-svg-cross {
+    height: 3.5em;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+  }
+
+  &__expanded {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    padding: 1em;
+  }
+
+  &__not-expanded {
+    display: none;
+  }
+
+  &__expanded--element {
+    padding: 1em;
+    border-top: 1px solid vars.$dark;
+  }
+}
+
+// Desktop navbar
+
+.dsk-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0;
+  margin-bottom: 2em;
+  background-color: vars.$white;
+  color: vars.$dark;
+  
+  &__left-block {
+    font-size: 3em;
+    padding-left: 0.7em;
+  }
+
+  &__right-block--list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 2.5em;
+  }
+
+  &__right-block--element {
+    margin-left: 1em;
+  }
+
+  &__right-block--list li {
+    padding: 0.5em;
+    position: relative; /* Ajoutez cette ligne pour définir le contexte d'origine pour les pseudo-éléments */
+  }
+
+  &__right-block--list li:after,
+  &__right-block--list li:before {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0px solid transparent;
+  width: 0%;
+  height: 0%;
+  transition: all 0.5s ease;
+  pointer-events: none;  // avoid hover effect to affect links
+  }
+
+  &__right-block--list li:after {
+    width: 0%;
+    height: 0%;
+    top: 0;
+    left: 0;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+  }
+
+  &__right-block--list li:before {
+    width: 0%;
+    height: 0%;
+    right: 0;
+    bottom: 0;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+  }
+
+  &__right-block--list li:hover::before,
+  &__right-block--list li:hover::after {
+    width: 100%;
+    height: 100%;
+    border-color: vars.$orange;
+  }
+}
+
+// .active {
+//   font-weight: 700;
+//   color: vars.$orange;
+// }

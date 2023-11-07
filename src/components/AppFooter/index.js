@@ -16,31 +16,36 @@ function AppFooter() {
           <p>
             Un espace de débat et de projets par les habitant.e.s de la rue et de la ville
           </p>
-          <a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" /></a>
+          <a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" className="footer__fbimg-dsktop" /></a>
         </div>
         <nav className="footer__left-block">
-          <ul>
-            <h2 className="footer__left-block-title">Explorer</h2>
-            <li><Link to="/unipopia">Unipopia</Link></li>
-            <li><Link to="/lieu">Le Lîeu</Link></li>
-            <li><Link to="/parlonsen">Le Parlons-en</Link></li>
-          </ul>
-          <ul>
-            <h2 className="footer__left-block-title">Contenu multimédia</h2>
-            <li><Link to="/multimedia">Vidéos</Link></li>
-            <li><Link to="/multimedia">Livrets</Link></li>
-            <li><Link to="/multimedia">Podcasts</Link></li>
-            <li><Link to="/multimedia">Photos</Link></li>
-          </ul>
-          <ul>
-            <h2 className="footer__left-block-title">à propos</h2>
-            <li><Link to="/about">Nous trouver</Link></li>
-            <li><Link to="/about">Nous contacter</Link></li>
-          </ul>
-          <ul>
-            <h2 className="footer__left-block-title">Légal</h2>
-            <li><Link to="/policy">Mentions légales</Link></li>
-          </ul>
+          <div className="footer__left-block1">
+            <ul>
+              <h2 className="footer__left-block-title">Explorer</h2>
+              <li><Link to="/unipopia">Unipopia</Link></li>
+              <li><Link to="/lieu">Le Lîeu</Link></li>
+              <li><Link to="/parlonsen">Le Parlons-en</Link></li>
+            </ul>
+            <ul>
+              <h2 className="footer__left-block-title">Contenu multimédia</h2>
+              <li><Link to="/multimedia">Vidéos</Link></li>
+              <li><Link to="/multimedia">Livrets</Link></li>
+              <li><Link to="/multimedia">Podcasts</Link></li>
+              <li><Link to="/multimedia">Photos</Link></li>
+            </ul>
+          </div>
+          <div className="footer__left-block2">
+            <ul>
+              <h2 className="footer__left-block-title">à propos</h2>
+              <li><Link to="/about">Nous trouver</Link></li>
+              <li><Link to="/about">Nous contacter</Link></li>
+              <li><a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" className="footer__fbimg-mobile" /></a></li>
+            </ul>
+            <ul>
+              <h2 className="footer__left-block-title">Légal</h2>
+              <li><Link to="/policy">Mentions légales</Link></li>
+            </ul>
+          </div>
         </nav>
       </div>
       <hr className="footer__separation" />

@@ -1,13 +1,13 @@
 @use '../../styles/vars';
 
 .desktop {
-  @media (max-width: 768px) {
+  @media (max-width: vars.$tablet) {
     display: none;
   }
 }
 
 .mobile {
-  @media (min-width: 768px) {
+  @media (min-width: vars.$tablet) {
     display: none;
   }
 }
@@ -18,7 +18,6 @@
   display: block;
   background-color: vars.$white;
   color: vars.$dark;
-  margin-bottom: 2em;
 
   &__block {
     display: flex;
@@ -82,7 +81,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5em 0;
-  margin-bottom: 2em;
+  // margin-bottom: 0.5em;
   background-color: vars.$white;
   color: vars.$dark;
   
@@ -144,7 +143,4 @@
   }
 }
 
-// .active {
-//   font-weight: 700;
-//   color: vars.$orange;
-// }
+

@@ -1,0 +1,37 @@
+@use '../../styles/vars';
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: vars.$dark;
+  padding : 2.5em;
+
+  &__title {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+  }
+
+  &__text {
+    font-size: 1.3em;
+  }
+
+  &__right-block {
+    @media (min-width: vars.$mobile) {
+      width: 50%; 
+      height: 15em; 
+      margin-left: 3em; 
+      background-image: url(../../../public/img/immeubles.png); 
+      background-attachment: fixed; 
+      background-size:contain; 
+    }
+  } 
+
+  &__left-block { 
+    @media (min-width: vars.$mobile) {
+      width: 50%; 
+    }
+  } 
+} 
+
+

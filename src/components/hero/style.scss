@@ -6,6 +6,12 @@
   align-items: center;
   background-color: vars.$dark;
   padding : 2.5em;
+  @media (min-width: vars.$tablet) {
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    min-height: 400px;
+  }
 
   &__title {
     font-size: 3em;

@@ -1,1 +1,60 @@
 @use '../../styles/vars';
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+  color: vars.$dark;
+  @media (min-width: vars.$tablet) {
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0 4em 2em;
+    position: relative;
+    top: -80px;
+    z-index: 2;
+  }
+}
+
+.oneCategory {
+  margin-top: 2em;
+  width: 80%;
+  @media (min-width: vars.$tablet) {
+    width: 20%;
+    border: 5px solid vars.$white;
+    border-radius: vars.$btnRadius;
+    
+  }
+
+  &__img {
+    width: 100%;
+    margin-bottom: 1em;
+    border-radius: vars.$btnRadius;
+    @media (min-width: vars.$mobile) {
+      min-height: 150px;
+      border-radius: 0;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.6em;
+    margin-bottom: 0.6em;
+  }
+}
+
+.zoom {
+  @media (min-width: vars.$tablet) {
+  transition: transform .2s; /* Animation */
+  }
+}
+
+.zoom:hover {
+  @media (min-width: vars.$tablet) {
+    color: vars.$orange;
+    transform: scale(1.1); /* (110% zoom */
+  }
+}
+

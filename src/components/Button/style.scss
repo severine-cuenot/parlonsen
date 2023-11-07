@@ -1,0 +1,42 @@
+@use '../../styles/vars';
+
+.button {
+  border: none;
+  border-radius: vars.$btnRadius;
+  margin-top: 0.8em;
+  padding: 1em 1.3em;
+  font-family: inherit;
+  text-align: left;
+  
+  &__plain {
+    background-color: vars.$orange;
+    color: vars.$white;
+    font-weight: bold;
+    font-size: 1em;
+    width: fit-content;
+  }
+
+  &__oneCategory {
+    background-color: vars.$orange;
+    color: vars.$white;
+    font-weight: bold;
+    font-size: 1em;
+    width: fit-content;
+
+    @media (min-width: vars.$mobile) {
+      background-color: vars.$orange;
+      color: vars.$white;
+      font-weight: bold;
+      font-size: 1em;
+      width: 100%;
+      padding: 1em 1em;
+    }
+  }
+
+  &__oneCategory:hover {
+
+    @media (min-width: vars.$mobile) {
+      background-color: vars.$dark;
+    }
+  }
+}

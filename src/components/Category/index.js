@@ -1,15 +1,55 @@
 /* eslint-disable max-len */
+// React imports
+import { Link } from 'react-router-dom';
+
+// Components import
+import Button from '../Button';
+
 // Imports
 import './style.scss';
+import card1 from '../../../public/img/reunion.jpg';
+import card2 from '../../../public/img/lieu.jpg';
+import card3 from '../../../public/img/parlonsen.jpg';
 
 function Category() {
   return (
-    <section>
-      <div className="hero__left-block">
-        <header className="hero__title header">LLLPE</header>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio quae a asperiores facilis ipsa molestias quis exercitationem nesciunt obcaecati, perferendis porro atque cumque praesentium non aliquid error consequuntur voluptatibus doloribus?</p>
-      </div>
-      <div className="hero__right-block" />
+    <section className="categories">
+      <Link to="/unipopia" className="oneCategory zoom">
+        <article>
+          <div>
+            <img src={card1} alt="Illustration de nos réuions" className="oneCategory__img" />
+          </div>
+          <div>
+            <h2 className="oneCategory__title">Unipopia</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
+          </div>
+          <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
+        </article>
+      </Link>
+      <Link to="/lieu" className="oneCategory zoom">
+        <article>
+          <div>
+            <img src={card2} alt="Illustration de nos réuions" className="oneCategory__img" />
+          </div>
+          <div>
+            <h2 className="oneCategory__title">Le Lîeu</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
+          </div>
+          <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
+        </article>
+      </Link>
+      <Link to="/parlonsen" className="oneCategory zoom">
+        <article>
+          <div>
+            <img src={card3} alt="Illustration de nos réuions" className="oneCategory__img" />
+          </div>
+          <div>
+            <h2 className="oneCategory__title">Le Parlons-en</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
+          </div>
+          <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
+        </article>
+      </Link>
     </section>
   );
 }

@@ -47,8 +47,8 @@ function AppHeader() {
       </div>
       <div className="desktop">
         <nav className="dsk-navbar" role="navigation" aria-label="Menu de navigation">
-          <div className="dsk-navbar__left-block header">
-            <Link to="/">LLLPE</Link>
+          <div className="dsk-navbar__left-block">
+            <Link to="/" className="dsk-navbar__logo header">LLLPE</Link>
           </div>
           <div className="dsk-navbar__right-block">
             <ul className="dsk-navbar__right-block--list">

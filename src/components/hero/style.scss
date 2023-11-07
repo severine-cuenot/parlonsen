@@ -1,9 +1,5 @@
 @use '../../styles/vars';
 
-p {
-  font-size: 1.3em;
-}
-
 .hero {
   display: flex;
   justify-content: space-between;
@@ -16,17 +12,26 @@ p {
     margin-bottom: 0.5em;
   }
 
+  &__text {
+    font-size: 1.3em;
+  }
+
   &__right-block {
-    width: 50%;
-    height: 15em;
-    margin-left: 3em;
-    background-image: url(../../../public/img/immeubles.png);
-    background-attachment: fixed;
-    background-size:contain;
-  }
-  &__left-block {
-    width: 50%;
-  }
-}
+    @media (min-width: vars.$mobile) {
+      width: 50%; 
+      height: 15em; 
+      margin-left: 3em; 
+      background-image: url(../../../public/img/immeubles.png); 
+      background-attachment: fixed; 
+      background-size:contain; 
+    }
+  } 
+
+  &__left-block { 
+    @media (min-width: vars.$mobile) {
+      width: 50%; 
+    }
+  } 
+} 
 
 

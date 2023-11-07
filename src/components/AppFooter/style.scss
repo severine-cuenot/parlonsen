@@ -1,17 +1,5 @@
 @use '../../styles/vars';
 
-p {
-  line-height: 1.5em;
-}
-
-a:hover {
-  color: vars.$orange;
-}
-
-img {
-  margin-top: 1em;
-  width: 6%;
-}
 
 .footer {
   display: flex;
@@ -65,6 +53,11 @@ img {
     align-items: center;
     margin-top: 1.6em;
     color: vars.$lightGrey;
+  }
+
+  &__fbimg {
+    margin-top: 1em;
+    width: 8%;
   }
 
 }

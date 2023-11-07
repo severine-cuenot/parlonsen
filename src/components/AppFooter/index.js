@@ -16,7 +16,7 @@ function AppFooter() {
           <p>
             Un espace de débat et de projets par les habitant.e.s de la rue et de la ville
           </p>
-          <a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" /></a>
+          <a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" className="footer__fbimg" /></a>
         </div>
         <nav className="footer__left-block">
           <ul>

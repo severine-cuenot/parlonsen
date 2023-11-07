@@ -14,7 +14,7 @@ import card3 from '../../../public/img/parlonsen.jpg';
 function Category() {
   return (
     <section className="categories">
-      <Link to="/unipopia" className="oneCategory">
+      <Link to="/unipopia" className="oneCategory zoom">
         <article>
           <div>
             <img src={card1} alt="Illustration de nos réuions" className="oneCategory__img" />
@@ -26,7 +26,7 @@ function Category() {
           <Button label="En savoir plus" type="button" btnstyle="oneCategory-dskbtn" />
         </article>
       </Link>
-      <Link to="/lieu" className="oneCategory">
+      <Link to="/lieu" className="oneCategory zoom">
         <article>
           <div>
             <img src={card2} alt="Illustration de nos réuions" className="oneCategory__img" />
@@ -38,7 +38,7 @@ function Category() {
           <Button label="En savoir plus" type="button" btnstyle="oneCategory-dskbtn" />
         </article>
       </Link>
-      <Link to="/parlonsen" className="oneCategory">
+      <Link to="/parlonsen" className="oneCategory zoom">
         <article>
           <div>
             <img src={card3} alt="Illustration de nos réuions" className="oneCategory__img" />

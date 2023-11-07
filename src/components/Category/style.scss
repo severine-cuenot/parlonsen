@@ -1,1 +1,27 @@
 @use '../../styles/vars';
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: vars.$dark;
+}
+
+.oneCategory {
+  margin-top: 2em;
+  width: 80%;
+
+  &__img {
+    width: 100%;
+    margin-bottom: 1em;
+    border-radius: vars.$btnRadius;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 1.6em;
+    margin-bottom: 0.6em;
+  }
+}

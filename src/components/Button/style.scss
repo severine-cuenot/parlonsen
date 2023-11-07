@@ -16,7 +16,13 @@
     width: fit-content;
   }
 
-  &__oneCategory-dskbtn {
+  &__oneCategory {
+    background-color: vars.$orange;
+    color: vars.$white;
+    font-weight: bold;
+    font-size: 1em;
+    width: fit-content;
+
     @media (min-width: vars.$mobile) {
       background-color: vars.$orange;
       color: vars.$white;
@@ -26,6 +32,11 @@
       padding: 1em 1em;
     }
   }
+
+  &__oneCategory:hover {
+
+    @media (min-width: vars.$mobile) {
+      background-color: vars.$dark;
+    }
+  }
 }
-
-

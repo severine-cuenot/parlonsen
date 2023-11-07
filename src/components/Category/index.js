@@ -23,7 +23,7 @@ function Category() {
             <h2 className="oneCategory__title">Unipopia</h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
           </div>
-          <Button label="En savoir plus" type="button" btnstyle="oneCategory-dskbtn" />
+          <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
         </article>
       </Link>
       <Link to="/lieu" className="oneCategory zoom">
@@ -35,7 +35,7 @@ function Category() {
             <h2 className="oneCategory__title">Le Lîeu</h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
           </div>
-          <Button label="En savoir plus" type="button" btnstyle="oneCategory-dskbtn" />
+          <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
         </article>
       </Link>
       <Link to="/parlonsen" className="oneCategory zoom">
@@ -47,7 +47,7 @@ function Category() {
             <h2 className="oneCategory__title">Le Parlons-en</h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
           </div>
-          <Button label="En savoir plus" type="button" btnstyle="oneCategory-dskbtn" />
+          <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
         </article>
       </Link>
     </section>

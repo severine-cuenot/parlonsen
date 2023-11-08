@@ -13,7 +13,9 @@ import photo from '../../../public/img/photo-icon.png';
 function Media() {
   return (
     <section className="media">
-      <header className="media__header header">Contenu Multimédia</header>
+      <header className="media__header header">
+        <h2>Contenu Multimédia</h2>
+      </header>
       <div className="media__block">
         <Link to="/video" className="media__link">
           <article className="media__card">

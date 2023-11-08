@@ -44,6 +44,7 @@ function AppFooter() {
             <ul>
               <h3 className="footer__left-block-title">Légal</h3>
               <li><Link to="/policy" className="link">Mentions légales</Link></li>
+              <li><Link to="/credits" className="link">Crédits</Link></li>
             </ul>
           </div>
         </nav>

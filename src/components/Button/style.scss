@@ -39,4 +39,28 @@
       background-color: vars.$dark;
     }
   }
+
+  &__feed {
+    background-color: vars.$orange;
+    color: vars.$white;
+    font-weight: bold;
+    font-size: 1em;
+    width: fit-content;
+
+    @media (min-width: vars.$mobile) {
+      background-color: vars.$orange;
+      color: vars.$white;
+      font-weight: bold;
+      font-size: 1em;
+      width: 100%;
+      padding: 1em 1em;
+    }
+  }
+
+  &__feed:hover {
+
+    @media (min-width: vars.$mobile) {
+      background-color: vars.$dark;
+    }
+  }
 }

@@ -1,0 +1,39 @@
+@use '../../styles/vars';
+
+
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: vars.$dark;
+  height: auto;
+  padding-bottom: 2.5em;
+  @media (min-width: vars.$mobile) {
+    margin-bottom: 5em;
+  }
+
+  &__header {
+    margin: 3em;
+    line-height: 2.5em;
+  }
+
+  &__iframe-block{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    @media (min-width: vars.$mobile) {
+      align-items: center;
+    }
+  }
+
+  &__iframe {
+    height: 400px;
+    border:none;
+    overflow:hidden;
+    @media (min-width: vars.$mobile) {
+      height: 500px;
+    }
+  }
+}

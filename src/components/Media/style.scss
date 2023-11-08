@@ -9,11 +9,11 @@
   color: vars.$dark;
   @media (min-width: vars.$mobile) {
     padding: 0;
-    margin-bottom: 3em;
+    margin-bottom: 5em;
   }
 
   &__header {
-    font-size: 2em;
+    
   }
 
   &__block {

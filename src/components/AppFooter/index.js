@@ -21,29 +21,30 @@ function AppFooter() {
         <nav className="footer__left-block">
           <div className="footer__left-block1">
             <ul>
-              <h2 className="footer__left-block-title">Explorer</h2>
+              <h3 className="footer__left-block-title">Explorer</h3>
               <li><Link to="/unipopia" className="link">Unipopia</Link></li>
               <li><Link to="/lieu" className="link">Le Lîeu</Link></li>
               <li><Link to="/parlonsen" className="link">Le Parlons-en</Link></li>
             </ul>
             <ul>
-              <h2 className="footer__left-block-title">Contenu multimédia</h2>
+              <h3 className="footer__left-block-title">Contenu multimédia</h3>
               <li><Link to="/multimedia" className="link">Vidéos</Link></li>
               <li><Link to="/multimedia" className="link">Livrets</Link></li>
               <li><Link to="/multimedia" className="link">Podcasts</Link></li>
               <li><Link to="/multimedia" className="link">Photos</Link></li>
             </ul>
           </div>
-          <div className="footer__left-block2">
+          <div className="footer__left-block3">
             <ul>
-              <h2 className="footer__left-block-title">à propos</h2>
+              <h3 className="footer__left-block-title">à propos</h3>
               <li><Link to="/about" className="link">Nous trouver</Link></li>
               <li><Link to="/about" className="link">Nous contacter</Link></li>
               <li><a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" className="footer__fbimg-mobile" /></a></li>
             </ul>
             <ul>
-              <h2 className="footer__left-block-title">Légal</h2>
+              <h3 className="footer__left-block-title">Légal</h3>
               <li><Link to="/policy" className="link">Mentions légales</Link></li>
+              <li><Link to="/credits" className="link">Crédits</Link></li>
             </ul>
           </div>
         </nav>

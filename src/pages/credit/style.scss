@@ -1,1 +1,24 @@
 @use '../../styles/vars';
+
+
+.credits {
+  color: vars.$dark;
+  margin: 3em;
+  &__header {
+    margin-bottom: 2.5em;
+  }
+  &__text {
+    margin-bottom: 2.5em;
+    line-height: vars.$lineHeight;
+  }
+  &__text li{
+    margin-bottom: 1.5em;
+  }
+
+  &__text a {
+    color: vars.$orange;
+  }
+  &__text a:hover {
+    font-weight: 700;
+  }
+}

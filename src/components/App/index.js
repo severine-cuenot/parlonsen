@@ -9,6 +9,7 @@ import Parlonsen from '../../pages/parlonsen';
 import About from '../../pages/about';
 import Media from '../../pages/media';
 import Policy from '../../pages/policy';
+import Credits from '../../pages/credit';
 import NotFound from '../../pages/404';
 
 // Components import
@@ -31,6 +32,7 @@ function App() {
         <Route path="/multimedia" element={<Media />} />
         <Route path="/about" element={<About />} />
         <Route path="/policy" element={<Policy />} />
+        <Route path="/credits" element={<Credits />} />
       </Routes>
       <AppFooter />
     </div>

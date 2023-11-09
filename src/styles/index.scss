@@ -20,12 +20,8 @@ h2 {
 }
 
 p {
-  line-height: 1.5em;
+  line-height: vars.$lineHeight;
 }
-
-// a:hover {
-//   color: vars.$orange;
-// }
 
 .header {
   font-family: vars.$headLinesFont;

@@ -12,7 +12,7 @@ function ScrollToTop() {
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
-    if (scrolled < 300) {
+    if (scrolled > 300) {
       setVisible(true);
     }
     else if (scrolled <= 300) {

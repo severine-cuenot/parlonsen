@@ -21,8 +21,9 @@ function Credits() {
           <li>&diams; Icon des livres créée par <a href="https://www.flaticon.com/free-icons/book" title="book icons" target="_blank" rel="noreferrer">mikan933 - Flaticon</a></li>
           <li>&diams; Icon des podcasts créée par<a href="https://www.flaticon.com/free-icons/podcast" title="podcast icons" target="_blank" rel="noreferrer"> Freepik - Flaticon</a></li>
           <li>&diams; Icon des images créée par <a href="https://www.flaticon.com/free-icons/picture" title="picture icons" target="_blank" rel="noreferrer">FauzIDEA - Flaticon</a></li>
+          <li>&diams; Icon du "go to top" créée par <a href="https://www.flaticon.com/free-icons/top" title="top icons" target="_blank" rel="noreferrer">Mayor Icons - Flaticon</a></li>
         </ul>
-        <Link to="/"><Button type="button" label="Retourner à l'accueil" /></Link>
+        <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="credits" /></Link>
       </section>
     </Container>
   );

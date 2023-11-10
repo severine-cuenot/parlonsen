@@ -37,12 +37,13 @@
   &__map-block {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     color: vars.$dark;
     position: relative;
     top: -95px;
     z-index: 2;
-    @media (min-width: vars.$mobile) {
+    @media (min-width: vars.$tablet) {
       top: -200px;
     }
   }
@@ -67,6 +68,12 @@
 
   &__map-text {
     line-height: vars.$lineHeight;
+    @media (min-width: vars.$desktop) {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding-top: 2em;
+    }
   }
 
   &__map-text ul {

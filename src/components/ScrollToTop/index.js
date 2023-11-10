@@ -35,6 +35,7 @@ function ScrollToTop() {
         type="button"
         onClick={scrollToTop}
         style={{ display: visible ? 'inline' : 'none' }}
+        className="toTop__btn"
       >
         <img src={ToTop} alt="Retourner au début de la page" className="toTop__icon" />
       </button>

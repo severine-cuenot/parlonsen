@@ -1,7 +1,10 @@
 @use '../../styles/vars';
 
 .toTop{
-  &__icon{
+  &__btn {
+    border: 0;
+  }
+  &__icon {
     position: fixed;  
     left: 80%; 
     bottom: 10px; 

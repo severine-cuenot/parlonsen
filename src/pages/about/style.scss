@@ -5,9 +5,11 @@
   &__link {
     color: vars.$orange;
   }
+
   &__link:hover {
     font-weight: 700;
   }
+
   &__header {
     display: flex;
     flex-direction: column;
@@ -17,18 +19,21 @@
     @media (min-width: vars.$tablet) {
       position: relative;
       z-index: 1;
-      min-height: 400px;
+      min-height: 350px;
     }
   }
   &__header--title {
     text-align: center;
     margin: 1em 0;
   }
+
   &__header--text {
-    @media (min-width: vars.$tablet) {
+    @media (min-width: vars.$mobile) {
     margin: 0 2.5em;
+    text-align: center;
     }
   }
+
   &__map-block {
     display: flex;
     flex-direction: column;
@@ -37,17 +42,27 @@
     position: relative;
     top: -95px;
     z-index: 2;
+    @media (min-width: vars.$mobile) {
+      top: -200px;
+    }
   }
 
   &__map-section {
     border: 5px solid vars.$white;
     border-radius: vars.$btnRadius;
     margin-bottom: 1.5em;
+    @media (min-width: vars.$mobile) {
+      width: 70%;
+    }
   }
 
   &__map-iframe {
     min-height: 280px;
     border: 0;
+    @media (min-width: vars.$mobile) {
+      width: 100%;
+    }
+    
   }
 
   &__map-text {

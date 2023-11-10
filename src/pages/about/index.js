@@ -40,7 +40,7 @@ function About() {
             <h3 className="about__map-subtitle">Pour nous rejoindre&nbsp;:</h3>
             <ul>
               <li>&diams; <em>En transports en commun&nbsp;:</em> Tram A ou B, arrêt St Bruno</li>
-              <li>&diams; <em>En voiture&nbsp;: coordonnées GPS&nbsp;:</em> 45.188229,5.712708</li>
+              <li>&diams; <em>En voiture&nbsp;:</em> coordonnées GPS&nbsp;: 45.188229,5.712708</li>
             </ul>
             <h3 className="about__map-subtitle">Pour nous contacter&nbsp;:</h3>
             <ul>

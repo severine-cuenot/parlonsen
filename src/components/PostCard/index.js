@@ -50,7 +50,7 @@ function PostCard({ posts }) {
   };
 
   return (
-    <div>
+    <article className="post__block">
       {unipopiaPosts.map((unipopia) => (
         <div key={unipopia.node.slug}>
           <div>{unipopia.node.titre}</div>
@@ -63,7 +63,7 @@ function PostCard({ posts }) {
           </div>
         </div>
       ))}
-    </div>
+    </article>
   );
 }
 

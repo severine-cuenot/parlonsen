@@ -4,9 +4,13 @@ import { useEffect, useState } from 'react';
 
 // Components imports
 import PostCard from '../../components/PostCard';
+import Page from '../../components/Page';
+import Container from '../../components/Container';
+import Header from '../../components/CategoriesHeader';
 
 // Imports
 import getPosts from '../../../services/getPosts';
+// import headerIMG from '../../../public/img/reunion.jpg';
 import './style.scss';
 
 function Unipopia() {
@@ -26,16 +30,19 @@ function Unipopia() {
     fetchPosts();
   }, []);
 
+  // const backgroundImage = headerIMG;
+
   return (
-    <div className="unipopia">
-      <h1 className="header">Ceci est la page Unipopia</h1>
-      <PostCard posts={postList} />
-    </div>
+    <Page>
+      <Header
+        pageTitle="Unipopia"
+        specificClass="unipopia__header"
+      />
+      <Container className="container__unipopia">
+        <PostCard posts={postList} />
+      </Container>
+    </Page>
   );
 }
-
-// Unipopia.propTypes = {
-//   posts: PropTypes.array.isRequired,
-// };
 
 export default Unipopia;

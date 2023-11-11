@@ -3,12 +3,13 @@
 // React imports
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { useEffect, useState } from 'react';
 
 // imports
 import './style.scss';
 
-function PostCard({ post }) {
+function PostCard({ posts }) {
+  const unipopiaPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Unipopia'));
+
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text;
 
@@ -50,31 +51,40 @@ function PostCard({ post }) {
 
   return (
     <div>
-      <div>{post.titre}</div>
-      <div>{post.extrait}</div>
-      <div>
-        {post.contenu.raw.children.map((typeObj, index) => {
-          const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item));
-          return getContentFragment(index, children, typeObj, typeObj.type);
-        })}
-      </div>
+      {unipopiaPosts.map((unipopia) => (
+        <div key={unipopia.node.slug}>
+          <div>{unipopia.node.titre}</div>
+          <div>{unipopia.node.extrait}</div>
+          <div>
+            {unipopia.node.contenu.raw.children.map((typeObj, index) => {
+              const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item));
+              return getContentFragment(index, children, typeObj, typeObj.type);
+            })}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
 PostCard.propTypes = {
-  post: PropTypes.shape({
-    titre: PropTypes.string.isRequired,
-    extrait: PropTypes.string,
-    auteur: PropTypes.shape({
-      nom: PropTypes.string.isRequired,
-    }).isRequired,
-    contenu: PropTypes.shape({
-      raw: PropTypes.shape({
-        children: PropTypes.array.isRequired,
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+        titre: PropTypes.string.isRequired,
+        extrait: PropTypes.string,
+        auteur: PropTypes.shape({
+          nom: PropTypes.string.isRequired,
+        }).isRequired,
+        contenu: PropTypes.shape({
+          raw: PropTypes.shape({
+            children: PropTypes.array.isRequired,
+          }).isRequired,
+        }).isRequired,
       }).isRequired,
-    }).isRequired,
-  }).isRequired,
+    }),
+  ).isRequired,
 };
 
 export default PostCard;

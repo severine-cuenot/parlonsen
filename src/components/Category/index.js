@@ -7,9 +7,9 @@ import Button from '../Button';
 
 // Imports
 import './style.scss';
-import card1 from '../../../public/img/reunion.jpg';
-import card2 from '../../../public/img/lieu.jpg';
-import card3 from '../../../public/img/parlonsen.jpg';
+import card1 from '../../../public/img/reunion.png';
+import card2 from '../../../public/img/lieu.png';
+import card3 from '../../../public/img/parlonsen.png';
 
 function Category() {
   return (

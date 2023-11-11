@@ -1,0 +1,93 @@
+@use '../../styles/vars';
+
+
+.about {
+  &__link {
+    color: vars.$orange;
+  }
+
+  &__link:hover {
+    font-weight: 700;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    background-color: vars.$dark;
+    padding : 2.5em;
+    min-height: 300px;
+    @media (min-width: vars.$tablet) {
+      position: relative;
+      z-index: 1;
+      min-height: 350px;
+    }
+  }
+  &__header--title {
+    text-align: center;
+    margin: 1em 0;
+  }
+
+  &__header--text {
+    @media (min-width: vars.$mobile) {
+    margin: 0 2.5em;
+    text-align: center;
+    }
+  }
+
+  &__map-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: vars.$dark;
+    position: relative;
+    top: -95px;
+    z-index: 2;
+    @media (min-width: vars.$tablet) {
+      top: -200px;
+    }
+  }
+
+  &__map-section {
+    border: 5px solid vars.$white;
+    border-radius: vars.$btnRadius;
+    margin-bottom: 1.5em;
+    @media (min-width: vars.$mobile) {
+      width: 70%;
+    }
+  }
+
+  &__map-iframe {
+    min-height: 280px;
+    border: 0;
+    @media (min-width: vars.$mobile) {
+      width: 100%;
+    }
+    
+  }
+
+  &__map-text {
+    line-height: vars.$lineHeight;
+    @media (min-width: vars.$desktop) {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding-top: 2em;
+    }
+  }
+
+  &__map-text ul {
+    margin-bottom: 1.5em;
+  }
+
+  &__map-text li:last-child {
+    margin-bottom: 2em;
+  }
+
+  &__map-subtitle {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 1em;
+  }
+
+}

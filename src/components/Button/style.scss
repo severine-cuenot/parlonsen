@@ -8,7 +8,7 @@
   font-family: inherit;
   text-align: left;
   
-  &__plain {
+  &__plain, &__credits, &__about {
     background-color: vars.$orange;
     color: vars.$white;
     font-weight: bold;
@@ -33,11 +33,14 @@
     }
   }
 
-  &__oneCategory:hover {
-
+  &__oneCategory:hover,  &__credits:hover, &__about:hover {
     @media (min-width: vars.$mobile) {
       background-color: vars.$dark;
     }
+  }
+
+  &__about {
+    margin-top: 3em;
   }
 
   &__feed {

@@ -16,12 +16,18 @@ body {
 }
 
 h2 {
-  font-size: 2em;
+  font-size:2em;
 }
 
 p {
   line-height: vars.$lineHeight;
 }
+
+em {
+  font-weight: 700;
+}
+
+
 
 .header {
   font-family: vars.$headLinesFont;

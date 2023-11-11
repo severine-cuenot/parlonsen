@@ -1,0 +1,20 @@
+@use '../../styles/vars';
+
+.toTop{
+  &__btn {
+    border: 0;
+  }
+  &__icon {
+    position: fixed;  
+    left: 80%; 
+    bottom: 10px; 
+    height: 4em; 
+    z-index: 1; 
+    filter: opacity(60%);
+    cursor: pointer; 
+    @media (min-width: vars.$mobile) {
+      left: 92%; 
+      bottom: 20px;
+    }
+  }
+}

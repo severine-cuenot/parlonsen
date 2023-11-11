@@ -20,13 +20,15 @@ import AppFooter from '../AppFooter';
 import './styles.css';
 
 function App() {
+  const posts = [];
+
   return (
     <div className="app">
       <AppHeader />
       <Routes>
         <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Home />} />
-        <Route path="/unipopia" element={<Unipopia />} />
+        <Route path="/unipopia" element={<Unipopia posts={posts} />} />
         <Route path="/lieu" element={<Lieu />} />
         <Route path="/parlonsen" element={<Parlonsen />} />
         <Route path="/multimedia" element={<Media />} />

@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
+    "create-strapi-app": "^4.15.4",
     "dotenv": "^16.3.1",
     "external-svg-loader": "^1.6.10",
     "graphql": "^16.8.1",
@@ -59,6 +60,8 @@
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.18.0",
     "react-scroll-top": "^1.0.4",
+    "strapi": "^3.1.0-alpha.5",
+    "strapi-sdk-javascript": "^0.3.3",
     "styled-components": "^6.1.1",
     "surge": "^0.23.1",
     "yarn": "^1.22.19"

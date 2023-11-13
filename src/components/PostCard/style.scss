@@ -1,7 +1,41 @@
 @use '../../styles/vars';
 
 .post {
-  &__block{
+  &__block {
     color: vars.$dark;
   }
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 1em;
+  }
+
+  &__excerpt {
+    font-weight: 700;
+    line-height: vars.$lineHeight;
+    margin-bottom: 1em;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content p {
+    margin-bottom: 1.5em;
+  }
+
+  &__content img {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: auto;
+  }
+
+  &__hyperlinks {
+    color: vars.$orange;
+  }
+
+  
 }

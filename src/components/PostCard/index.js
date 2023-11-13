@@ -1,64 +1,59 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable max-len */
+
 // React imports
-import React from 'react';
 import PropTypes from 'prop-types';
 
 // imports
 import './style.scss';
 
+// Had to make this function because of links that don't want to appear or be clickable
+function getContentFragment(index, obj) {
+  if (obj.text) {
+    return obj.text;
+  }
+
+  if (obj.children && obj.children.length > 0) {
+    return obj.children.map((item, i) => {
+      if (item.type === 'link') {
+        return (
+          <a
+            key={i}
+            href={item.href}
+            target={item.openInNewTab ? '_blank' : '_self'}
+            rel="noopener noreferrer"
+            className="post__hyperlinks"
+          >
+            {getContentFragment(i, item)}
+          </a>
+        );
+      }
+      return getContentFragment(i, item);
+    });
+  }
+
+  return null;
+}
+
 function PostCard({ posts }) {
   const unipopiaPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Unipopia'));
-
-  const getContentFragment = (index, text, obj, type) => {
-    let modifiedText = text;
-
-    if (obj) {
-      if (obj.bold) {
-        modifiedText = (<b key={index}>{text}</b>);
-      }
-
-      if (obj.italic) {
-        modifiedText = (<em key={index}>{text}</em>);
-      }
-
-      if (obj.underline) {
-        modifiedText = (<u key={index}>{text}</u>);
-      }
-    }
-
-    switch (type) {
-      case 'heading-three':
-        return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
-      case 'paragraph':
-        return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
-      case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
-      case 'image':
-        return (
-          <img
-            key={index}
-            alt={obj.title}
-            height={obj.height}
-            width={obj.width}
-            src={obj.src}
-          />
-        );
-      default:
-        return modifiedText;
-    }
-  };
 
   return (
     <article className="post__block">
       {unipopiaPosts.map((unipopia) => (
         <div key={unipopia.node.slug}>
-          <div>{unipopia.node.titre}</div>
-          <div>{unipopia.node.extrait}</div>
-          <div>
+          <div className="post__title">
+            {unipopia.node.titre}
+          </div>
+          <div className="post__excerpt">
+            {unipopia.node.extrait}
+          </div>
+          <div className="post__content">
             {unipopia.node.contenu.raw.children.map((typeObj, index) => {
-              const children = typeObj.children.map((item, itemIndex) => getContentFragment(itemIndex, item.text, item));
-              return getContentFragment(index, children, typeObj, typeObj.type);
+              const content = getContentFragment(index, typeObj);
+              if (content) {
+                return <p key={index} className="mb-8">{content}</p>;
+              }
+              return null;
             })}
           </div>
         </div>
@@ -66,7 +61,6 @@ function PostCard({ posts }) {
     </article>
   );
 }
-
 PostCard.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({

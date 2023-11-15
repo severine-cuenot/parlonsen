@@ -1,38 +1,15 @@
 /* eslint-disable react/no-array-index-key */
 
 // React imports
+// import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { RichText } from '@graphcms/rich-text-react-renderer';
+// import Lightbox from 'react-awesome-lightbox';
+import 'react-awesome-lightbox/build/style.css';
+// import ModalImage from 'react-modal-image';
 
 // imports
 import './style.scss';
-
-// Had to make this function because of links that don't want to appear or be clickable
-function getContentFragment(index, obj) {
-  if (obj.text) {
-    return obj.text;
-  }
-
-  if (obj.children && obj.children.length > 0) {
-    return obj.children.map((item, i) => {
-      if (item.type === 'link') {
-        return (
-          <a
-            key={i}
-            href={item.href}
-            target={item.openInNewTab ? '_blank' : '_self'}
-            rel="noopener noreferrer"
-            className="post__hyperlinks"
-          >
-            {getContentFragment(i, item)}
-          </a>
-        );
-      }
-      return getContentFragment(i, item);
-    });
-  }
-
-  return null;
-}
 
 function PostCard({ posts }) {
   const unipopiaPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Unipopia'));
@@ -48,19 +25,32 @@ function PostCard({ posts }) {
             {unipopia.node.extrait}
           </div>
           <div className="post__content">
-            {unipopia.node.contenu.raw.children.map((typeObj, index) => {
-              const content = getContentFragment(index, typeObj);
-              if (content) {
-                return <p key={index} className="mb-8">{content}</p>;
-              }
-              return null;
-            })}
+            {console.log('Contenu brut :', unipopia.node.contenu.raw)}
+            <RichText
+              content={unipopia.node.contenu.raw}
+              renderers={{
+                image: ({ node }) => {
+                  const imageUrl = node.children[0].src;
+                  return (
+                    <a href={imageUrl} target="_blank" rel="noopener noreferrer">
+                      <img
+                        alt={node.children[0].title}
+                        src={imageUrl}
+                        height={node.children[0].height}
+                        width={node.children[0].width}
+                      />
+                    </a>
+                  );
+                },
+              }}
+            />
           </div>
         </div>
       ))}
     </article>
   );
 }
+
 PostCard.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({

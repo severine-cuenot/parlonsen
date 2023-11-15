@@ -5,6 +5,12 @@
     color: vars.$dark;
   }
 
+  &__inner-block {
+    @media (min-width: vars.$tablet) {
+      margin-bottom: 3em;
+    }
+  }
+
   &__title {
     font-size: 1.5em;
     font-weight: 700;
@@ -20,6 +26,10 @@
   &__content {
     display: flex;
     flex-direction: column;
+    padding-bottom: 2em;
+    @media (min-width: vars.$mobile) {
+      padding-bottom: 3em;
+    }
   }
 
   &__content p {
@@ -31,11 +41,45 @@
     margin: auto;
     width: 80%;
     height: auto;
+    @media (min-width: vars.$mobile) {
+      width: 30%;
+      max-width: 500px;
+      min-width: 350px;
+    }
   }
 
-  &__hyperlinks {
+  &__content a {
     color: vars.$orange;
   }
-
   
+  &__content blockquote {
+    margin-left: 1.5em;
+    font-style: italic;
+    color: vars.$grey;
+    @media (min-width: vars.$tablet) {
+      margin-left: 2em;
+    }
+  }
+
+  &__content ul, &__content ol {
+    margin-left: 2em;
+    line-height: vars.$lineHeight;
+    @media (min-width: vars.$tablet) {
+      margin-left: 3em;
+    }
+  }
+
+   &__content ol > li {
+    list-style:decimal;
+  }
+
+   &__content ul > li {
+    list-style: disc;
+  }
+}
+
+.wrapper {
+@media (min-width: vars.$mobile) {
+  padding-bottom: 5em;
+}
 }

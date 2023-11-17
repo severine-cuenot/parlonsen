@@ -14,13 +14,13 @@ import card3 from '../../../public/img/parlonsen.png';
 function Category() {
   return (
     <section className="categories">
-      <Link to="/unipopia" className="oneCategory zoom">
+      <Link to="/parlonsen" className="oneCategory zoom">
         <article>
           <div>
-            <img src={card1} alt="Illustration de nos réuions" className="oneCategory__img" />
+            <img src={card3} alt="Illustration de nos réuions" className="oneCategory__img" />
           </div>
           <div>
-            <h2 className="oneCategory__title">Unipopia</h2>
+            <h2 className="oneCategory__title">Le Parlons-en</h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
           </div>
           <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
@@ -38,13 +38,13 @@ function Category() {
           <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
         </article>
       </Link>
-      <Link to="/parlonsen" className="oneCategory zoom">
+      <Link to="/unipopia" className="oneCategory zoom">
         <article>
           <div>
-            <img src={card3} alt="Illustration de nos réuions" className="oneCategory__img" />
+            <img src={card1} alt="Illustration de nos réuions" className="oneCategory__img" />
           </div>
           <div>
-            <h2 className="oneCategory__title">Le Parlons-en</h2>
+            <h2 className="oneCategory__title">Unipopia</h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
           </div>
           <Button label="En savoir plus" type="button" btnstyle="oneCategory" />

@@ -1,18 +1,12 @@
-/* eslint-disable react/no-array-index-key */
-
-// React imports
-// import { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { RichText } from '@graphcms/rich-text-react-renderer';
-// import Lightbox from 'react-awesome-lightbox';
-import 'react-awesome-lightbox/build/style.css';
-// import ModalImage from 'react-modal-image';
-
-// imports
+import ModalImage from 'react-modal-image';
 import './style.scss';
 
 function PostCard({ posts }) {
   const unipopiaPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Unipopia'));
+  const [clickedImage, setClickedImage] = useState(null);
 
   return (
     <article className="post__block">
@@ -25,25 +19,30 @@ function PostCard({ posts }) {
             {unipopia.node.extrait}
           </div>
           <div className="post__content">
-            {console.log('Contenu brut :', unipopia.node.contenu.raw)}
             <RichText
               content={unipopia.node.contenu.raw}
               renderers={{
-                image: ({ node }) => {
-                  const imageUrl = node.children[0].src;
-                  return (
-                    <a href={imageUrl} target="_blank" rel="noopener noreferrer">
-                      <img
-                        alt={node.children[0].title}
-                        src={imageUrl}
-                        height={node.children[0].height}
-                        width={node.children[0].width}
-                      />
-                    </a>
-                  );
-                },
+                image: ({ node }) => (
+                  <div>
+                    <ModalImage
+                      alt={node.title}
+                      small={node.src}
+                      large={node.src}
+                      hideZoom
+                      onClick={() => setClickedImage(node.src)}
+                    />
+                  </div>
+                ),
               }}
             />
+            {clickedImage && (
+              <ModalImage
+                alt="Clicked Image"
+                small={clickedImage}
+                large={clickedImage}
+                onClose={() => setClickedImage(null)}
+              />
+            )}
           </div>
         </div>
       ))}

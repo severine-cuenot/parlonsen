@@ -7,7 +7,6 @@ import Unipopia from '../../pages/unipopia';
 import Lieu from '../../pages/lieu';
 import Parlonsen from '../../pages/parlonsen';
 import About from '../../pages/about';
-import Media from '../../pages/media';
 import Policy from '../../pages/policy';
 import Credits from '../../pages/credit';
 import NotFound from '../../pages/404';
@@ -18,6 +17,7 @@ import AppFooter from '../AppFooter';
 
 // Import
 import './styles.css';
+import Multimedia from '../../pages/multimedia';
 
 function App() {
   const posts = [];
@@ -44,7 +44,7 @@ function App() {
         <Route path="/unipopia" element={<Unipopia posts={posts} content={content} />} />
         <Route path="/lieu" element={<Lieu />} />
         <Route path="/parlonsen" element={<Parlonsen />} />
-        <Route path="/multimedia" element={<Media />} />
+        <Route path="/multimedia" element={<Multimedia />} />
         <Route path="/about" element={<About />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/credits" element={<Credits />} />

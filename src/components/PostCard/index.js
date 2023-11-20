@@ -32,17 +32,17 @@ function PostCard({ posts }) {
               content={unipopia.node.contenu.raw}
               renderers={{
                 image: ({ node }) => (
-                  <a href={`https://media.graphassets.com/resize=width:${node.width},height:${node.height}/${node.handle}`} target="_blank" rel="noreferrer">
-                    <img
-                      alt={node.title}
-                      src={node.src}
-                      height={node.height}
-                      width={node.width}
-                      onClick={() => {
-                        setClickedImage(node.src ?? '');
-                      }}
-                    />
-                  </a>
+                  // <a href={`https://media.graphassets.com/resize=width:${node.width},height:${node.height}/${node.handle}`} target="_blank" rel="noreferrer">
+                  <img
+                    alt={node.title}
+                    src={node.src}
+                    height={node.height}
+                    width={node.width}
+                    onClick={() => {
+                      setClickedImage(node.src ?? '');
+                    }}
+                  />
+                  // </a>
                 ),
               }}
             />

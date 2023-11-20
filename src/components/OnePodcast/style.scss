@@ -12,7 +12,7 @@
     height: 11px;
     outline: none;
 
-    // Safari
+    // Progressbar Safari
     &::-webkit-slider-runnable-track {
       background: #F0F;
       border-radius: vars.$btnRadius;
@@ -22,7 +22,7 @@
       outline: none;
     }
 
-    // Firefox
+    // Progressbar Firefox
     &::-moz-range-track {
       background: #F0F;
       border-radius: vars.$btnRadius;
@@ -36,7 +36,7 @@
       border: 0;
     }
 
-    // Safari & Chrome
+    // Progressbar Safari & Chrome
     &::before {
       content: '';
       height: 11px;
@@ -49,6 +49,50 @@
       left: 0;
       z-index: 2;
       cursor: pointer;
+    }
+
+    // Progressbar Firefox
+    &::-moz-range-progress {
+      height: 11px;
+      background-color: #F0F;
+      border-top-left-radius: vars.$btnRadius;
+      border-bottom-left-radius: vars.$btnRadius;
+    }
+
+    // Knobby chrome & safari
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      border: none;
+      background: #ff6f00;
+      cursor: pointer;
+      position: relative;
+      margin: -2px 0 0 0;
+      z-index: 3;
+      box-sizing: border-box;
+    }
+    &:active::-webkit-slider-thumb {
+      transform: scale(1.2);
+      background: #ff0000;
+    }
+
+    // Knobby firefox
+    &::-moz-range-thumb {
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      border: transparent;
+      background: #ff6f00;
+      cursor: pointer;
+      position: relative;
+      z-index: 3;
+      box-sizing: border-box;
+    }
+    &:active::-moz-range-thumb {
+      transform: scale(1.2);
+      background: #ff0000;
     }
   }
 }

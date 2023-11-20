@@ -2,7 +2,7 @@
 import { IoPlaySharp } from 'react-icons/io5';
 import { AiFillBackward, AiFillForward } from 'react-icons/ai';
 import { IoMdPause } from 'react-icons/io';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 // Component imports
 import Container from '../Container';

@@ -5,9 +5,9 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { RichText } from '@graphcms/rich-text-react-renderer';
-// import Lightbox from 'react-awesome-lightbox';
+import Lightbox from 'react-awesome-lightbox';
 import 'react-awesome-lightbox/build/style.css';
-import ModalImage from 'react-modal-image';
+// import ModalImage from 'react-modal-image';
 
 // imports
 import './style.scss';
@@ -31,23 +31,21 @@ function PostCard({ posts }) {
             <RichText
               content={unipopia.node.contenu.raw}
               renderers={{
-                image: ({ node }) => (
-                  // <a href={`https://media.graphassets.com/resize=width:${node.width},height:${node.height}/${node.handle}`} target="_blank" rel="noreferrer">
+                img: ({
+                  src, width, height, altText,
+                }) => (
                   <img
-                    alt={node.title}
-                    src={node.src}
-                    height={node.height}
-                    width={node.width}
-                    onClick={() => {
-                      setClickedImage(node.src ?? '');
-                    }}
+                    src={src}
+                    alt={altText}
+                    width={width}
+                    height={height}
+                    onClick={() => setClickedImage(src ?? '')}
                   />
-                  // </a>
                 ),
               }}
             />
             {clickedImage && (
-            <ModalImage
+            <Lightbox
               large={clickedImage}
               title="Image Title"
           // @ts-expect-error The types for this library aren't updated, but it does support the onClose prop

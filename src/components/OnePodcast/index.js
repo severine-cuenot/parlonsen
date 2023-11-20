@@ -1,10 +1,8 @@
 // React imports
-import { IoPlaySharp } from "react-icons/io5";
-import { AiFillBackward } from "react-icons/ai";
-import { AiFillForward } from "react-icons/ai";
-import { IoMdPause } from "react-icons/io";
-import { useState } from "react";
-
+import { IoPlaySharp } from 'react-icons/io5';
+import { AiFillBackward, AiFillForward } from 'react-icons/ai';
+import { IoMdPause } from 'react-icons/io';
+import { useState } from 'react';
 
 // Component imports
 import Container from '../Container';
@@ -15,6 +13,10 @@ import TestAudio from '../../../public/pe_2022_03_17_treve_hivernale.mp3';
 
 function OnePodcast() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const togglePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <Container>
       <section className="onePodcast">
@@ -25,7 +27,7 @@ function OnePodcast() {
 
           <audio src={TestAudio} preload="metadata" />
           <button type="button"><AiFillBackward /> 30 </button>
-          <button type="button">
+          <button type="button" onClick={togglePlayPause}>
             {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
           </button>
           <button type="button"> 30 <AiFillForward /></button>
@@ -35,7 +37,7 @@ function OnePodcast() {
 
           {/* Progress bar */}
           <div>
-            <input type="range" />
+            <input type="range" className="audioPlayer__progressBar" />
           </div>
 
           {/* duration */}

@@ -1,9 +1,58 @@
 @use '../../styles/vars';
 
-.onePodcast {
+.audioPlayer {
   color: vars.$dark;
+
+  &__progressBar {    
+    appearance: none;
+    background: #F0F;
+    border-radius: vars.$btnRadius;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+
+    // Safari
+    &::-webkit-slider-runnable-track {
+      background: #F0F;
+      border-radius: vars.$btnRadius;
+      position: relative;
+      width: 100%;
+      height: 11px;
+      outline: none;
+    }
+
+    // Firefox
+    &::-moz-range-track {
+      background: #F0F;
+      border-radius: vars.$btnRadius;
+      position: relative;
+      width: 100%;
+      height: 11px;
+      outline: none;
+    }
+
+    &::-moz-focus-outer {
+      border: 0;
+    }
+
+    // Safari & Chrome
+    &::before {
+      content: '';
+      height: 11px;
+      width: 100px;
+      background-color: vars.$grey;
+      border-top-left-radius: vars.$btnRadius;
+      border-bottom-left-radius: vars.$btnRadius;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      cursor: pointer;
+    }
+  }
 }
 
 .audioPlayer {
-  display:flex;
+  display: flex;
 }

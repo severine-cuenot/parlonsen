@@ -37,9 +37,9 @@ function AppHeader() {
             </button>
           </div>
           <ul className={isExpanded ? 'navbar__expanded' : 'navbar__not-expanded'}>
-            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="unipopia">Unipopia</NavLink></li>
-            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="lieu">Le Lîeu</NavLink></li>
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="parlonsen">Le Parlons-en</NavLink></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="lieu">Le Lîeu</NavLink></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="unipopia">Unipopia</NavLink></li>
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="multimedia">Multimédia</NavLink></li>
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="about">Contact</NavLink></li>
           </ul>
@@ -52,9 +52,9 @@ function AppHeader() {
           </div>
           <div className="dsk-navbar__right-block">
             <ul className="dsk-navbar__right-block--list">
-              <li className="dsk-navbar__right-block--element"><NavLink to="unipopia" activeclassname="active">Unipopia</NavLink></li>
-              <li className="dsk-navbar__right-block--element"><NavLink to="lieu" activeclassname="active">Le Lîeu</NavLink></li>
               <li className="dsk-navbar__right-block--element"><NavLink to="parlonsen" activeclassname="active">Le Parlons-en</NavLink></li>
+              <li className="dsk-navbar__right-block--element"><NavLink to="lieu" activeclassname="active">Le Lîeu</NavLink></li>
+              <li className="dsk-navbar__right-block--element"><NavLink to="unipopia" activeclassname="active">Unipopia</NavLink></li>
               <li className="dsk-navbar__right-block--element"><NavLink to="multimedia" activeclassname="active">Multimédia</NavLink></li>
               <li className="dsk-navbar__right-block--element"><NavLink to="about" activeclassname="active">Contact</NavLink></li>
             </ul>

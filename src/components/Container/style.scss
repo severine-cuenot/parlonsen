@@ -13,7 +13,14 @@
   &__about {
     margin: 2.5em;
     @media (min-width: vars.$tablet) {
-      margin: 4em 5em;
+      margin: 4em 5em 0;
+    }
+  }
+
+  &__unipopia {
+    margin: 2.5em;
+    @media (min-width: vars.$tablet) {
+      margin: 4em 5em 0;
     }
   }
 }

@@ -10,6 +10,8 @@ import About from '../../pages/about';
 import Policy from '../../pages/policy';
 import Credits from '../../pages/credit';
 import NotFound from '../../pages/404';
+import Multimedia from '../../pages/multimedia';
+import Podcast from '../../pages/podcast';
 
 // Components import
 import AppHeader from '../AppHeader';
@@ -17,7 +19,6 @@ import AppFooter from '../AppFooter';
 
 // Import
 import './styles.css';
-import Multimedia from '../../pages/multimedia';
 
 function App() {
   const posts = [];
@@ -45,6 +46,7 @@ function App() {
         <Route path="/lieu" element={<Lieu />} />
         <Route path="/parlonsen" element={<Parlonsen />} />
         <Route path="/multimedia" element={<Multimedia />} />
+        <Route path="/podcast" element={<Podcast />} />
         <Route path="/about" element={<About />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/credits" element={<Credits />} />

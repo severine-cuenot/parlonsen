@@ -25,7 +25,7 @@ function Media() {
             <h3 className="media__title">Vidéos</h3>
           </article>
         </Link>
-        <Link to="/video" className="media__link">
+        <Link to="/livrets" className="media__link">
           <article className="media__card">
             <div>
               <img src={book} className="media__icon" alt="vidéo" />
@@ -33,7 +33,7 @@ function Media() {
             <h3 className="media__title">Livrets</h3>
           </article>
         </Link>
-        <Link to="/video" className="media__link">
+        <Link to="/podcast" className="media__link">
           <article className="media__card">
             <div>
               <img src={podcast} className="media__icon" alt="vidéo" />
@@ -41,7 +41,7 @@ function Media() {
             <h3 className="media__title">Podcasts</h3>
           </article>
         </Link>
-        <Link to="/video" className="media__link">
+        <Link to="/photo" className="media__link">
           <article className="media__card">
             <div>
               <img src={photo} className="media__icon" alt="vidéo" />

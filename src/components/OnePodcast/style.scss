@@ -1,9 +1,11 @@
 @use '../../styles/vars';
 
 .audioPlayer {
+  background-color: vars.$lightGrey;
   color: vars.$dark;
 
-  &__progressBar {    
+  &__progressBar { 
+    --seek-before-width: 0;   
     appearance: none;
     background: #F0F;
     border-radius: vars.$btnRadius;
@@ -40,7 +42,7 @@
     &::before {
       content: '';
       height: 11px;
-      width: 100px;
+      width: var(--seek-before-width);
       background-color: vars.$grey;
       border-top-left-radius: vars.$btnRadius;
       border-bottom-left-radius: vars.$btnRadius;

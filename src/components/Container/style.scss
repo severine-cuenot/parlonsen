@@ -17,14 +17,7 @@
     }
   }
 
-  &__unipopia {
-    margin: 2.5em;
-    @media (min-width: vars.$tablet) {
-      margin: 4em 5em 0;
-    }
-  }
-
-  &__multimedia {
+  &__unipopia,  &__multimedia, &__podcast {
     margin: 2.5em;
     @media (min-width: vars.$tablet) {
       margin: 4em 5em 0;

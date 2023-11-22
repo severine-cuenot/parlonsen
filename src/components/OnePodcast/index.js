@@ -1,9 +1,11 @@
+/* eslint-disable max-len */
+/* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/media-has-caption */
 // React imports
 import { IoPlaySharp } from 'react-icons/io5';
 import { AiFillBackward, AiFillForward } from 'react-icons/ai';
 import { IoMdPause } from 'react-icons/io';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 
 // Component imports
 import Container from '../Container';
@@ -11,6 +13,7 @@ import Container from '../Container';
 // imports
 import './style.scss';
 import TestAudio from '../../../public/pe_2022_03_17_treve_hivernale.mp3';
+import logoRadio from '../../../public/img/gresivaudan-logo.svg';
 
 function OnePodcast() {
   // State
@@ -77,11 +80,21 @@ function OnePodcast() {
   return (
     <Container>
       <section className="onePodcast">
-        <header className="OnePodcast__header header">
-          <h2>OnePodcast</h2>
+        <header className="onePodcast__header">
+          <h2 className="header">Radio Gresivaudan</h2>
+          <div className="onePodcast__header-block">
+            <span>
+              <a href="https://www.radio-gresivaudan.org/" target="_blank" title="Page officielle de radio Gresivaudant" rel="noreferrer">
+                <img src={logoRadio} alt="Radio Gresivaudant" />
+              </a>
+            </span>
+            <p className="OnePodcast__excerpt">
+              Depuis octobre 2018, les "Parlons-en" sont diffusés sur <em className="onePodcast__em">Radio Grésivaudan</em> chaque 4ème mercredi du mois&nbsp;! <br />
+              Plus d'infos sur le site de <em className="onePodcast__em"><a href="https://www.radio-gresivaudan.org/?s=parlons-en" target="__blank" rel="noreferrer">Radio Grésivaudan</a></em>.
+            </p>
+          </div>
         </header>
-        <div className="audioPlayer">
-
+        <article className="audioPlayer">
           <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
           <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
           <button type="button" onClick={togglePlayPause}>
@@ -100,7 +113,47 @@ function OnePodcast() {
           {/* duration */}
           <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
 
-        </div>
+        </article>
+        <article className="audioPlayer">
+          <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
+          <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
+          <button type="button" onClick={togglePlayPause}>
+            {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
+          </button>
+          <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
+
+          {/* current time */}
+          <div>{calculateTime(currentTime)}</div>
+
+          {/* Progress bar */}
+          <div>
+            <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+          </div>
+
+          {/* duration */}
+          <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
+
+        </article>
+        <article className="audioPlayer">
+          <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
+          <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
+          <button type="button" onClick={togglePlayPause}>
+            {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
+          </button>
+          <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
+
+          {/* current time */}
+          <div>{calculateTime(currentTime)}</div>
+
+          {/* Progress bar */}
+          <div>
+            <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+          </div>
+
+          {/* duration */}
+          <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
+
+        </article>
       </section>
     </Container>
   );

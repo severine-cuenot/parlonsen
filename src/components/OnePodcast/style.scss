@@ -1,8 +1,38 @@
 @use '../../styles/vars';
 
+.onePodcast {
+  color: vars.$dark;
+
+  &__em {
+    font-style: italic;
+  }
+
+  &__header-block{
+    display: flex;
+    align-items: center;
+    margin: 2em 0;
+  }
+
+  &__header-block span {
+    width: 15%;
+    margin-right: 2em;
+  }
+
+  &__header-block img {
+    width: 100%;
+  }
+
+  &__header-block a {
+    color: vars.$orange;
+  }
+  &__header-block a:hover {
+    font-weight: 700;
+  }
+}
+
 .audioPlayer {
   background-color: vars.$lightGrey;
-  color: vars.$dark;
+  
 
   &__progressBar { 
     --seek-before-width: 0;   

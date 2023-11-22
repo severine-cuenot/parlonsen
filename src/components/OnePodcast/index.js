@@ -94,66 +94,79 @@ function OnePodcast() {
             </p>
           </div>
         </header>
-        <article className="audioPlayer">
-          <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
-          <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
-          <button type="button" onClick={togglePlayPause}>
-            {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
-          </button>
-          <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <h3 className="header">La trêve hivernale</h3>
+            <p>
+              Quels dispositifs ont été mis en place à Grenoble cet hiver&nbsp;?<br />
+              Comment l'ont vécu les personnes hébergées&nbsp;?<br />
+              Qui (ne) fait (pas) quoi&nbsp;? Quel rôle des collectivités locales&nbsp;?<br />
+              En cette période de pandémie, quels ont été les changements par rapport aux hivers précédents&nbsp;?<br />
+              Maintien dans l'hébergement ou le logement&nbsp;: quels sont les droits, les possibles en cette fin de trêve&nbsp;?…<br />
+              illustration sonore&nbsp;: Claudio Capéo "<em className="onePodcast__em"><a href="https://www.youtube.com/watch?v=Y9GCM9DZUJo&ab_channel=ClaudioCapeoVEVO" target="__blank" rel="noreferrer">Un homme debout</a></em>".
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
+              <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
+              <button type="button" onClick={togglePlayPause}>
+                {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
+              </button>
+              <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
 
-          {/* current time */}
-          <div>{calculateTime(currentTime)}</div>
+              {/* current time */}
+              <div>{calculateTime(currentTime)}</div>
 
-          {/* Progress bar */}
-          <div>
-            <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
-          </div>
+              {/* Progress bar */}
+              <div>
+                <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+              </div>
 
-          {/* duration */}
-          <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
+              {/* duration */}
+              <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
+            </div>
+          </article>
 
-        </article>
-        <article className="audioPlayer">
-          <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
-          <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
-          <button type="button" onClick={togglePlayPause}>
-            {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
-          </button>
-          <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
+          <article className="audioPlayer">
+            <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
+            <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
+            <button type="button" onClick={togglePlayPause}>
+              {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
+            </button>
+            <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
 
-          {/* current time */}
-          <div>{calculateTime(currentTime)}</div>
+            {/* current time */}
+            <div>{calculateTime(currentTime)}</div>
 
-          {/* Progress bar */}
-          <div>
-            <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
-          </div>
+            {/* Progress bar */}
+            <div>
+              <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+            </div>
 
-          {/* duration */}
-          <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
+            {/* duration */}
+            <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
 
-        </article>
-        <article className="audioPlayer">
-          <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
-          <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
-          <button type="button" onClick={togglePlayPause}>
-            {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
-          </button>
-          <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
+          </article>
+          <article className="audioPlayer">
+            <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
+            <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
+            <button type="button" onClick={togglePlayPause}>
+              {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
+            </button>
+            <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
 
-          {/* current time */}
-          <div>{calculateTime(currentTime)}</div>
+            {/* current time */}
+            <div>{calculateTime(currentTime)}</div>
 
-          {/* Progress bar */}
-          <div>
-            <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
-          </div>
+            {/* Progress bar */}
+            <div>
+              <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+            </div>
 
-          {/* duration */}
-          <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
+            {/* duration */}
+            <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
 
-        </article>
+          </article>
+        </div>
       </section>
     </Container>
   );

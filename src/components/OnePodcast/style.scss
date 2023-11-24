@@ -8,14 +8,20 @@
   }
 
   &__header-block {
-    display: flex;
-    align-items: center;
     margin: 2em 0;
+    @media (min-width: vars.$mobile) {
+      display: flex;
+      align-items: center;
+    }
   }
 
-  &__header-block span {
-    width: 15%;
-    margin-right: 2em;
+  &__header-block-img {
+    margin-bottom: 1.5em;
+    width: 70%;
+    @media (min-width: vars.$mobile) {
+      width: 15%;
+      margin-right: 2em;
+    }
   }
 
   &__header-block img {
@@ -24,23 +30,32 @@
 }
 
 .audioPlayers-block {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  
+  @media (min-width: vars.$mobile) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 }
 
 .audioPlayer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1.5em;
   border: 1px solid vars.$lightGrey;
   border-radius: vars.$btnRadius;
   padding: 2em;
 
   &__player {
     display: flex;
+    flex-direction: column;
     background-color: #F0F0F0;
-    padding: 1em;
-    width: 50%;
+    
+    @media (min-width: vars.$mobile) {
+    flex-direction: row;
+      padding: 1em;
+      width: 50%;
+    }
   }
   
 

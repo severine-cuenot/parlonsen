@@ -83,11 +83,11 @@ function OnePodcast() {
         <header className="onePodcast__header">
           <h2 className="header">Radio Gresivaudan</h2>
           <div className="onePodcast__header-block">
-            <span>
-              <a href="https://www.radio-gresivaudan.org/" target="_blank" title="Page officielle de radio Gresivaudant" rel="noreferrer">
-                <img src={logoRadio} alt="Radio Gresivaudant" />
+            <div className="onePodcast__header-block-img">
+              <a href="https://www.radio-gresivaudan.org/" target="_blank" title="Page officielle de radio Gresivaudan" rel="noreferrer">
+                <img src={logoRadio} alt="Radio Gresivaudan" />
               </a>
-            </span>
+            </div>
             <p className="OnePodcast__excerpt">
               Depuis octobre 2018, les "Parlons-en" sont diffusés sur <em className="onePodcast__em">Radio Grésivaudan</em> chaque 4ème mercredi du mois&nbsp;! <br />
               Plus d'infos sur le site de <em className="onePodcast__em"><a href="https://www.radio-gresivaudan.org/?s=parlons-en" target="__blank" rel="noreferrer">Radio Grésivaudan</a></em>.

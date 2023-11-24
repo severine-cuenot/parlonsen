@@ -12,9 +12,6 @@ function Podcast() {
   return (
     <Container className="container__podcast">
       <section className="Podcast">
-        <header className="Podcast__header header">
-          <h2>Podcasts</h2>
-        </header>
         <OnePodcast />
         <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="Podcast" /></Link>
         <Link to="/multimedia"><Button type="button" label="Retourner à la liste des média" btnstyle="Podcast" /></Link>

@@ -57,12 +57,15 @@
       width: 50%;
     }
   }
-  
 
-  &__progressBar { 
-    --seek-before-width: 0;   
+  &__progressBar {
+    --bar-bg: #d95033;
+    --seek-before-color: #FEF102;
+    --seek-before-width: 0;
+    --knobby: #019DF1;
+
     appearance: none;
-    background: #F0F;
+    background: var(--bar-bg);
     border-radius: vars.$btnRadius;
     position: relative;
     width: 100%;
@@ -71,7 +74,7 @@
 
     // Progressbar Safari
     &::-webkit-slider-runnable-track {
-      background: #F0F;
+      background: var(--bar-bg);
       border-radius: vars.$btnRadius;
       position: relative;
       width: 100%;
@@ -81,7 +84,7 @@
 
     // Progressbar Firefox
     &::-moz-range-track {
-      background: #F0F;
+      background: var(--bar-bg);
       border-radius: vars.$btnRadius;
       position: relative;
       width: 100%;
@@ -98,7 +101,7 @@
       content: '';
       height: 11px;
       width: var(--seek-before-width);
-      background-color: vars.$grey;
+      background-color: var(--seek-before-color);
       border-top-left-radius: vars.$btnRadius;
       border-bottom-left-radius: vars.$btnRadius;
       position: absolute;
@@ -111,7 +114,7 @@
     // Progressbar Firefox
     &::-moz-range-progress {
       height: 11px;
-      background-color: #F0F;
+      background-color: var(--seek-before-color);
       border-top-left-radius: vars.$btnRadius;
       border-bottom-left-radius: vars.$btnRadius;
     }
@@ -123,7 +126,7 @@
       width: 15px;
       border-radius: 50%;
       border: none;
-      background: #ff6f00;
+      background: var(--knobby);
       cursor: pointer;
       position: relative;
       margin: -2px 0 0 0;
@@ -141,7 +144,7 @@
       width: 15px;
       border-radius: 50%;
       border: transparent;
-      background: #ff6f00;
+      background: var(--seek-before-color);
       cursor: pointer;
       position: relative;
       z-index: 3;

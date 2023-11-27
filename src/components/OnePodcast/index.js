@@ -5,7 +5,7 @@
 import { IoPlaySharp } from 'react-icons/io5';
 import { AiFillBackward, AiFillForward } from 'react-icons/ai';
 import { IoMdPause } from 'react-icons/io';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 // Component imports
 import Container from '../Container';
@@ -30,12 +30,18 @@ function OnePodcast() {
     setDuration(Math.floor(audioPlayer.current.duration));
   };
 
+  useEffect(() => {
+    const seconds = Math.floor(audioPlayer.current.duration);
+    setDuration(seconds);
+    progressBar.current.max = seconds;
+  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+
   const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
     const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
     const seconds = Math.floor(secs % 60);
     const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
-    return `${returnedMinutes}:${returnedSeconds} `;
+    return `${returnedMinutes}:${returnedSeconds}`;
   };
 
   const togglePlayPause = () => {
@@ -73,8 +79,12 @@ function OnePodcast() {
   };
 
   const forwardThirty = () => {
-    progressBar.current.value = Number(progressBar.current.value + 30);
-    changeRange();
+    const newTime = audioPlayer.current.currentTime + 30;
+  if (newTime <= duration) {
+    audioPlayer.current.currentTime = newTime;
+    progressBar.current.value = newTime;
+    changePlayerCurrentTime();
+  }
   };
 
   return (
@@ -106,7 +116,7 @@ function OnePodcast() {
               illustration sonore&nbsp;: Claudio Capéo "<em className="onePodcast__em"><a href="https://www.youtube.com/watch?v=Y9GCM9DZUJo&ab_channel=ClaudioCapeoVEVO" target="__blank" rel="noreferrer">Un homme debout</a></em>".
             </p>
             <div className="audioPlayer__player">
-              <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
+              <audio ref={audioPlayer} src={TestAudio} preload="metadata" onLoadedData={onLoadedMetadata} />
               <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
               <button type="button" onClick={togglePlayPause}>
                 {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
@@ -124,47 +134,6 @@ function OnePodcast() {
               {/* duration */}
               <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
             </div>
-          </article>
-
-          <article className="audioPlayer">
-            <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
-            <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
-            <button type="button" onClick={togglePlayPause}>
-              {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
-            </button>
-            <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
-
-            {/* current time */}
-            <div>{calculateTime(currentTime)}</div>
-
-            {/* Progress bar */}
-            <div>
-              <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
-            </div>
-
-            {/* duration */}
-            <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
-
-          </article>
-          <article className="audioPlayer">
-            <audio ref={audioPlayer} src={TestAudio} onLoadedMetadata={onLoadedMetadata} preload="metadata" />
-            <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
-            <button type="button" onClick={togglePlayPause}>
-              {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
-            </button>
-            <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
-
-            {/* current time */}
-            <div>{calculateTime(currentTime)}</div>
-
-            {/* Progress bar */}
-            <div>
-              <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
-            </div>
-
-            {/* duration */}
-            <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
-
           </article>
         </div>
       </section>

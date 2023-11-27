@@ -18,7 +18,6 @@ import Container from '../Container';
 // imports
 import './style.scss';
 import TestAudio from '../../../public/pe_2022_03_17_treve_hivernale.mp3';
-import logoRadio from '../../../public/img/gresivaudan-logo.svg';
 
 function OnePodcast() {
   // State
@@ -96,20 +95,6 @@ function OnePodcast() {
   return (
     <Container>
       <section className="onePodcast">
-        <header className="onePodcast__header">
-          <h2 className="header">Radio Gresivaudan</h2>
-          <div className="onePodcast__header-block">
-            <div className="onePodcast__header-block-img">
-              <a href="https://www.radio-gresivaudan.org/" target="_blank" title="Page officielle de radio Gresivaudan" rel="noreferrer">
-                <img src={logoRadio} alt="Radio Gresivaudan" />
-              </a>
-            </div>
-            <p className="OnePodcast__excerpt">
-              Depuis octobre 2018, les "Parlons-en" sont diffusés sur <em className="onePodcast__em">Radio Grésivaudan</em> chaque 4ème mercredi du mois&nbsp;! <br />
-              Plus d'infos sur le site de <em className="onePodcast__em"><a href="https://www.radio-gresivaudan.org/?s=parlons-en" target="__blank" rel="noreferrer">Radio Grésivaudan</a></em>.
-            </p>
-          </div>
-        </header>
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <h3 className="header">La trêve hivernale</h3>

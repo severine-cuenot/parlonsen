@@ -17,10 +17,17 @@
     }
   }
 
-  &__unipopia,  &__multimedia, &__podcast {
+  &__unipopia,  &__multimedia {
     margin: 2.5em;
     @media (min-width: vars.$tablet) {
       margin: 4em 5em 0;
+    }
+  }
+
+  &__podcast {
+    margin: 2.5em;
+    @media (min-width: vars.$mobile) {
+      margin: 4em 5em;
     }
   }
 }

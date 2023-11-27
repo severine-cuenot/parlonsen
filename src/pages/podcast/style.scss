@@ -1,1 +1,49 @@
 @use '../../styles/vars';
+
+
+.podcast {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    background-color: vars.$dark;
+    padding : 2.5em;
+    min-height: 300px;
+  }
+
+  &__header a {
+    color: vars.$orange;
+  }
+
+  &__header a:hover {
+    font-weight: 700;
+  }
+
+  &__header--title {
+    text-align: center;
+  }
+  
+  &__em {
+    font-style: italic;
+  }
+
+  &__header-block {
+    margin: 2em 0;
+    @media (min-width: vars.$mobile) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__header-block-img {
+    margin-bottom: 1.5em;
+    width: 70%;
+    @media (min-width: vars.$mobile) {
+      width: 15%;
+      margin-right: 2em;
+    }
+  }
+
+  &__header-block img {
+    width: 100%;
+  }
+}

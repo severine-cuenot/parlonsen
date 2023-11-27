@@ -1,10 +1,13 @@
 /* eslint-disable max-len */
 /* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/media-has-caption */
+
 // React imports
-import { IoPlaySharp } from 'react-icons/io5';
-import { AiFillBackward, AiFillForward } from 'react-icons/ai';
-import { IoMdPause } from 'react-icons/io';
+import {
+  TbPlayerPlayFilled,
+  TbPlayerPauseFilled,
+} from 'react-icons/tb';
+import { RiReplay30Fill, RiForward30Fill } from 'react-icons/ri';
 import { useState, useRef, useEffect } from 'react';
 
 // Component imports
@@ -80,11 +83,12 @@ function OnePodcast() {
 
   const forwardThirty = () => {
     const newTime = audioPlayer.current.currentTime + 30;
-  if (newTime <= duration) {
-    audioPlayer.current.currentTime = newTime;
-    progressBar.current.value = newTime;
-    changePlayerCurrentTime();
-  }
+    // Needed this to fix the wrong number ofsecs added to the player
+    if (newTime <= duration) {
+      audioPlayer.current.currentTime = newTime;
+      progressBar.current.value = newTime;
+      changePlayerCurrentTime();
+    }
   };
 
   return (
@@ -117,22 +121,25 @@ function OnePodcast() {
             </p>
             <div className="audioPlayer__player">
               <audio ref={audioPlayer} src={TestAudio} preload="metadata" onLoadedData={onLoadedMetadata} />
-              <button type="button" onClick={backThirty}><AiFillBackward /> 30 </button>
-              <button type="button" onClick={togglePlayPause}>
-                {isPlaying ? <IoMdPause /> : <IoPlaySharp /> }
-              </button>
-              <button type="button" onClick={forwardThirty}> 30 <AiFillForward /></button>
 
-              {/* current time */}
-              <div>{calculateTime(currentTime)}</div>
-
-              {/* Progress bar */}
-              <div>
-                <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
               </div>
 
-              {/* duration */}
-              <div>{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
+              <div className="audioPlayer__player-btn">
+                <button type="button" onClick={backThirty}><RiReplay30Fill /> </button>
+                <button type="button" onClick={togglePlayPause}>
+                  {isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={forwardThirty}><RiForward30Fill /> </button>
+              </div>
             </div>
           </article>
         </div>

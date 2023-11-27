@@ -1,5 +1,24 @@
 @use '../../styles/vars';
 
+.onePodcast a {
+  color: vars.$orange;
+}
+
+.onePodcast a:hover {
+    font-weight: 700;
+}
+
+.audioPlayer h3 {
+  font-size: 1.3em;
+  margin-bottom: 1em;
+}
+
+.audioPlayer p {
+  font-size: 0.8em;
+  margin-bottom: 1em;
+}
+
+
 .onePodcast {
   color: vars.$dark;
 
@@ -49,17 +68,44 @@
   &__player {
     display: flex;
     flex-direction: column;
-    background-color: #F0F0F0;
+    padding: 0.6em;
+    background-color: vars.$lightGrey;
+  border-radius: vars.$btnRadius;
     
     @media (min-width: vars.$mobile) {
-    flex-direction: row;
+      flex-direction: row;
       padding: 1em;
       width: 50%;
     }
   }
 
+  &__player-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+  }
+
+  &__currentTime, &__duration {
+    font-size: 0.8em;
+  }
+
+  &__currentTime {
+    padding-right: 0.5em;
+  } 
+  
+  &__duration {
+    padding-left: 0.5em;
+  }
+
+  &__player-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &__progressBar {
-    --bar-bg: #d95033;
+    --bar-bg: #7f7f7f;
     --seek-before-color: #FEF102;
     --seek-before-width: 0;
     --knobby: #019DF1;
@@ -135,7 +181,7 @@
     }
     &:active::-webkit-slider-thumb {
       transform: scale(1.2);
-      background: #ff0000;
+      background: #d95033;
     }
 
     // Knobby firefox
@@ -152,25 +198,8 @@
     }
     &:active::-moz-range-thumb {
       transform: scale(1.2);
-      background: #ff0000;
+      background: #d95033;
     }
   }
 }
 
-.onePodcast a {
-  color: vars.$orange;
-}
-
-.onePodcast a:hover {
-    font-weight: 700;
-}
-
-.audioPlayer h3 {
-  font-size: 1.3em;
-  margin-bottom: 1em;
-}
-
-.audioPlayer p {
-  font-size: 0.8em;
-  margin-bottom: 1em;
-}

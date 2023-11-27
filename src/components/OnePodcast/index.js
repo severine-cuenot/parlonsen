@@ -124,6 +124,15 @@ function OnePodcast() {
             <div className="audioPlayer__player">
               <audio ref={audioPlayer} src={TestAudio} preload="metadata" onLoadedData={onLoadedMetadata} />
 
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={backThirty} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={togglePlayPause} className="audioPlayer__main-btn">
+                  {isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={forwardThirty} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
               <div className="audioPlayer__player-bar">
                 {/* current time */}
                 <div className="audioPlayer__currentTime">{calculateTime(currentTime)}</div>
@@ -135,7 +144,8 @@ function OnePodcast() {
                 <div className="audioPlayer__duration">{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
               </div>
 
-              <div className="audioPlayer__player-btn">
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
                 <button type="button" onClick={backThirty} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
                 <button type="button" onClick={togglePlayPause} className="audioPlayer__main-btn">
                   {isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }

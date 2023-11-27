@@ -32,8 +32,8 @@ function Podcast() {
       <Container className="container__podcast">
         <section>
           <OnePodcast />
-          <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="podcast" /></Link>
-          <Link to="/multimedia"><Button type="button" label="Retourner à la liste des média" btnstyle="podcast" /></Link>
+          <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="podcast1" /></Link>
+          <Link to="/multimedia"><Button type="button" label="Retourner à la liste des média" btnstyle="podcast2" /></Link>
         </section>
       </Container>
     </Page>

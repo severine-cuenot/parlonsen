@@ -27,10 +27,13 @@
   }
 
   &__header-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 2em 0;
     @media (min-width: vars.$mobile) {
-      display: flex;
       align-items: center;
+      flex-direction: row;
     }
   }
 

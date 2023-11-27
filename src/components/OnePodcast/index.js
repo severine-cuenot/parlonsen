@@ -6,8 +6,10 @@
 import {
   TbPlayerPlayFilled,
   TbPlayerPauseFilled,
+  TbPlayerTrackNextFilled,
+  TbPlayerTrackPrevFilled,
 } from 'react-icons/tb';
-import { RiReplay30Fill, RiForward30Fill } from 'react-icons/ri';
+// import { RiReplay30Fill, RiForward30Fill } from 'react-icons/ri';
 import { useState, useRef, useEffect } from 'react';
 
 // Component imports
@@ -134,11 +136,11 @@ function OnePodcast() {
               </div>
 
               <div className="audioPlayer__player-btn">
-                <button type="button" onClick={backThirty}><RiReplay30Fill /> </button>
-                <button type="button" onClick={togglePlayPause}>
+                <button type="button" onClick={backThirty} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={togglePlayPause} className="audioPlayer__main-btn">
                   {isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={forwardThirty}><RiForward30Fill /> </button>
+                <button type="button" onClick={forwardThirty} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
             </div>
           </article>

@@ -10,7 +10,6 @@ import Header from '../../components/CategoriesHeader';
 
 // Imports
 import getPosts from '../../../services/getPosts';
-// import headerIMG from '../../../public/img/reunion.jpg';
 import './style.scss';
 
 function Unipopia() {

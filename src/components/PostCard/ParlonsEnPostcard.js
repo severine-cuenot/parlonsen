@@ -2,39 +2,34 @@
 /* eslint-disable react/no-array-index-key */
 
 // React imports
-// import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { RichText } from '@graphcms/rich-text-react-renderer';
-// import Lightbox from 'react-awesome-lightbox';
-// import 'react-awesome-lightbox/build/style.css';
-// import ModalImage from 'react-modal-image';
 
 // imports
 import './style.scss';
 
-function PostCard({ posts }) {
-  const unipopiaPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Unipopia'));
-  // const [clickedImage, setClickedImage] = useState('');
+function ParlonsEnPostCard({ posts }) {
+  const parlonsEnPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Parlons-en'));
 
   return (
     <article className="post__block">
-      {unipopiaPosts.map((unipopia) => (
-        <div key={unipopia.node.slug}>
+      {parlonsEnPosts.map((parlonsen) => (
+        <div key={parlonsen.node.slug}>
           <div className="post__title">
-            {unipopia.node.titre}
+            {parlonsen.node.titre}
           </div>
           <div className="post__excerpt">
-            {unipopia.node.extrait}
+            {parlonsen.node.extrait}
           </div>
           <div className="post__content">
-            {console.log('Contenu brut :', unipopia.node.contenu.raw)}
-            {console.log('assets are you here :', unipopia.node.fichier)}
+            {console.log('Contenu brut :', parlonsen.node.contenu.raw)}
+            {/* {console.log('assets are you here :', parlonsen.node.fichier)} */}
 
             <RichText
-              content={unipopia.node.contenu.raw}
+              content={parlonsen.node.contenu.raw}
             />
             {/* Boucle pour afficher les fichiers */}
-            {unipopia.node.fichier && unipopia.node.fichier.map((fichier) => (
+            {parlonsen.node.fichier && parlonsen.node.fichier.map((fichier) => (
               <a href={fichier.url} target="_blank" rel="noreferrer">
                 <img
                   key={fichier.id}
@@ -51,7 +46,7 @@ function PostCard({ posts }) {
   );
 }
 
-PostCard.propTypes = {
+ParlonsEnPostCard.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
@@ -59,8 +54,8 @@ PostCard.propTypes = {
         titre: PropTypes.string.isRequired,
         extrait: PropTypes.string,
         auteur: PropTypes.shape({
-          nom: PropTypes.string.isRequired,
-        }).isRequired,
+          nom: PropTypes.string,
+        }),
         contenu: PropTypes.shape({
           raw: PropTypes.shape({
             children: PropTypes.array.isRequired,
@@ -71,4 +66,4 @@ PostCard.propTypes = {
   ).isRequired,
 };
 
-export default PostCard;
+export default ParlonsEnPostCard;

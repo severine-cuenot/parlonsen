@@ -24,10 +24,11 @@ const getPosts = async () => {
           contenu {
             raw
           }
-          images {
+          fichier {
             handle
+            id
+            nomDuFichier
             url
-            titreDeLimage
           }
         }
       }

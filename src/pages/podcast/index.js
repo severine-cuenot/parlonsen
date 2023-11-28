@@ -1,5 +1,6 @@
 // React imports
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 // Component imports
 import Button from '../../components/Button';
@@ -8,11 +9,26 @@ import Page from '../../components/Page';
 import OnePodcast from '../../components/OnePodcast';
 
 // imports
-
 import logoRadio from '../../../public/img/gresivaudan-logo-white.png';
+import getPosts from '../../../services/getPosts';
 import './style.scss';
 
 function Podcast() {
+  const [postList, setPostList] = useState([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const listOfPosts = await getPosts();
+        setPostList(listOfPosts);
+      }
+      catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
   return (
     <Page>
       <header className="podcast__header">
@@ -31,7 +47,7 @@ function Podcast() {
       </header>
       <Container className="container__podcast">
         <section>
-          <OnePodcast />
+          <OnePodcast posts={postList} />
           <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="podcast1" /></Link>
           <Link to="/multimedia"><Button type="button" label="Retourner à la liste des média" btnstyle="podcast2" /></Link>
         </section>

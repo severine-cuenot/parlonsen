@@ -9,17 +9,20 @@ import {
   TbPlayerTrackNextFilled,
   TbPlayerTrackPrevFilled,
 } from 'react-icons/tb';
-// import { RiReplay30Fill, RiForward30Fill } from 'react-icons/ri';
 import { useState, useRef, useEffect } from 'react';
+import { RichText } from '@graphcms/rich-text-react-renderer';
+import PropTypes from 'prop-types';
 
 // Component imports
 import Container from '../Container';
 
 // imports
 import './style.scss';
-import TestAudio from '../../../public/pe_2022_03_17_treve_hivernale.mp3';
+// import TestAudio from '../../../public/pe_2022_03_17_treve_hivernale.mp3';
 
-function OnePodcast() {
+function OnePodcast({ posts }) {
+  const listOfPodcasts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Podcasts'));
+
   // State
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -94,55 +97,73 @@ function OnePodcast() {
 
   return (
     <Container>
-      <section className="onePodcast">
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <h3 className="header">La trêve hivernale</h3>
-            <p>
-              Quels dispositifs ont été mis en place à Grenoble cet hiver&nbsp;?<br />
-              Comment l'ont vécu les personnes hébergées&nbsp;?<br />
-              Qui (ne) fait (pas) quoi&nbsp;? Quel rôle des collectivités locales&nbsp;?<br />
-              En cette période de pandémie, quels ont été les changements par rapport aux hivers précédents&nbsp;?<br />
-              Maintien dans l'hébergement ou le logement&nbsp;: quels sont les droits, les possibles en cette fin de trêve&nbsp;?…<br />
-              illustration sonore&nbsp;: Claudio Capéo "<em className="onePodcast__em"><a href="https://www.youtube.com/watch?v=Y9GCM9DZUJo&ab_channel=ClaudioCapeoVEVO" target="__blank" rel="noreferrer">Un homme debout</a></em>".
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer} src={TestAudio} preload="metadata" onLoadedData={onLoadedMetadata} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={backThirty} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={togglePlayPause} className="audioPlayer__main-btn">
-                  {isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={forwardThirty} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+      {listOfPodcasts.map((podcast) => (
+        <section className="onePodcast">
+          <div className="audioPlayers-block">
+            <article className="audioPlayer">
+              <h3 className="header">{podcast.node.titre}</h3>
+              <RichText
+                content={podcast.node.contenu.raw}
+              />
+              <div className="audioPlayer__player">
+                {/* Boucle pour afficher les fichiers */}
+                {podcast.node.fichier && podcast.node.fichier.map((fichier) => (
+                  <audio ref={audioPlayer} src={fichier.url} preload="metadata" onLoadedData={onLoadedMetadata} />
+                ))}
+                {/* Buttons for desktop */}
+                <div className="audioPlayer__player-btn displayNoneMobile">
+                  <button type="button" onClick={backThirty} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                  <button type="button" onClick={togglePlayPause} className="audioPlayer__main-btn">
+                    {isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                  </button>
+                  <button type="button" onClick={forwardThirty} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
                 </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
-              </div>
 
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={backThirty} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={togglePlayPause} className="audioPlayer__main-btn">
-                  {isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={forwardThirty} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <div className="audioPlayer__player-bar">
+                  {/* current time */}
+                  <div className="audioPlayer__currentTime">{calculateTime(currentTime)}</div>
+                  {/* Progress bar */}
+                  <div>
+                    <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
+                  </div>
+                  {/* duration */}
+                  <div className="audioPlayer__duration">{(duration && !Number.isNaN(duration)) && calculateTime(duration)}</div>
+                </div>
+
+                {/* Buttons for mobile */}
+                <div className="audioPlayer__player-btn displayNoneDesktop">
+                  <button type="button" onClick={backThirty} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                  <button type="button" onClick={togglePlayPause} className="audioPlayer__main-btn">
+                    {isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                  </button>
+                  <button type="button" onClick={forwardThirty} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                </div>
               </div>
-            </div>
-          </article>
-        </div>
-      </section>
+            </article>
+          </div>
+        </section>
+      ))}
     </Container>
   );
 }
+OnePodcast.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+        titre: PropTypes.string.isRequired,
+        extrait: PropTypes.string,
+        auteur: PropTypes.shape({
+          nom: PropTypes.string,
+        }),
+        contenu: PropTypes.shape({
+          raw: PropTypes.shape({
+            children: PropTypes.array.isRequired,
+          }).isRequired,
+        }).isRequired,
+      }).isRequired,
+    }),
+  ).isRequired,
+};
 
 export default OnePodcast;

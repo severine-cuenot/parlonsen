@@ -5,6 +5,7 @@
   &__header {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: vars.$dark;
     padding : 2.5em;
     min-height: 300px;
@@ -32,21 +33,22 @@
     align-items: center;
     margin: 2em 0;
     @media (min-width: vars.$mobile) {
-      align-items: center;
       flex-direction: row;
     }
+   
   }
 
   &__header-block-img {
     margin-bottom: 1.5em;
     width: 70%;
     @media (min-width: vars.$mobile) {
-      width: 15%;
+      width: 20%;
       margin-right: 2em;
     }
   }
+}
 
-  &__header-block img {
-    width: 100%;
-  }
+.img-gresivaudan {
+  width: 100%;
+  max-width: 300px;
 }

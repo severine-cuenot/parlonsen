@@ -9,7 +9,7 @@ import OnePodcast from '../../components/OnePodcast';
 
 // imports
 
-import logoRadio from '../../../public/img/gresivaudan-logo.svg';
+import logoRadio from '../../../public/img/gresivaudan-logo-white.png';
 import './style.scss';
 
 function Podcast() {
@@ -20,7 +20,7 @@ function Podcast() {
         <div className="podcast__header-block">
           <div className="podcast__header-block-img">
             <a href="https://www.radio-gresivaudan.org/" target="_blank" title="Page officielle de radio Gresivaudan" rel="noreferrer">
-              <img src={logoRadio} alt="Radio Gresivaudan" />
+              <img src={logoRadio} alt="Radio Gresivaudan" className="img-gresivaudan" />
             </a>
           </div>
           <p className="OnePodcast__excerpt">

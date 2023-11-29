@@ -53,8 +53,8 @@
 }
 
 .audioPlayers-block {
-  
   @media (min-width: vars.$mobile) {
+    display: flex;
     width: 30%;
   }
 }

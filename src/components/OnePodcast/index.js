@@ -16,9 +16,12 @@ import Container from '../Container';
 
 // imports
 import './style.scss';
+
+// imports MP3
 import audio1 from '../../../public/mp3/201711_sdf_habitants_police.mp3';
 import audio2 from '../../../public/mp3/201802_relations_rue.mp3';
 import audio3 from '../../../public/mp3/20180314_jeunes_rue_chiens.mp3';
+import audio4 from '../../../public/mp3/201804_rue_systemeD.mp3';
 
 function OnePodcast() {
   // Player audio1
@@ -48,6 +51,15 @@ function OnePodcast() {
   const progressBar3 = useRef();
   const animationRef3 = useRef();
 
+  // Player audio4
+  const [isPlaying4, setIsPlaying4] = useState(false);
+  const [currentTime4, setCurrentTime4] = useState(0);
+  const [duration4, setDuration4] = useState(0);
+
+  const audioPlayer4 = useRef();
+  const progressBar4 = useRef();
+  const animationRef4 = useRef();
+
   const onLoadedMetadata = (index) => {
     if (index === 1) {
       setDuration1(Math.floor(audioPlayer1.current.duration));
@@ -58,6 +70,9 @@ function OnePodcast() {
     else if (index === 3) {
       setDuration3(Math.floor(audioPlayer3.current.duration));
     }
+    else if (index === 4) {
+      setDuration4(Math.floor(audioPlayer4.current.duration));
+    }
   };
 
   useEffect(() => {
@@ -66,6 +81,7 @@ function OnePodcast() {
     progressBar1.current.max = seconds;
     progressBar2.current.max = Math.floor(audioPlayer2.current.duration);
     progressBar3.current.max = Math.floor(audioPlayer3.current.duration);
+    progressBar4.current.max = Math.floor(audioPlayer4.current.duration);
   }, [
     // Player audio1
     audioPlayer1?.current?.loadedmetadata,
@@ -76,6 +92,9 @@ function OnePodcast() {
     // Player audio3
     audioPlayer3?.current?.loadedmetadata,
     audioPlayer3?.current?.readyState,
+    // Player audio4
+    audioPlayer4?.current?.loadedmetadata,
+    audioPlayer4?.current?.readyState,
   ]);
 
   const calculateTime = (secs) => {
@@ -87,23 +106,46 @@ function OnePodcast() {
   };
 
   const togglePlayPause = (index) => {
-    const prevValue = index === 1 ? isPlaying1 : index === 2 ? isPlaying2 : isPlaying3;
-    if (index === 1) {
-      setIsPlaying1(!prevValue);
+    let prevValue; let audioPlayer; let progressBar; let
+      animationRef;
+
+    switch (index) {
+      case 1:
+        prevValue = isPlaying1;
+        setIsPlaying1(!prevValue);
+        audioPlayer = audioPlayer1.current;
+        progressBar = progressBar1.current;
+        animationRef = animationRef1;
+        break;
+      case 2:
+        prevValue = isPlaying2;
+        setIsPlaying2(!prevValue);
+        audioPlayer = audioPlayer2.current;
+        progressBar = progressBar2.current;
+        animationRef = animationRef2;
+        break;
+      case 3:
+        prevValue = isPlaying3;
+        setIsPlaying3(!prevValue);
+        audioPlayer = audioPlayer3.current;
+        progressBar = progressBar3.current;
+        animationRef = animationRef3;
+        break;
+      case 4:
+        prevValue = isPlaying4;
+        setIsPlaying4(!prevValue);
+        audioPlayer = audioPlayer4.current;
+        // eslint-disable-next-line no-unused-vars
+        progressBar = progressBar4.current;
+        animationRef = animationRef4;
+        break;
+      default:
+        break;
     }
-    else if (index === 2) {
-      setIsPlaying2(!prevValue);
-    }
-    else if (index === 3) {
-      setIsPlaying3(!prevValue);
-    }
-    const audioPlayer = index === 1 ? audioPlayer1.current : index === 2 ? audioPlayer2.current : audioPlayer3.current;
-    // eslint-disable-next-line no-unused-vars
-    const progressBar = index === 1 ? progressBar1.current : index === 2 ? progressBar2.current : progressBar3.current;
-    const animationRef = index === 1 ? animationRef1 : index === 2 ? animationRef2 : animationRef3; // Use animationRef1, animationRef2, or animationRef3 based on the index
+
     if (!prevValue) {
       audioPlayer.play();
-      animationRef.current = requestAnimationFrame(() => whilePlaying(index, animationRef)); // Pass animationRef as an argument
+      animationRef.current = requestAnimationFrame(() => whilePlaying(index, animationRef));
     }
     else {
       audioPlayer.pause();
@@ -112,70 +154,204 @@ function OnePodcast() {
   };
 
   const whilePlaying = (index, animationRef) => {
-    const audioPlayer = index === 1 ? audioPlayer1.current : index === 2 ? audioPlayer2.current : audioPlayer3.current;
-    const progressBar = index === 1 ? progressBar1.current : index === 2 ? progressBar2.current : progressBar3.current;
-    // Check if animationRef and animationRef.current are defined before using them
+    let audioPlayer; let
+      progressBar;
+
+    switch (index) {
+      case 1:
+        audioPlayer = audioPlayer1.current;
+        progressBar = progressBar1.current;
+        break;
+      case 2:
+        audioPlayer = audioPlayer2.current;
+        progressBar = progressBar2.current;
+        break;
+      case 3:
+        audioPlayer = audioPlayer3.current;
+        progressBar = progressBar3.current;
+        break;
+      case 4:
+        audioPlayer = audioPlayer4.current;
+        progressBar = progressBar4.current;
+        break;
+      default:
+        break;
+    }
+
     if (animationRef && animationRef.current) {
       progressBar.value = audioPlayer.currentTime;
       changePlayerCurrentTime(index);
-      // Calculate the progress percentage
+
       const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-      // Update the style of the progress bar
       progressBar.style.setProperty('--seek-before-width', `${progressPercentage}%`);
       animationRef.current = requestAnimationFrame(() => whilePlaying(index, animationRef));
     }
   };
 
   const changeRange = (index) => {
-    const audioPlayer = index === 1 ? audioPlayer1.current : index === 2 ? audioPlayer2.current : audioPlayer3.current;
-    const progressBar = index === 1 ? progressBar1.current : index === 2 ? progressBar2.current : progressBar3.current;
+    let audioPlayer; let
+      progressBar;
+
+    switch (index) {
+      case 1:
+        audioPlayer = audioPlayer1.current;
+        progressBar = progressBar1.current;
+        break;
+      case 2:
+        audioPlayer = audioPlayer2.current;
+        progressBar = progressBar2.current;
+        break;
+      case 3:
+        audioPlayer = audioPlayer3.current;
+        progressBar = progressBar3.current;
+        break;
+      case 4:
+        audioPlayer = audioPlayer4.current;
+        progressBar = progressBar4.current;
+        break;
+      default:
+        break;
+    }
+
     audioPlayer.currentTime = progressBar.value;
     changePlayerCurrentTime(index);
   };
 
   const changePlayerCurrentTime = (index) => {
-    const progressBar = index === 1 ? progressBar1.current : index === 2 ? progressBar2.current : progressBar3.current;
-    progressBar.style.setProperty('--seek-before-width', `${progressBar.value / (index === 1 ? duration1 : index === 2 ? duration2 : duration3) * 100}%`);
-    if (index === 1) {
-      setCurrentTime1(progressBar.value);
-    }
-    else if (index === 2) {
-      setCurrentTime2(progressBar.value);
-    }
-    else if (index === 3) {
-      setCurrentTime3(progressBar.value);
+    const progressBar = (() => {
+      switch (index) {
+        case 1:
+          return progressBar1.current;
+        case 2:
+          return progressBar2.current;
+        case 3:
+          return progressBar3.current;
+        case 4:
+          return progressBar4.current;
+        default:
+          return null;
+      }
+    })();
+
+    if (progressBar) {
+      let selectedDuration;
+
+      switch (index) {
+        case 1:
+          selectedDuration = duration1;
+          break;
+        case 2:
+          selectedDuration = duration2;
+          break;
+        case 3:
+          selectedDuration = duration3;
+          break;
+        case 4:
+          selectedDuration = duration4;
+          break;
+        default:
+          break;
+      }
+
+      progressBar.style.setProperty('--seek-before-width', `${progressBar.value / selectedDuration * 100}%`);
+
+      switch (index) {
+        case 1:
+          setCurrentTime1(progressBar.value);
+          break;
+        case 2:
+          setCurrentTime2(progressBar.value);
+          break;
+        case 3:
+          setCurrentTime3(progressBar.value);
+          break;
+        case 4:
+          setCurrentTime4(progressBar.value);
+          break;
+        default:
+          break;
+      }
     }
   };
 
   const backThirty = (index) => {
-    let progressBar;
+    const progressBar = (() => {
+      switch (index) {
+        case 1:
+          return progressBar1.current;
+        case 2:
+          return progressBar2.current;
+        case 3:
+          return progressBar3.current;
+        case 4:
+          return progressBar4.current;
+        default:
+          return null;
+      }
+    })();
 
-    switch (index) {
-      case 1:
-        progressBar = progressBar1.current;
-        break;
-      case 2:
-        progressBar = progressBar2.current;
-        break;
-      case 3:
-        progressBar = progressBar3.current;
-        break;
-      default:
-        // Handle the case where index is not 1, 2, or 3
+    if (progressBar) {
+      progressBar.value = Number(progressBar.value - 30);
+      changeRange(index);
     }
-    // const progressBar = index === 1 ? progressBar1.current : index === 2 ? progressBar2.current : progressBar3.current;
-    progressBar.value = Number(progressBar.value - 30);
-    changeRange(index);
   };
-  const forwardThirty = (index) => {
-    const audioPlayer = index === 1 ? audioPlayer1.current : index === 2 ? audioPlayer2.current : audioPlayer3.current;
-    const progressBar = index === 1 ? progressBar1.current : index === 2 ? progressBar2.current : progressBar3.current;
 
-    const newTime = audioPlayer.currentTime + 30;
-    if (newTime <= (index === 1 ? duration1 : index === 2 ? duration2 : duration3)) {
-      audioPlayer.currentTime = newTime;
-      progressBar.value = newTime;
-      changePlayerCurrentTime(index);
+  const forwardThirty = (index) => {
+    const audioPlayer = (() => {
+      switch (index) {
+        case 1:
+          return audioPlayer1.current;
+        case 2:
+          return audioPlayer2.current;
+        case 3:
+          return audioPlayer3.current;
+        case 4:
+          return audioPlayer4.current;
+        default:
+          return null;
+      }
+    })();
+
+    const progressBar = (() => {
+      switch (index) {
+        case 1:
+          return progressBar1.current;
+        case 2:
+          return progressBar2.current;
+        case 3:
+          return progressBar3.current;
+        case 4:
+          return progressBar4.current;
+        default:
+          return null;
+      }
+    })();
+
+    if (audioPlayer && progressBar) {
+      const newTime = audioPlayer.currentTime + 30;
+      let selectedDuration;
+      switch (index) {
+        case 1:
+          selectedDuration = duration1;
+          break;
+        case 2:
+          selectedDuration = duration2;
+          break;
+        case 3:
+          selectedDuration = duration3;
+          break;
+        case 4:
+          selectedDuration = duration4;
+          break;
+        default:
+          break;
+      }
+
+      if (newTime <= selectedDuration) {
+        audioPlayer.currentTime = newTime;
+        progressBar.value = newTime;
+        changePlayerCurrentTime(index);
+      }
     }
   };
 
@@ -185,17 +361,62 @@ function OnePodcast() {
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
-              <h3 className="header">Les relations affectives et sexuelles quand on est à la rue</h3>
-              <p className="audioPlayer__date">Enregistré en février 2018</p>
+              <h3 className="header">La rue et le système D</h3>
+              <p className="audioPlayer__date">Enregistré en avril 2018</p>
             </header>
             <p>
-              Quand on n'a pas de toit, comment vit-on nos relations avec les autres&nbsp;?<br />
-              Aimer, s'aimer, être aimé-e...<br />
-              Comment avoir une vie affective et/ou sexuelle quand on est privé d'intimité&nbsp;?<br />
-              Comment les lieux d'hébergement permettent-ils ou pas de vivre sa sexualité&nbsp;?<br />
-              Comment construire des amitiés quand on vit dans la rue&nbsp;?<br />
-              A quels risques est-on confrontés&nbsp;?<br />
-              Comment protéger sa santé physique et mentale&nbsp;?...
+              Quels sont les regards, les préjugés, les réalités que vivent les jeunes sans logement propriétaires de chiens&nbsp;?<br />
+              Comment faire pour trouver un logement avec un chien&nbsp;?<br />
+              Peut-on accéder aux bâtiments publics&nbsp;?<br />
+              Sont-ils aidés dans les démarches administratives&nbsp;?<br />
+              Quels sont les critères de discrimination auxquels ces jeunes sont confrontés&nbsp;?
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer4} src={audio4} preload="metadata" onLoadedData={() => onLoadedMetadata(4)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(4)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(4)} className="audioPlayer__main-btn">
+                  {isPlaying4 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(4)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime4)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar4} onChange={() => changeRange(4)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration4 && !Number.isNaN(duration4)) && calculateTime(duration4)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(4)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(4)} className="audioPlayer__main-btn">
+                  {isPlaying4 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(4)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Jeunes à la rue avec chiens</h3>
+              <p className="audioPlayer__date">Enregistré le 14 mars 2018</p>
+            </header>
+            <p>
+              Quels sont les regards, les préjugés, les réalités que vivent les jeunes sans logement propriétaires de chiens&nbsp;?<br />
+              Comment faire pour trouver un logement avec un chien&nbsp;?<br />
+              Peut-on accéder aux bâtiments publics&nbsp;?<br />
+              Sont-ils aidés dans les démarches administratives&nbsp;?<br />
+              Quels sont les critères de discrimination auxquels ces jeunes sont confrontés&nbsp;?
             </p>
             <div className="audioPlayer__player">
               <audio ref={audioPlayer3} src={audio3} preload="metadata" onLoadedData={() => onLoadedMetadata(3)} />

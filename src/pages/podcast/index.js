@@ -35,7 +35,7 @@ function Podcast() {
         <h1 className="podcast__header--title header">Podcasts</h1>
         <div className="podcast__header-block">
           <div className="podcast__header-block-img">
-            <a href="https://www.radio-gresivaudan.org/" target="_blank" title="Page officielle de radio Gresivaudan" rel="noreferrer">
+            <a href="https://www.radio-gresivaudan.org/" title="Page officielle de radio Gresivaudan" target="_blank" rel="noreferrer">
               <img src={logoRadio} alt="Radio Gresivaudan" className="img-gresivaudan" />
             </a>
           </div>

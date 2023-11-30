@@ -27,6 +27,9 @@ import audio5 from '../../../public/mp3/201809_manche_taf.mp3';
 import audio6 from '../../../public/mp3/201811_dormir_hiver.mp3';
 import audio7 from '../../../public/mp3/201901_sac_a_dos.mp3';
 import audio8 from '../../../public/mp3/201902_guichet.mp3';
+import audio9 from '../../../public/mp3/20190314_apres_hiver.mp3';
+
+import audio11 from '../../../public/mp3/20190613_vacances.mp3';
 
 function OnePodcast() {
   // Player audio1
@@ -101,6 +104,24 @@ function OnePodcast() {
   const progressBar8 = useRef();
   const animationRef8 = useRef();
 
+  // Player audio9
+  const [isPlaying9, setIsPlaying9] = useState(false);
+  const [currentTime9, setCurrentTime9] = useState(0);
+  const [duration9, setDuration9] = useState(0);
+
+  const audioPlayer9 = useRef();
+  const progressBar9 = useRef();
+  const animationRef9 = useRef();
+
+  // Player audio11
+  const [isPlaying11, setIsPlaying11] = useState(false);
+  const [currentTime11, setCurrentTime11] = useState(0);
+  const [duration11, setDuration11] = useState(0);
+
+  const audioPlayer11 = useRef();
+  const progressBar11 = useRef();
+  const animationRef11 = useRef();
+
   const onLoadedMetadata = (index) => {
     if (index === 1) {
       setDuration1(Math.floor(audioPlayer1.current.duration));
@@ -126,6 +147,12 @@ function OnePodcast() {
     else if (index === 8) {
       setDuration8(Math.floor(audioPlayer8.current.duration));
     }
+    else if (index === 9) {
+      setDuration9(Math.floor(audioPlayer9.current.duration));
+    }
+    else if (index === 11) {
+      setDuration11(Math.floor(audioPlayer11.current.duration));
+    }
   };
 
   useEffect(() => {
@@ -139,6 +166,8 @@ function OnePodcast() {
     progressBar6.current.max = Math.floor(audioPlayer6.current.duration);
     progressBar7.current.max = Math.floor(audioPlayer7.current.duration);
     progressBar8.current.max = Math.floor(audioPlayer8.current.duration);
+    progressBar9.current.max = Math.floor(audioPlayer9.current.duration);
+    progressBar11.current.max = Math.floor(audioPlayer11.current.duration);
   }, [
     // Player audio1
     audioPlayer1?.current?.loadedmetadata,
@@ -164,6 +193,12 @@ function OnePodcast() {
     // Player audio8
     audioPlayer8?.current?.loadedmetadata,
     audioPlayer8?.current?.readyState,
+    // Player audio9
+    audioPlayer9?.current?.loadedmetadata,
+    audioPlayer9?.current?.readyState,
+    // Player audio11
+    audioPlayer11?.current?.loadedmetadata,
+    audioPlayer11?.current?.readyState,
   ]);
 
   const calculateTime = (secs) => {
@@ -235,6 +270,20 @@ function OnePodcast() {
         progressBar = progressBar8.current;
         animationRef = animationRef8;
         break;
+      case 9:
+        prevValue = isPlaying9;
+        setIsPlaying9(!prevValue);
+        audioPlayer = audioPlayer9.current;
+        progressBar = progressBar9.current;
+        animationRef = animationRef9;
+        break;
+      case 11:
+        prevValue = isPlaying11;
+        setIsPlaying11(!prevValue);
+        audioPlayer = audioPlayer11.current;
+        progressBar = progressBar11.current;
+        animationRef = animationRef11;
+        break;
       default:
         break;
     }
@@ -285,6 +334,14 @@ function OnePodcast() {
       case 8:
         audioPlayer = audioPlayer8.current;
         progressBar = progressBar8.current;
+        break;
+      case 9:
+        audioPlayer = audioPlayer9.current;
+        progressBar = progressBar9.current;
+        break;
+      case 11:
+        audioPlayer = audioPlayer11.current;
+        progressBar = progressBar11.current;
         break;
       default:
         break;
@@ -337,6 +394,14 @@ function OnePodcast() {
         audioPlayer = audioPlayer8.current;
         progressBar = progressBar8.current;
         break;
+      case 9:
+        audioPlayer = audioPlayer9.current;
+        progressBar = progressBar9.current;
+        break;
+      case 11:
+        audioPlayer = audioPlayer11.current;
+        progressBar = progressBar11.current;
+        break;
       default:
         break;
     }
@@ -364,6 +429,10 @@ function OnePodcast() {
           return progressBar7.current;
         case 8:
           return progressBar8.current;
+        case 9:
+          return progressBar9.current;
+        case 11:
+          return progressBar11.current;
         default:
           return null;
       }
@@ -397,6 +466,12 @@ function OnePodcast() {
         case 8:
           selectedDuration = duration8;
           break;
+        case 9:
+          selectedDuration = duration9;
+          break;
+        case 11:
+          selectedDuration = duration11;
+          break;
         default:
           break;
       }
@@ -428,6 +503,12 @@ function OnePodcast() {
         case 8:
           setCurrentTime8(progressBar.value);
           break;
+        case 9:
+          setCurrentTime9(progressBar.value);
+          break;
+        case 11:
+          setCurrentTime11(progressBar.value);
+          break;
         default:
           break;
       }
@@ -453,6 +534,10 @@ function OnePodcast() {
           return progressBar7.current;
         case 8:
           return progressBar8.current;
+        case 9:
+          return progressBar9.current;
+        case 11:
+          return progressBar11.current;
         default:
           return null;
       }
@@ -483,6 +568,10 @@ function OnePodcast() {
           return audioPlayer7.current;
         case 8:
           return audioPlayer8.current;
+        case 9:
+          return audioPlayer9.current;
+        case 11:
+          return audioPlayer11.current;
         default:
           return null;
       }
@@ -506,6 +595,10 @@ function OnePodcast() {
           return progressBar7.current;
         case 8:
           return progressBar8.current;
+        case 9:
+          return progressBar9.current;
+        case 11:
+          return progressBar11.current;
         default:
           return null;
       }
@@ -539,6 +632,12 @@ function OnePodcast() {
         case 8:
           selectedDuration = duration8;
           break;
+        case 9:
+          selectedDuration = duration9;
+          break;
+        case 11:
+          selectedDuration = duration11;
+          break;
         default:
           break;
       }
@@ -554,6 +653,151 @@ function OnePodcast() {
   return (
     <Container>
       <section className="onePodcast">
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Tu pars où en vacances&nbsp;?</h3>
+              <p className="audioPlayer__date">Enregistré le 13 juin 2019</p>
+            </header>
+            <p>
+              Comment s'annonce l'été pour les personnes à la rue ou en galère&nbsp;?<br />
+              Peut-on/veut-on quitter la ville&nbsp;?<br />
+              Quelles alternatives pour “partir en vacances”&nbsp;?<br />
+              Partir en vacances et revenir en errance.<br />
+              Manger, dormir, se soigner, se laver...<br />
+              Quelles structures restent ouvertes cet été à Grenoble&nbsp;?
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer11} src={audio11} preload="metadata" onLoadedData={() => onLoadedMetadata(11)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(11)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(11)} className="audioPlayer__main-btn">
+                  {isPlaying11 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(11)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime11)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar11} onChange={() => changeRange(11)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration11 && !Number.isNaN(duration11)) && calculateTime(duration11)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(11)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(11)} className="audioPlayer__main-btn">
+                  {isPlaying11 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(11)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Une clé, et après&nbsp;? La galère ne s'arrête pas une fois qu'on a un toit</h3>
+              <p className="audioPlayer__date">Enregistré le 16 mai 2019</p>
+            </header>
+            <p>
+              <span className="header">MANQUE MP3</span><br />
+              Se retrouver seul-e entre quatre murs...<br />
+              Payer son appart, ses factures...<br />
+              Accéder à ses droits&nbsp;: papiers, santé, travail...<br />
+              Affronter les regards des voisins...<br />
+              Gérer les relations avec le propriétaire...<br />
+              Quelles relations avec ses anciens compagnons de galère...<br />
+              Autant des thématiques abordées autour du Plan quinquennal pour le Logement d'abord
+              et de la lutte contre le sans-abrisme (2018-2022).
+            </p>
+            {/* <div className="audioPlayer__player">
+              <audio ref={audioPlayer9} src={audio9} preload="metadata" onLoadedData={() => onLoadedMetadata(9)} /> */}
+
+            {/* Buttons for desktop */}
+            {/* <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
+                  {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div> */}
+
+            {/* <div className="audioPlayer__player-bar"> */}
+            {/* current time */}
+            {/* <div className="audioPlayer__currentTime">{calculateTime(currentTime9)}</div> */}
+            {/* Progress bar */}
+            {/* <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar9} onChange={() => changeRange(9)} />
+                </div> */}
+            {/* duration */}
+            {/* <div className="audioPlayer__duration">{(duration9 && !Number.isNaN(duration9)) && calculateTime(duration9)}</div> */}
+            {/* </div> */}
+
+            {/* Buttons for mobile */}
+            {/* <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
+                  {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div> */}
+            {/* </div> */}
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Tu dors où après l'hiver&nbsp;?</h3>
+              <p className="audioPlayer__date">Enregistré le 14 mars 2019</p>
+            </header>
+            <p>
+              Qu'a-t-on pensé du dispositif d'urgence cet hiver&nbsp;? Comment l'ont vécu les personnes hébergées&nbsp;? Quelles conditions de vie dans les centres&nbsp;? Du changement par rapport aux hivers précédents&nbsp;? Les acteurs de l'hébergement d'urgence ont-ils des solutions pour les personnes accueillies cet hiver&nbsp;?<br />
+              "Un chez-soi d'abord", "Un logement d'abord"&nbsp;: où en sont les politiques&nbsp;?<br />
+              Quels moyens mettre en œuvre pour sensibiliser les pouvoirs publics&nbsp;?<br />
+              Avec la participation de Mme Françoise Cloteau, Vice-présidente en charge de l'hébergement à la Metro, et Mme Aurélie Duffey, Responsable Service Gestion du logement social et de l'hébergement à la Metro.
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer9} src={audio9} preload="metadata" onLoadedData={() => onLoadedMetadata(9)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
+                  {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime9)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar9} onChange={() => changeRange(9)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration9 && !Number.isNaN(duration9)) && calculateTime(duration9)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
+                  {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">

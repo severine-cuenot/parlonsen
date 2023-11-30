@@ -57,7 +57,7 @@
   @media (min-width: vars.$mobile) {
     display: flex;
     margin: 1.5em;
-    width: 40%;
+    width: 30%;
   }
 }
 
@@ -86,7 +86,7 @@
     border-radius: vars.$btnRadius;
     
     @media (min-width: vars.$mobile) {
-      width: 60%;
+      width: 70%;
       min-width: 200px;
       flex-direction: row;
       justify-content: space-between;

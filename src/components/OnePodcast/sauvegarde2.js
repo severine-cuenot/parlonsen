@@ -23,25 +23,27 @@ import './style.scss';
 function OnePodcast({ posts }) {
   const listOfPodcasts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Podcasts'));
 
-  // State
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
+  // Create state hooks for each podcast
+  const playersState = listOfPodcasts.map(() => ({
+    isPlaying: false,
+    currentTime: 0,
+    duration: 0,
+    audioPlayer: useRef(),
+    progressBar: useRef(),
+    animationRef: useRef(),
+  }));
 
-  // References
-  const audioPlayer = useRef(); // reference the audioplayer component
-  const progressBar = useRef(); // reference the progress bar
-  const animationRef = useRef(); // reference the animation
+  const [players, setPlayers] = useState(playersState);
 
-  const onLoadedMetadata = () => {
-    setDuration(Math.floor(audioPlayer.current.duration));
+  const onLoadedMetadata = (index) => {
+    setDuration(Math.floor(audioPlayer(index).current.duration));
   };
 
   useEffect(() => {
-    const seconds = Math.floor(audioPlayer.current.duration);
+    const seconds = Math.floor(audioPlayer(index).current.duration);
     setDuration(seconds);
-    progressBar.current.max = seconds;
-  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState]);
+    progressBar(index).current.max = seconds;
+  }, [audioPlayer(index)?.current?.loadedmetadata, audioPlayer(index)?.current?.readyState]);
 
   const calculateTime = (secs) => {
     const minutes = Math.floor(secs / 60);
@@ -51,54 +53,58 @@ function OnePodcast({ posts }) {
     return `${returnedMinutes}:${returnedSeconds}`;
   };
 
-  const togglePlayPause = () => {
-    const prevValue = isPlaying;
-    setIsPlaying(!prevValue);
-    if (!prevValue) {
-      audioPlayer.current.play();
-      animationRef.current = requestAnimationFrame(whilePlaying);
+  const togglePlayPause = (index) => {
+    const newPlayers = [...players];
+    const currentPlayer = newPlayers[index];
+
+    currentPlayer.isPlaying = !currentPlayer.isPlaying;
+    setPlayers(newPlayers);
+
+    if (currentPlayer.isPlaying) {
+      currentPlayer.audioPlayer.current.play();
+      currentPlayer.animationRef.current = requestAnimationFrame(() => whilePlaying(index));
     }
     else {
-      audioPlayer.current.pause();
-      cancelAnimationFrame(animationRef.current);
+      currentPlayer.audioPlayer.current.pause();
+      cancelAnimationFrame(currentPlayer.animationRef.current);
     }
   };
 
-  const whilePlaying = () => {
-    progressBar.current.value = audioPlayer.current.currentTime;
+  // ... rest of your functions like whilePlaying, changeRange, etc. but use the index to reference the correct player
+  const whilePlaying = (index) => {
+    progressBar(index).current.value = audioPlayer(index).current.currentTime;
     changePlayerCurrentTime();
-    animationRef.current = requestAnimationFrame(whilePlaying);
+    animationRef(index).current = requestAnimationFrame(whilePlaying);
   };
-
-  const changeRange = () => {
-    audioPlayer.current.currentTime = progressBar.current.value;
+  const changeRange = (index) => {
+    audioPlayer(index).current.currentTime = progressBar(index).current.value;
     changePlayerCurrentTime();
   };
 
-  const changePlayerCurrentTime = () => {
-    progressBar.current.style.setProperty('--seek-before-width', `${progressBar.current.value / duration * 100}%`);
-    setCurrentTime(progressBar.current.value);
+  const changePlayerCurrentTime = (index) => {
+    progressBar(index).current.style.setProperty('--seek-before-width', `${progressBar(index).current.value / duration(index) * 100}%`);
+    setCurrentTime(progressBar(index).current.value);
   };
 
-  const backThirty = () => {
-    progressBar.current.value = Number(progressBar.current.value - 30);
+  const backThirty = (index) => {
+    progressBar(index).current.value = Number(progressBar(index).current.value - 30);
     changeRange();
   };
 
-  const forwardThirty = () => {
-    const newTime = audioPlayer.current.currentTime + 30;
-    // Needed this to fix the wrong number ofsecs added to the player
-    if (newTime <= duration) {
-      audioPlayer.current.currentTime = newTime;
-      progressBar.current.value = newTime;
+  const forwardThirty = (index) => {
+    const newTime = audioPlayer(index).current.currentTime + 30;
+    // Needed this to fix the wrong number of secs added to the player
+    if (newTime <= duration(index)) {
+      audioPlayer(index).current.currentTime = newTime;
+      progressBar(index).current.value = newTime;
       changePlayerCurrentTime();
     }
   };
 
   return (
     <Container>
-      {listOfPodcasts.map((podcast) => (
-        <section className="onePodcast">
+      {listOfPodcasts.map((podcast, index) => (
+        <section key={index} className="onePodcast">
           <div className="audioPlayers-block">
             <article className="audioPlayer">
               <h3 className="header">{podcast.node.titre}</h3>
@@ -106,22 +112,28 @@ function OnePodcast({ posts }) {
                 content={podcast.node.contenu.raw}
               />
               <div className="audioPlayer__player">
-                {/* Boucle pour afficher les fichiers */}
-                {podcast.node.fichier && podcast.node.fichier.map((fichier) => (
-                  <audio ref={audioPlayer} src={fichier.url} preload="metadata" onLoadedData={onLoadedMetadata} />
+                {/* Map to display assets files */}
+                {podcast.node.fichier && podcast.node.fichier.map((fichier, fileIndex) => (
+                  <audio
+                    key={fileIndex}
+                    ref={players[index].audioPlayer}
+                    src={fichier.url}
+                    preload="metadata"
+                    onLoadedData={() => onLoadedMetadata(index)}
+                  />
                 ))}
                 {/* Buttons for desktop */}
                 <div className="audioPlayer__player-btn displayNoneMobile">
                   <button type="button" onClick={backThirty} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                  <button type="button" onClick={togglePlayPause} className="audioPlayer__main-btn">
-                    {isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                  <button type="button" onClick={() => togglePlayPause(index)} className="audioPlayer__main-btn">
+                    {players[index].isPlaying ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled />}
                   </button>
                   <button type="button" onClick={forwardThirty} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
                 </div>
 
                 <div className="audioPlayer__player-bar">
                   {/* current time */}
-                  <div className="audioPlayer__currentTime">{calculateTime(currentTime)}</div>
+                  <div className="audioPlayer__currentTime">{calculateTime(currentTime[index])}</div>
                   {/* Progress bar */}
                   <div>
                     <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar} onChange={changeRange} />
@@ -146,6 +158,7 @@ function OnePodcast({ posts }) {
     </Container>
   );
 }
+
 OnePodcast.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({

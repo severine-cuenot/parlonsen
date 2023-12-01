@@ -30,6 +30,11 @@ import audio8 from '../../../public/mp3/201902_guichet.mp3';
 import audio9 from '../../../public/mp3/20190314_apres_hiver.mp3';
 
 import audio11 from '../../../public/mp3/20190613_vacances.mp3';
+import audio12 from '../../../public/mp3/20190912_guide_galere.mp3';
+import audio13 from '../../../public/mp3/201910_douche_ciel.mp3';
+import audio14 from '../../../public/mp3/201911_exclusions.mp3';
+import audio15 from '../../../public/mp3/202001_regles_lieu.mp3';
+import audio16 from '../../../public/mp3/202002_nouvelles_rue_hiver.mp3';
 
 function OnePodcast() {
   // Player audio1
@@ -122,6 +127,51 @@ function OnePodcast() {
   const progressBar11 = useRef();
   const animationRef11 = useRef();
 
+  // Player audio12
+  const [isPlaying12, setIsPlaying12] = useState(false);
+  const [currentTime12, setCurrentTime12] = useState(0);
+  const [duration12, setDuration12] = useState(0);
+
+  const audioPlayer12 = useRef();
+  const progressBar12 = useRef();
+  const animationRef12 = useRef();
+
+  // Player audio13
+  const [isPlaying13, setIsPlaying13] = useState(false);
+  const [currentTime13, setCurrentTime13] = useState(0);
+  const [duration13, setDuration13] = useState(0);
+
+  const audioPlayer13 = useRef();
+  const progressBar13 = useRef();
+  const animationRef13 = useRef();
+
+  // Player audio14
+  const [isPlaying14, setIsPlaying14] = useState(false);
+  const [currentTime14, setCurrentTime14] = useState(0);
+  const [duration14, setDuration14] = useState(0);
+
+  const audioPlayer14 = useRef();
+  const progressBar14 = useRef();
+  const animationRef14 = useRef();
+
+  // Player audio15
+  const [isPlaying15, setIsPlaying15] = useState(false);
+  const [currentTime15, setCurrentTime15] = useState(0);
+  const [duration15, setDuration15] = useState(0);
+
+  const audioPlayer15 = useRef();
+  const progressBar15 = useRef();
+  const animationRef15 = useRef();
+
+  // Player audio16
+  const [isPlaying16, setIsPlaying16] = useState(false);
+  const [currentTime16, setCurrentTime16] = useState(0);
+  const [duration16, setDuration16] = useState(0);
+
+  const audioPlayer16 = useRef();
+  const progressBar16 = useRef();
+  const animationRef16 = useRef();
+
   const onLoadedMetadata = (index) => {
     if (index === 1) {
       setDuration1(Math.floor(audioPlayer1.current.duration));
@@ -153,6 +203,21 @@ function OnePodcast() {
     else if (index === 11) {
       setDuration11(Math.floor(audioPlayer11.current.duration));
     }
+    else if (index === 12) {
+      setDuration12(Math.floor(audioPlayer12.current.duration));
+    }
+    else if (index === 13) {
+      setDuration13(Math.floor(audioPlayer13.current.duration));
+    }
+    else if (index === 14) {
+      setDuration14(Math.floor(audioPlayer14.current.duration));
+    }
+    else if (index === 15) {
+      setDuration15(Math.floor(audioPlayer15.current.duration));
+    }
+    else if (index === 16) {
+      setDuration16(Math.floor(audioPlayer16.current.duration));
+    }
   };
 
   useEffect(() => {
@@ -168,6 +233,11 @@ function OnePodcast() {
     progressBar8.current.max = Math.floor(audioPlayer8.current.duration);
     progressBar9.current.max = Math.floor(audioPlayer9.current.duration);
     progressBar11.current.max = Math.floor(audioPlayer11.current.duration);
+    progressBar12.current.max = Math.floor(audioPlayer12.current.duration);
+    progressBar13.current.max = Math.floor(audioPlayer13.current.duration);
+    progressBar14.current.max = Math.floor(audioPlayer14.current.duration);
+    progressBar15.current.max = Math.floor(audioPlayer15.current.duration);
+    progressBar16.current.max = Math.floor(audioPlayer16.current.duration);
   }, [
     // Player audio1
     audioPlayer1?.current?.loadedmetadata,
@@ -199,6 +269,21 @@ function OnePodcast() {
     // Player audio11
     audioPlayer11?.current?.loadedmetadata,
     audioPlayer11?.current?.readyState,
+    // Player audio12
+    audioPlayer12?.current?.loadedmetadata,
+    audioPlayer12?.current?.readyState,
+    // Player audio13
+    audioPlayer13?.current?.loadedmetadata,
+    audioPlayer13?.current?.readyState,
+    // Player audio14
+    audioPlayer14?.current?.loadedmetadata,
+    audioPlayer14?.current?.readyState,
+    // Player audio15
+    audioPlayer15?.current?.loadedmetadata,
+    audioPlayer15?.current?.readyState,
+    // Player audio16
+    audioPlayer16?.current?.loadedmetadata,
+    audioPlayer16?.current?.readyState,
   ]);
 
   const calculateTime = (secs) => {
@@ -284,6 +369,41 @@ function OnePodcast() {
         progressBar = progressBar11.current;
         animationRef = animationRef11;
         break;
+      case 12:
+        prevValue = isPlaying12;
+        setIsPlaying12(!prevValue);
+        audioPlayer = audioPlayer12.current;
+        progressBar = progressBar12.current;
+        animationRef = animationRef12;
+        break;
+      case 13:
+        prevValue = isPlaying13;
+        setIsPlaying13(!prevValue);
+        audioPlayer = audioPlayer13.current;
+        progressBar = progressBar13.current;
+        animationRef = animationRef13;
+        break;
+      case 14:
+        prevValue = isPlaying14;
+        setIsPlaying14(!prevValue);
+        audioPlayer = audioPlayer14.current;
+        progressBar = progressBar14.current;
+        animationRef = animationRef14;
+        break;
+      case 15:
+        prevValue = isPlaying15;
+        setIsPlaying15(!prevValue);
+        audioPlayer = audioPlayer15.current;
+        progressBar = progressBar15.current;
+        animationRef = animationRef15;
+        break;
+      case 16:
+        prevValue = isPlaying16;
+        setIsPlaying16(!prevValue);
+        audioPlayer = audioPlayer16.current;
+        progressBar = progressBar16.current;
+        animationRef = animationRef16;
+        break;
       default:
         break;
     }
@@ -342,6 +462,26 @@ function OnePodcast() {
       case 11:
         audioPlayer = audioPlayer11.current;
         progressBar = progressBar11.current;
+        break;
+      case 12:
+        audioPlayer = audioPlayer12.current;
+        progressBar = progressBar12.current;
+        break;
+      case 13:
+        audioPlayer = audioPlayer13.current;
+        progressBar = progressBar13.current;
+        break;
+      case 14:
+        audioPlayer = audioPlayer14.current;
+        progressBar = progressBar14.current;
+        break;
+      case 15:
+        audioPlayer = audioPlayer15.current;
+        progressBar = progressBar15.current;
+        break;
+      case 16:
+        audioPlayer = audioPlayer16.current;
+        progressBar = progressBar16.current;
         break;
       default:
         break;
@@ -402,6 +542,26 @@ function OnePodcast() {
         audioPlayer = audioPlayer11.current;
         progressBar = progressBar11.current;
         break;
+      case 12:
+        audioPlayer = audioPlayer12.current;
+        progressBar = progressBar12.current;
+        break;
+      case 13:
+        audioPlayer = audioPlayer13.current;
+        progressBar = progressBar13.current;
+        break;
+      case 14:
+        audioPlayer = audioPlayer14.current;
+        progressBar = progressBar14.current;
+        break;
+      case 15:
+        audioPlayer = audioPlayer15.current;
+        progressBar = progressBar15.current;
+        break;
+      case 16:
+        audioPlayer = audioPlayer16.current;
+        progressBar = progressBar16.current;
+        break;
       default:
         break;
     }
@@ -433,6 +593,16 @@ function OnePodcast() {
           return progressBar9.current;
         case 11:
           return progressBar11.current;
+        case 12:
+          return progressBar12.current;
+        case 13:
+          return progressBar13.current;
+        case 14:
+          return progressBar14.current;
+        case 15:
+          return progressBar15.current;
+        case 16:
+          return progressBar16.current;
         default:
           return null;
       }
@@ -472,6 +642,21 @@ function OnePodcast() {
         case 11:
           selectedDuration = duration11;
           break;
+        case 12:
+          selectedDuration = duration12;
+          break;
+        case 13:
+          selectedDuration = duration13;
+          break;
+        case 14:
+          selectedDuration = duration14;
+          break;
+        case 15:
+          selectedDuration = duration15;
+          break;
+        case 16:
+          selectedDuration = duration16;
+          break;
         default:
           break;
       }
@@ -509,6 +694,21 @@ function OnePodcast() {
         case 11:
           setCurrentTime11(progressBar.value);
           break;
+        case 12:
+          setCurrentTime12(progressBar.value);
+          break;
+        case 13:
+          setCurrentTime13(progressBar.value);
+          break;
+        case 14:
+          setCurrentTime14(progressBar.value);
+          break;
+        case 15:
+          setCurrentTime15(progressBar.value);
+          break;
+        case 16:
+          setCurrentTime16(progressBar.value);
+          break;
         default:
           break;
       }
@@ -538,6 +738,16 @@ function OnePodcast() {
           return progressBar9.current;
         case 11:
           return progressBar11.current;
+        case 12:
+          return progressBar12.current;
+        case 13:
+          return progressBar13.current;
+        case 14:
+          return progressBar14.current;
+        case 15:
+          return progressBar15.current;
+        case 16:
+          return progressBar16.current;
         default:
           return null;
       }
@@ -572,6 +782,16 @@ function OnePodcast() {
           return audioPlayer9.current;
         case 11:
           return audioPlayer11.current;
+        case 12:
+          return audioPlayer12.current;
+        case 13:
+          return audioPlayer13.current;
+        case 14:
+          return audioPlayer14.current;
+        case 15:
+          return audioPlayer15.current;
+        case 16:
+          return audioPlayer16.current;
         default:
           return null;
       }
@@ -599,6 +819,16 @@ function OnePodcast() {
           return progressBar9.current;
         case 11:
           return progressBar11.current;
+        case 12:
+          return progressBar12.current;
+        case 13:
+          return progressBar13.current;
+        case 14:
+          return progressBar14.current;
+        case 15:
+          return progressBar15.current;
+        case 16:
+          return progressBar16.current;
         default:
           return null;
       }
@@ -638,6 +868,21 @@ function OnePodcast() {
         case 11:
           selectedDuration = duration11;
           break;
+        case 12:
+          selectedDuration = duration12;
+          break;
+        case 13:
+          selectedDuration = duration13;
+          break;
+        case 14:
+          selectedDuration = duration14;
+          break;
+        case 15:
+          selectedDuration = duration15;
+          break;
+        case 16:
+          selectedDuration = duration16;
+          break;
         default:
           break;
       }
@@ -653,6 +898,241 @@ function OnePodcast() {
   return (
     <Container>
       <section className="onePodcast">
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Quelles nouvelles de la rue&nbsp;?</h3>
+              <p className="audioPlayer__date">Enregistré le 25 février 2020</p>
+            </header>
+            <p>
+              SDF, précaires, pauvres, mal-logé-e-s...<br />
+              Que se passe-t-il dans la rue cet hiver à Grenoble&nbsp;?<br />
+              Quelles sont les actualités, les colères, les alertes&nbsp;?<br />
+              Avantages et inconvénients du nouvel accueil de nuit 79 rue Stalingrad à Grenoble&nbsp;?<br />
+              Retour sur le projet de la maison conventionnée "Le Tremplin".
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer16} src={audio16} preload="metadata" onLoadedData={() => onLoadedMetadata(16)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(16)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(16)} className="audioPlayer__main-btn">
+                  {isPlaying16 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(16)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime16)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar16} onChange={() => changeRange(16)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration16 && !Number.isNaN(duration16)) && calculateTime(duration16)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(16)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(16)} className="audioPlayer__main-btn">
+                  {isPlaying16 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(16)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Le Lîeu, quelles règles du jeu&nbsp;?</h3>
+              <p className="audioPlayer__date">Enregistré le 21 janvier 2020</p>
+            </header>
+            <p>
+              Le Lîeu, c'est un projet de croisements et d'échanges ouvert à tous-tes, cogéré par les habitants de la ville et de la rue, suffisamment ouvert et disponible pour que des idées et projets y trouvent leur place. Un lieu de rencontre, de bricolage&nbsp;; un lieu où se poser, trouver de l'information, s'entraider dans les démarches...<br />
+              Ce projet fait suite à La Piscine – Fabrique de Solutions pour l'Habitat, première expérience qui a montré l'intérêt d'un lieu d'expérimentation, de réflexions et de solutions concrètes.<br />
+              Situé au 17, rue Abbé Grégoire, Le Lîeu, ce sera un local permanent ouvert à tous-tes, et en particulier aux personnes en grande précarité.<br />
+              Le Lîeu, d'où vient-il&nbsp;? Comment fonctionne-t-il&nbsp;? Qu'aimeriez-vous y trouver&nbsp;? Qu'aimeriez-vous y proposer&nbsp;?...<br />
+              Le Lîeu a été Lauréat du Budget Participatif Octobre 2017.
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer15} src={audio15} preload="metadata" onLoadedData={() => onLoadedMetadata(15)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(15)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(15)} className="audioPlayer__main-btn">
+                  {isPlaying15 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(15)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime15)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar15} onChange={() => changeRange(15)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration15 && !Number.isNaN(duration15)) && calculateTime(duration15)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(15)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(15)} className="audioPlayer__main-btn">
+                  {isPlaying15 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(15)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Les exclusions – "tu t'es (encore) fait virer&nbsp;?</h3>
+              <p className="audioPlayer__date">Enregistré en novembre 2019</p>
+            </header>
+            <p>
+              Dans les associations, les centres d’hébergement, les accueils de jour, les administrations...<br />
+              On peut se faire exclure pour cause de non respect des règles.<br />
+              Mais qui fixe les règles&nbsp;?<br />
+              Qui les fait appliquer&nbsp;?<br />
+              Qui décide des exclusions, pour combien de temps&nbsp;?<br />
+              Comment lutter contre l'arbitraire&nbsp;?<br />
+              Comment gérer les conflits dans les lieux collectifs&nbsp;?<br />
+              Chartes, règlements intérieurs, accords tacites...
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer14} src={audio14} preload="metadata" onLoadedData={() => onLoadedMetadata(14)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(14)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(14)} className="audioPlayer__main-btn">
+                  {isPlaying14 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(14)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime14)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar14} onChange={() => changeRange(14)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration14 && !Number.isNaN(duration14)) && calculateTime(duration14)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(14)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(14)} className="audioPlayer__main-btn">
+                  {isPlaying14 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(14)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Sous la douche, le ciel</h3>
+              <p className="audioPlayer__date">Enregistré en octobre 2019</p>
+            </header>
+            <p>
+              Prendre une douche, laver son linge, trouver de l'eau... Personnes précaires ou en galère, quelle était la situation à Grenoble durant le confinement&nbsp;?<br />
+              Aujourd'hui, quelles sont les difficultés pour accéder à l'eau et à l'hygiène&nbsp;?<br />
+              En compagnie des agents des douches municipales de Grenoble.
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer13} src={audio13} preload="metadata" onLoadedData={() => onLoadedMetadata(13)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(13)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(13)} className="audioPlayer__main-btn">
+                  {isPlaying13 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(13)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime13)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar13} onChange={() => changeRange(13)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration13 && !Number.isNaN(duration13)) && calculateTime(duration13)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(13)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(13)} className="audioPlayer__main-btn">
+                  {isPlaying13 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(13)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Un guide de la galère&nbsp;?</h3>
+              <p className="audioPlayer__date">Enregistré le 12 septembre 2019</p>
+            </header>
+            <p>
+              Savoir où manger, dormir, se laver, se soigner, poser son sac, faire ses papiers, faire garder son chien, se faire entendre, rencontrer des gens, se défendre...<br />
+              Connaître ses droits lorsqu’on est à la rue ou en galère...<br />
+              Où trouver les infos&nbsp;? Quels guides existent&nbsp;?<br />
+              Faut-il inventer autre chose&nbsp;?
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer12} src={audio12} preload="metadata" onLoadedData={() => onLoadedMetadata(12)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(12)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(12)} className="audioPlayer__main-btn">
+                  {isPlaying12 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(12)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime12)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar12} onChange={() => changeRange(12)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration12 && !Number.isNaN(duration12)) && calculateTime(duration12)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(12)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(12)} className="audioPlayer__main-btn">
+                  {isPlaying12 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(12)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">

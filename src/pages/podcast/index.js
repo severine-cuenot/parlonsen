@@ -41,7 +41,7 @@ function Podcast() {
           </div>
           <p className="OnePodcast__excerpt">
             Depuis octobre 2018, les "Parlons-en" sont diffusés sur <em className="podcast__em">Radio Grésivaudan</em> chaque 4ème mercredi du mois&nbsp;! <br />
-            Plus d'infos sur le site de <em className="podcast__em"><a href="https://www.radio-gresivaudan.org/?s=parlons-en" target="__blank" rel="noreferrer">Radio Grésivaudan</a></em>.
+            Plus d'infos sur le site de <em className="podcast__em"><a href="https://www.radio-gresivaudan.org/nos-emissions/parlons-en/" target="__blank" rel="noreferrer">Radio Grésivaudan</a></em>.
           </p>
         </div>
       </header>

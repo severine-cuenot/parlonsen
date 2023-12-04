@@ -35,6 +35,7 @@ import audio13 from '../../../public/mp3/201910_douche_ciel.mp3';
 import audio14 from '../../../public/mp3/201911_exclusions.mp3';
 import audio15 from '../../../public/mp3/202001_regles_lieu.mp3';
 import audio16 from '../../../public/mp3/202002_nouvelles_rue_hiver.mp3';
+import audio17 from '../../../public/mp3/202004_115.mp3';
 
 function OnePodcast() {
   // Player audio1
@@ -172,6 +173,15 @@ function OnePodcast() {
   const progressBar16 = useRef();
   const animationRef16 = useRef();
 
+  // Player audio17
+  const [isPlaying17, setIsPlaying17] = useState(false);
+  const [currentTime17, setCurrentTime17] = useState(0);
+  const [duration17, setDuration17] = useState(0);
+
+  const audioPlayer17 = useRef();
+  const progressBar17 = useRef();
+  const animationRef17 = useRef();
+
   const onLoadedMetadata = (index) => {
     if (index === 1) {
       setDuration1(Math.floor(audioPlayer1.current.duration));
@@ -218,6 +228,9 @@ function OnePodcast() {
     else if (index === 16) {
       setDuration16(Math.floor(audioPlayer16.current.duration));
     }
+    else if (index === 17) {
+      setDuration17(Math.floor(audioPlayer17.current.duration));
+    }
   };
 
   useEffect(() => {
@@ -238,6 +251,7 @@ function OnePodcast() {
     progressBar14.current.max = Math.floor(audioPlayer14.current.duration);
     progressBar15.current.max = Math.floor(audioPlayer15.current.duration);
     progressBar16.current.max = Math.floor(audioPlayer16.current.duration);
+    progressBar17.current.max = Math.floor(audioPlayer17.current.duration);
   }, [
     // Player audio1
     audioPlayer1?.current?.loadedmetadata,
@@ -284,6 +298,9 @@ function OnePodcast() {
     // Player audio16
     audioPlayer16?.current?.loadedmetadata,
     audioPlayer16?.current?.readyState,
+    // Player audio17
+    audioPlayer17?.current?.loadedmetadata,
+    audioPlayer17?.current?.readyState,
   ]);
 
   const calculateTime = (secs) => {
@@ -404,6 +421,13 @@ function OnePodcast() {
         progressBar = progressBar16.current;
         animationRef = animationRef16;
         break;
+      case 17:
+        prevValue = isPlaying17;
+        setIsPlaying17(!prevValue);
+        audioPlayer = audioPlayer17.current;
+        progressBar = progressBar17.current;
+        animationRef = animationRef17;
+        break;
       default:
         break;
     }
@@ -482,6 +506,10 @@ function OnePodcast() {
       case 16:
         audioPlayer = audioPlayer16.current;
         progressBar = progressBar16.current;
+        break;
+      case 17:
+        audioPlayer = audioPlayer17.current;
+        progressBar = progressBar17.current;
         break;
       default:
         break;
@@ -562,6 +590,10 @@ function OnePodcast() {
         audioPlayer = audioPlayer16.current;
         progressBar = progressBar16.current;
         break;
+      case 17:
+        audioPlayer = audioPlayer17.current;
+        progressBar = progressBar17.current;
+        break;
       default:
         break;
     }
@@ -603,6 +635,8 @@ function OnePodcast() {
           return progressBar15.current;
         case 16:
           return progressBar16.current;
+        case 17:
+          return progressBar17.current;
         default:
           return null;
       }
@@ -657,6 +691,9 @@ function OnePodcast() {
         case 16:
           selectedDuration = duration16;
           break;
+        case 17:
+          selectedDuration = duration17;
+          break;
         default:
           break;
       }
@@ -709,6 +746,9 @@ function OnePodcast() {
         case 16:
           setCurrentTime16(progressBar.value);
           break;
+        case 17:
+          setCurrentTime17(progressBar.value);
+          break;
         default:
           break;
       }
@@ -748,6 +788,8 @@ function OnePodcast() {
           return progressBar15.current;
         case 16:
           return progressBar16.current;
+        case 17:
+          return progressBar17.current;
         default:
           return null;
       }
@@ -792,6 +834,8 @@ function OnePodcast() {
           return audioPlayer15.current;
         case 16:
           return audioPlayer16.current;
+        case 17:
+          return audioPlayer17.current;
         default:
           return null;
       }
@@ -829,6 +873,8 @@ function OnePodcast() {
           return progressBar15.current;
         case 16:
           return progressBar16.current;
+        case 17:
+          return progressBar17.current;
         default:
           return null;
       }
@@ -883,6 +929,9 @@ function OnePodcast() {
         case 16:
           selectedDuration = duration16;
           break;
+        case 17:
+          selectedDuration = duration17;
+          break;
         default:
           break;
       }
@@ -901,8 +950,56 @@ function OnePodcast() {
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
+              <h3 className="header">Le 115</h3>
+              <p className="audioPlayer__date">Enregistré en avril 2020</p>
+            </header>
+            <p>
+              "Le 115" est un numéro d'urgence (au même titre que le SAMU ou les pompiers) qui vient en aide aux personnes sans abri et en grande difficulté sociale.<br />
+              Comment fonctionne le 115 en Isère&nbsp;? Qui le gère&nbsp;? Avec quels moyens&nbsp;?<br />
+              "Critères de vulnérabilité", ça veut dire quoi&nbsp;?<br />
+              A quoi bon appeler s'il n'y a pas de places d'hébergement&nbsp;?<br />
+              De l'autre côté du combiné, quelles sont les réalités des écoutant-e-s&nbsp;?<br />
+              Y-a-t-il des possibilités d'action pour faire bouger les choses&nbsp;?
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer17} src={audio17} preload="metadata" onLoadedData={() => onLoadedMetadata(17)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(17)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(17)} className="audioPlayer__main-btn">
+                  {isPlaying17 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(17)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime17)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar17} onChange={() => changeRange(17)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration17 && !Number.isNaN(duration17)) && calculateTime(duration17)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(17)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(17)} className="audioPlayer__main-btn">
+                  {isPlaying17 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(17)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
               <h3 className="header">Quelles nouvelles de la rue&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré le 25 février 2020</p>
+              <p className="audioPlayer__date">Enregistré en février 2020</p>
             </header>
             <p>
               SDF, précaires, pauvres, mal-logé-e-s...<br />
@@ -949,7 +1046,7 @@ function OnePodcast() {
           <article className="audioPlayer">
             <header className="audioPlayer__header">
               <h3 className="header">Le Lîeu, quelles règles du jeu&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré le 21 janvier 2020</p>
+              <p className="audioPlayer__date">Enregistré en janvier 2020</p>
             </header>
             <p>
               Le Lîeu, c'est un projet de croisements et d'échanges ouvert à tous-tes, cogéré par les habitants de la ville et de la rue, suffisamment ouvert et disponible pour que des idées et projets y trouvent leur place. Un lieu de rencontre, de bricolage&nbsp;; un lieu où se poser, trouver de l'information, s'entraider dans les démarches...<br />
@@ -1091,7 +1188,7 @@ function OnePodcast() {
           <article className="audioPlayer">
             <header className="audioPlayer__header">
               <h3 className="header">Un guide de la galère&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré le 12 septembre 2019</p>
+              <p className="audioPlayer__date">Enregistré en septembre 2019</p>
             </header>
             <p>
               Savoir où manger, dormir, se laver, se soigner, poser son sac, faire ses papiers, faire garder son chien, se faire entendre, rencontrer des gens, se défendre...<br />
@@ -1137,7 +1234,7 @@ function OnePodcast() {
           <article className="audioPlayer">
             <header className="audioPlayer__header">
               <h3 className="header">Tu pars où en vacances&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré le 13 juin 2019</p>
+              <p className="audioPlayer__date">Enregistré en juin 2019</p>
             </header>
             <p>
               Comment s'annonce l'été pour les personnes à la rue ou en galère&nbsp;?<br />
@@ -1185,7 +1282,7 @@ function OnePodcast() {
           <article className="audioPlayer">
             <header className="audioPlayer__header">
               <h3 className="header">Une clé, et après&nbsp;? La galère ne s'arrête pas une fois qu'on a un toit</h3>
-              <p className="audioPlayer__date">Enregistré le 16 mai 2019</p>
+              <p className="audioPlayer__date">Enregistré en mai 2019</p>
             </header>
             <p>
               <span className="header">MANQUE MP3</span><br />
@@ -1236,7 +1333,7 @@ function OnePodcast() {
           <article className="audioPlayer">
             <header className="audioPlayer__header">
               <h3 className="header">Tu dors où après l'hiver&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré le 14 mars 2019</p>
+              <p className="audioPlayer__date">Enregistré en mars 2019</p>
             </header>
             <p>
               Qu'a-t-on pensé du dispositif d'urgence cet hiver&nbsp;? Comment l'ont vécu les personnes hébergées&nbsp;? Quelles conditions de vie dans les centres&nbsp;? Du changement par rapport aux hivers précédents&nbsp;? Les acteurs de l'hébergement d'urgence ont-ils des solutions pour les personnes accueillies cet hiver&nbsp;?<br />
@@ -1508,7 +1605,7 @@ function OnePodcast() {
           <article className="audioPlayer">
             <header className="audioPlayer__header">
               <h3 className="header">Jeunes à la rue avec chiens</h3>
-              <p className="audioPlayer__date">Enregistré le 14 mars 2018</p>
+              <p className="audioPlayer__date">Enregistré en mars 2018</p>
             </header>
             <p>
               Quels sont les regards, les préjugés, les réalités que vivent les jeunes sans logement propriétaires de chiens&nbsp;?<br />
@@ -1604,7 +1701,7 @@ function OnePodcast() {
           <article className="audioPlayer">
             <header className="audioPlayer__header">
               <h3 className="header">SDF, Police Municipale et Centre-ville</h3>
-              <p className="audioPlayer__date">Enregistré le 8 novembre 2017</p>
+              <p className="audioPlayer__date">Enregistré en novembre 2017</p>
             </header>
             <p>
               Le centre-ville de Grenoble est un lieu qui cristallise les tensions entre personnes en errance, habitant-e-s et commerçant-e-s.<br />

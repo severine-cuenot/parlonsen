@@ -1,0 +1,248 @@
+@use '../../styles/vars';
+
+.onePodcast a {
+  color: vars.$orange;
+}
+
+.onePodcast a:hover {
+    font-weight: 700;
+}
+
+.audioPlayer h3 {
+  font-size: 1.3em;
+  margin-bottom: 0.6em;
+}
+
+.audioPlayer p {
+  font-size: 0.8em;
+  margin-bottom: 1em;
+}
+
+
+.onePodcast {
+  color: vars.$dark;
+  @media (min-width: vars.$mobile) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  &__em {
+    font-style: italic;
+  }
+
+  &__header-block {
+    margin: 2em 0;
+    @media (min-width: vars.$mobile) {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__header-block-img {
+    margin-bottom: 1.5em;
+    width: 70%;
+    @media (min-width: vars.$mobile) {
+      width: 15%;
+      margin-right: 2em;
+    }
+  }
+
+  &__header-block img {
+    width: 100%;
+  }
+}
+
+.audioPlayers-block {
+  @media (min-width: vars.$mobile) {
+    display: flex;
+    margin: 1.5em;
+    width: 30%;
+  }
+}
+
+.audioPlayer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em;
+  border: 1px solid vars.$lightGrey;
+  border-radius: vars.$btnRadius;
+  padding: 1.5em;
+  @media (min-width: vars.$mobile) {
+    width: 100%;
+  }
+
+  &__date {
+    font-size: 0.6em;
+    color: vars.$grey;
+  }
+
+  &__player {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.6em;
+    background-color: vars.$lightGrey;
+    border-radius: vars.$btnRadius;
+    
+    @media (min-width: vars.$mobile) {
+      width: 70%;
+      min-width: 200px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+  }
+
+  &__player-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+  }
+
+  &__currentTime, &__duration {
+    font-size: 0.8em;
+  }
+
+  &__currentTime {
+    padding-right: 0.5em;
+  } 
+  
+  &__duration {
+    padding-left: 0.5em;
+  }
+
+  &__player-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: vars.$mobile) {
+      
+    }
+  }
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+  }
+
+  &__main-btn {
+    background-color: vars.$white;
+    border: 1px solid vars.$dark;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+
+  &__progressBar {
+    --bar-bg: #7f7f7f;
+    --seek-before-color: #FEF102;
+    --seek-before-width: 0;
+    --knobby: #019DF1;
+
+    appearance: none;
+    background: var(--bar-bg);
+    border-radius: vars.$btnRadius;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+
+    // Progressbar Safari
+    &::-webkit-slider-runnable-track {
+      background: var(--bar-bg);
+      border-radius: vars.$btnRadius;
+      position: relative;
+      width: 100%;
+      height: 11px;
+      outline: none;
+    }
+
+    // Progressbar Firefox
+    &::-moz-range-track {
+      background: var(--bar-bg);
+      border-radius: vars.$btnRadius;
+      position: relative;
+      width: 100%;
+      height: 11px;
+      outline: none;
+    }
+
+    &::-moz-focus-outer {
+      border: 0;
+    }
+
+    // Progressbar Safari & Chrome
+    &::before {
+      content: '';
+      height: 11px;
+      width: var(--seek-before-width);
+      background-color: var(--seek-before-color);
+      border-top-left-radius: vars.$btnRadius;
+      border-bottom-left-radius: vars.$btnRadius;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    // Progressbar Firefox
+    &::-moz-range-progress {
+      height: 11px;
+      background-color: var(--seek-before-color);
+      border-top-left-radius: vars.$btnRadius;
+      border-bottom-left-radius: vars.$btnRadius;
+    }
+
+    // Knobby chrome & safari
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      border: none;
+      background: var(--knobby);
+      cursor: pointer;
+      position: relative;
+      margin: -2px 0 0 0;
+      z-index: 3;
+      box-sizing: border-box;
+    }
+    &:active::-webkit-slider-thumb {
+      transform: scale(1.2);
+      background: #d95033;
+    }
+
+    // Knobby firefox
+    &::-moz-range-thumb {
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      border: transparent;
+      background: var(--knobby);
+      cursor: pointer;
+      position: relative;
+      z-index: 3;
+      box-sizing: border-box;
+    }
+    &:active::-moz-range-thumb {
+      transform: scale(1.2);
+      background: #d95033;
+    }
+  }
+}
+
+.displayNoneMobile {
+  display: none;
+  @media (min-width: vars.$mobile) {
+    display: flex;
+  }
+}
+
+.displayNoneDesktop {
+  @media (min-width: vars.$mobile) {
+    display: none;
+  }
+}

@@ -32,6 +32,10 @@ function PostCard({ posts }) {
 
             <RichText
               content={unipopia.node.contenu.raw}
+              renderers={{
+                bold: ({ children }) => <span className="strong">{children}</span>,
+                italic: ({ children }) => <span className="italic">{children}</span>,
+              }}
             />
             {/* Boucle pour afficher les fichiers */}
             {unipopia.node.fichier && unipopia.node.fichier.map((fichier) => (

@@ -9,7 +9,9 @@ import { RichText } from '@graphcms/rich-text-react-renderer';
 import './style.scss';
 
 function VideoCard({ posts }) {
-  const videos = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'));
+  const videos = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Videos'));
+  console.log('Nombre total d\'articles :', posts.length);
+  console.log('Nombre d\'articles dans la catégorie Vidéos :', videos.length);
 
   return (
     <article className="post__block">
@@ -32,7 +34,20 @@ function VideoCard({ posts }) {
 
           </div>
           <div className="post__excerpt">
-            {video.node.extrait}
+            {/* Boucle pour afficher les fichiers */}
+            {video.node.fichier && video.node.fichier.map((fichier) => (
+              <iframe
+                key={fichier.id}
+                width="853"
+                height="480"
+                src={fichier.lienvideo}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title={fichier.nomDuFichier}
+              />
+            ))}
+
           </div>
         </div>
       ))}

@@ -29,7 +29,6 @@ const getPosts = async () => {
             id
             nomDuFichier
             url
-            lienvideo
           }
         }
       }

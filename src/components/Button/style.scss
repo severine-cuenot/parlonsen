@@ -66,7 +66,7 @@
     }
   }
 
-  &__podcast1 {
+  &__podcast1, &__video1 {
     background-color: vars.$lightGrey;
     color: vars.$dark;
     font-weight: bold;
@@ -75,14 +75,14 @@
     margin-right: 1em;
   }
 
-   &__podcast1:hover {
+   &__podcast1:hover, &__video1:hover {
     @media (min-width: vars.$mobile) {
       background-color: vars.$dark;
       color: vars.$white;
     }
   }
 
-  &__podcast2 {
+  &__podcast2, &__video2 {
     background-color: vars.$orange;
     color: vars.$white;
     font-weight: bold;
@@ -91,7 +91,7 @@
     margin-right: 2em;
   }
 
-   &__podcast2:hover {
+  &__podcast2:hover, &__video2:hover {
     @media (min-width: vars.$mobile) {
       background-color: vars.$dark;
     }

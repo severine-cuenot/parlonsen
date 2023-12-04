@@ -6,9 +6,7 @@
   }
 
   &__inner-block {
-    @media (min-width: vars.$tablet) {
-      margin-bottom: 3em;
-    }
+      margin-bottom: 1em;
   }
 
   &__title {
@@ -17,16 +15,10 @@
     margin-bottom: 1em;
   }
 
-  &__excerpt {
-    font-weight: 700;
-    line-height: vars.$lineHeight;
-    margin-bottom: 1em;
-  }
-
   &__content {
     display: flex;
     flex-direction: column;
-    padding-bottom: 2em;
+    padding-bottom: 0;
     @media (min-width: vars.$mobile) {
       padding-bottom: 3em;
     }
@@ -76,6 +68,25 @@
 
    &__content ul > li {
     list-style: disc;
+  }
+
+  &__excerpt {
+    display: flex;
+    justify-content: center;
+    @media (min-width: vars.$mobile) {
+      justify-content: left;
+    }
+  }
+
+  &__video-block {
+    border: none;
+    aspect-ratio: 16 / 9;
+    height: 100%;
+    width: 100%;
+    @media (min-width: vars.$mobile) {
+      height: 40%;
+      width: 40%;
+    }
   }
 }
 

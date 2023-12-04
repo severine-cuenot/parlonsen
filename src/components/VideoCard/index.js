@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-/* eslint-disable react/no-array-index-key */
 
 // React imports
 import PropTypes from 'prop-types';
@@ -9,20 +8,17 @@ import { RichText } from '@graphcms/rich-text-react-renderer';
 import './style.scss';
 
 function VideoCard({ posts }) {
-  const videos = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Videos'));
-  console.log('Nombre total d\'articles :', posts.length);
-  console.log('Nombre d\'articles dans la catégorie Vidéos :', videos.length);
+  const videos = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'));
 
   return (
     <article className="post__block">
       {videos.map((video) => (
-        <div key={video.node.slug}>
+        <div key={video.node.slug} className="post__inner-block">
           <div className="post__title">
             {video.node.titre}
           </div>
           <div className="post__content">
             {console.log('Contenu brut :', video.node.contenu.raw.children)}
-            {console.log('assets are you here :', video.node.fichier)}
 
             <RichText
               content={video.node.contenu.raw.children}
@@ -31,24 +27,19 @@ function VideoCard({ posts }) {
                 italic: ({ children }) => <span className="italic">{children}</span>,
               }}
             />
-
-          </div>
-          <div className="post__excerpt">
-            {/* Boucle pour afficher les fichiers */}
-            {video.node.fichier && video.node.fichier.map((fichier) => (
+            <div className="post__excerpt">
               <iframe
-                key={fichier.id}
-                width="853"
-                height="480"
-                src={fichier.lienvideo}
-                frameBorder="0"
+                className="post__video-block"
+                src={video.node.extrait}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                title={fichier.nomDuFichier}
+                title={video.node.titre}
+                loading="lazy"
               />
-            ))}
+            </div>
 
           </div>
+
         </div>
       ))}
     </article>

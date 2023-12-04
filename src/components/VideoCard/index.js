@@ -2,7 +2,6 @@
 /* eslint-disable react/no-array-index-key */
 
 // React imports
-// import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
@@ -10,36 +9,30 @@ import { RichText } from '@graphcms/rich-text-react-renderer';
 import './style.scss';
 
 function VideoCard({ posts }) {
-  const unipopiaPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Unipopia'));
+  const videos = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'));
 
   return (
     <article className="post__block">
-      {unipopiaPosts.map((unipopia) => (
-        <div key={unipopia.node.slug}>
+      {videos.map((video) => (
+        <div key={video.node.slug}>
           <div className="post__title">
-            {unipopia.node.titre}
-          </div>
-          <div className="post__excerpt">
-            {unipopia.node.extrait}
+            {video.node.titre}
           </div>
           <div className="post__content">
-            {console.log('Contenu brut :', unipopia.node.contenu.raw)}
-            {console.log('assets are you here :', unipopia.node.fichier)}
+            {console.log('Contenu brut :', video.node.contenu.raw.children)}
+            {console.log('assets are you here :', video.node.fichier)}
 
             <RichText
-              content={unipopia.node.contenu.raw}
+              content={video.node.contenu.raw.children}
+              renderers={{
+                bold: ({ children }) => <span className="strong">{children}</span>,
+                italic: ({ children }) => <span className="italic">{children}</span>,
+              }}
             />
-            {/* Boucle pour afficher les fichiers */}
-            {unipopia.node.fichier && unipopia.node.fichier.map((fichier) => (
-              <a href={fichier.url} target="_blank" rel="noreferrer">
-                <img
-                  key={fichier.id}
-                  src={fichier.url}
-                  alt={fichier.nomDuFichier}
-                  title={fichier.nomDuFichier}
-                />
-              </a>
-            ))}
+
+          </div>
+          <div className="post__excerpt">
+            {video.node.extrait}
           </div>
         </div>
       ))}

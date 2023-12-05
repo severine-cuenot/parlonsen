@@ -15,7 +15,7 @@ function Livret() {
   return (
     <Page>
       <header className="livret__header">
-        <h1 className="livret__header--title header">Ecrits</h1>
+        <h1 className="livret__header--title header">écrits</h1>
       </header>
       <Container className="container__livret">
         <section>

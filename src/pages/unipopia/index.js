@@ -29,8 +29,6 @@ function Unipopia() {
     fetchPosts();
   }, []);
 
-  // const backgroundImage = headerIMG;
-
   return (
     <Page>
       <Header

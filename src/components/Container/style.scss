@@ -8,9 +8,9 @@
     @media (min-width: vars.$tablet) {
       margin: 4em 5em;
     }
-    @media (min-width: vars.$desktop) {
-      margin: 4em 10em;
-    }
+     @media (min-width: vars.$desktop) {
+        margin: 4em 10em;
+      }
   }
   &__about {
     margin: 2.5em;
@@ -29,7 +29,7 @@
     }
   }
 
-  &__podcast {
+  &__podcast, &__livret {
     margin: 2.5em;
     @media (min-width: vars.$mobile) {
       margin: 4em 5em;

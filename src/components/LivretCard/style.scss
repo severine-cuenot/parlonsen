@@ -1,0 +1,44 @@
+@use '../../styles/vars';
+
+.oneLivret h3 {
+  font-size: 1.3em;
+  margin-bottom: 0.6em;
+}
+
+.oneLivret p {
+  font-size: 0.8em;
+  margin-bottom: 1em;
+}
+
+.oneLivret {
+  color: vars.$dark;
+  @media (min-width: vars.$mobile) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  &__card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.5em;
+  border: 1px solid vars.$lightGrey;
+  border-radius: vars.$btnRadius;
+  padding: 1.5em;
+  @media (min-width: vars.$mobile) {
+    width: 100%;
+    }
+  }
+
+  &__date {
+    font-size: 0.6em;
+    color: vars.$grey;
+  }
+  &__content-pdf-block {
+    width: 100%;
+  }
+  &__content-pdf-img {
+    width: 100%;
+  }
+}

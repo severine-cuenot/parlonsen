@@ -29,11 +29,9 @@
   }
 
   &__iframe {
-    height: 400px;
+    height: 700px;
+    width: 100%;
     border:none;
     overflow:hidden;
-    @media (min-width: vars.$mobile) {
-      height: 500px;
-    }
   }
 }

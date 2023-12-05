@@ -13,8 +13,8 @@ import { RichText } from '@graphcms/rich-text-react-renderer';
 import './style.scss';
 
 function PostCard({ posts }) {
+  console.log('How many post do I have before filter:', posts);
   const unipopiaPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Unipopia'));
-  // const [clickedImage, setClickedImage] = useState('');
 
   return (
     <article className="post__block">
@@ -27,9 +27,9 @@ function PostCard({ posts }) {
             {unipopia.node.extrait}
           </div>
           <div className="post__content">
-            {console.log('Contenu brut :', unipopia.node.contenu.raw)}
-            {console.log('assets are you here :', unipopia.node.fichier)}
-
+            {/* {console.log('Contenu brut :', unipopia.node.contenu.raw)}
+            {console.log('assets are you here :', unipopia.node.fichier)} */}
+            {console.log('How many post do I have:', unipopiaPosts)}
             <RichText
               content={unipopia.node.contenu.raw}
               renderers={{
@@ -64,7 +64,7 @@ PostCard.propTypes = {
         extrait: PropTypes.string,
         auteur: PropTypes.shape({
           nom: PropTypes.string.isRequired,
-        }).isRequired,
+        }),
         contenu: PropTypes.shape({
           raw: PropTypes.shape({
             children: PropTypes.array.isRequired,

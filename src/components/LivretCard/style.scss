@@ -7,7 +7,7 @@
 
 .oneLivret {
   color: vars.$dark;
-  @media (min-width: vars.$mobile) {
+  @media (min-width: vars.$tablet) {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -21,7 +21,7 @@
   border: 1px solid vars.$lightGrey;
   border-radius: vars.$btnRadius;
   padding: 1.5em;
-  @media (min-width: vars.$mobile) {
+  @media (min-width: vars.$tablet) {
     width: 30%;
     justify-content: center;
     margin: 1em;
@@ -35,17 +35,15 @@
   }
 
   &__content-pdf-block {
-    width: 100%;
-    @media (min-width: vars.$mobile) {
-    width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    }
+    align-items: center;
   }
 
   &__content-pdf-img {
-    width: 100%;
+    width: auto;
+    max-height: 300px;
   }
 
   &__content-pdf-text {

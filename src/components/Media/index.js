@@ -25,7 +25,7 @@ function Media() {
             <h3 className="media__title">Vidéos</h3>
           </article>
         </Link>
-        <Link to="/livrets" className="media__link">
+        <Link to="/ecrit" className="media__link">
           <article className="media__card">
             <div>
               <img src={book} className="media__icon" alt="vidéo" />

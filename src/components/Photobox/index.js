@@ -5,9 +5,6 @@ import PhotoAlbum from 'react-photo-album';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 
-// Components imports
-import Container from '../Container';
-
 // imports
 import './style.scss';
 

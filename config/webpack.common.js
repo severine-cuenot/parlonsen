@@ -9,6 +9,7 @@ const dotenv = require('dotenv-flow').config( {
 });
 
 module.exports = {
+  
   entry: [
     // SCSS
     paths.src + '/styles/index.scss',
@@ -68,6 +69,19 @@ module.exports = {
         generator: {
           filename: 'images/[hash][ext][query]'
         }
+      },
+      // PDF
+      {
+        test: /\.(pdf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'pdf/', // Le dossier de sortie où les fichiers PDF seront placés
+            },
+          },
+        ],
       },
       // Fonts and SVGs
       {

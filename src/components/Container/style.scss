@@ -5,10 +5,12 @@
     margin: 1em;
     background-color: vars.$lightGrey;
     border-radius: vars.$btnRadius;
-    
     @media (min-width: vars.$tablet) {
       margin: 4em 5em;
     }
+     @media (min-width: vars.$desktop) {
+        margin: 4em 10em;
+      }
   }
   &__about {
     margin: 2.5em;
@@ -22,12 +24,23 @@
     @media (min-width: vars.$tablet) {
       margin: 4em 5em 0;
     }
+    @media (min-width: vars.$desktop) {
+      margin: 4em 10em;
+    }
   }
 
-  &__podcast {
+  &__podcast, &__livret {
     margin: 2.5em;
     @media (min-width: vars.$mobile) {
       margin: 4em 5em;
     }
   }
+
+  &__video {
+      margin: 2.5em 5em;
+      @media (min-width: vars.$desktop) {
+        margin: 4em 10em;
+      }
+    }
 }
+

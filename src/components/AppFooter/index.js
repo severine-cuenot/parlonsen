@@ -28,9 +28,9 @@ function AppFooter() {
             </ul>
             <ul>
               <h3 className="footer__left-block-title">Contenu multimédia</h3>
-              <li><Link to="/multimedia" className="link">Vidéos</Link></li>
+              <li><Link to="/video" className="link">Vidéos</Link></li>
               <li><Link to="/multimedia" className="link">Livrets</Link></li>
-              <li><Link to="/multimedia" className="link">Podcasts</Link></li>
+              <li><Link to="/podcast" className="link">Podcasts</Link></li>
               <li><Link to="/multimedia" className="link">Photos</Link></li>
             </ul>
           </div>

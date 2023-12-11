@@ -62,7 +62,8 @@
 
   &__feed:hover {
     @media (min-width: vars.$mobile) {
-      background-color: vars.$dark;
+      color: vars.$dark;
+      background-color: vars.$lightGrey;
     }
   }
 

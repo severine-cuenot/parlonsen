@@ -17,7 +17,7 @@ function Category() {
       <Link to="/parlonsen" className="oneCategory zoom">
         <article>
           <div>
-            <img src={card3} alt="Illustration de nos réuions" className="oneCategory__img" />
+            <img src={card3} alt="Illustration de nos réunions" className="oneCategory__img" />
           </div>
           <div>
             <h2 className="oneCategory__title">Le Parlons-en</h2>

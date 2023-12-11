@@ -32,7 +32,6 @@ function About() {
           <div className="about__map-text">
             <h3 className="about__map-subtitle">Accueil&nbsp;:</h3>
             <ul>
-              <li>&diams; Ouvert les lundi, mercredi et vendredi de 14h à 17h et le mercredi de 7h30 à 10h30</li>
               <li>&diams; Gratuit</li>
               <li>&diams; Respect de l'anonymat</li>
               <li>&diams; Chiens admis</li>
@@ -42,10 +41,15 @@ function About() {
               <li>&diams; <em>En transports en commun&nbsp;:</em> Tram A ou B, arrêt St Bruno</li>
               <li>&diams; <em>En voiture&nbsp;:</em> coordonnées GPS&nbsp;: 45.188229,5.712708</li>
             </ul>
+            <span id="nouscontacter">&nbsp;</span>
             <h3 className="about__map-subtitle">Pour nous contacter&nbsp;:</h3>
             <ul>
               <li>&diams; <em>Par téléphone&nbsp;:</em> 07 62 54 61 20</li>
               <li>&diams; <em>Par e-mail&nbsp;:</em> <a href={emailLink} className="about__link">{emailText}</a></li>
+            </ul>
+            <h3 className="about__map-subtitle">N'hésitez pas à faire un tour sur ces sites&nbsp;:</h3>
+            <ul>
+              <li>&diams; <em>Unipopia&nbsp;:</em> <a href="https://unipopia.org/" target="_blank" rel="noreferrer" className="about__link">https://unipopia.org/</a></li>
             </ul>
             <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="about" /></Link>
           </div>

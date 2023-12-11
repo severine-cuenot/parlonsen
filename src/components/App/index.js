@@ -19,6 +19,7 @@ import Photo from '../../pages/photo';
 // Components import
 import AppHeader from '../AppHeader';
 import AppFooter from '../AppFooter';
+import ScrollToTop from '../ScrollToTop';
 
 // Import
 import './styles.css';
@@ -42,6 +43,7 @@ function App() {
         <Route path="/policy" element={<Policy />} />
         <Route path="/credits" element={<Credits />} />
       </Routes>
+      <ScrollToTop />
       <AppFooter />
     </div>
   );

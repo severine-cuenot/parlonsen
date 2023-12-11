@@ -1,5 +1,6 @@
 // React imports
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 // Imports
 import './style.scss';
@@ -38,7 +39,7 @@ function AppFooter() {
             <ul>
               <h3 className="footer__left-block-title">à propos</h3>
               <li><Link to="/about" className="link">Nous trouver</Link></li>
-              <li><Link to="/about" className="link">Nous contacter</Link></li>
+              <li><HashLink to="/about#nouscontacter" className="link">Nous contacter</HashLink></li>
               <li><a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" className="footer__fbimg-mobile" /></a></li>
             </ul>
             <ul>

@@ -20,7 +20,7 @@ function AppHeader() {
       <div className="mobile">
         <nav className="navbar" role="navigation" aria-label="Menu de navigation">
           <div className="navbar__block">
-            <span className="header navbar__logo"><Link to="/">LLLPE</Link></span>
+            <span className="header navbar__logo"><Link to="/">Parlons-en&nbsp;!</Link></span>
             <button
               title="Ouvrir le menu"
               aria-label="Ouvrir le menu"
@@ -48,7 +48,7 @@ function AppHeader() {
       <div className="desktop">
         <nav className="dsk-navbar" role="navigation" aria-label="Menu de navigation">
           <div className="dsk-navbar__left-block">
-            <Link to="/" className="dsk-navbar__logo header">LLLPE</Link>
+            <Link to="/" className="dsk-navbar__logo header">Parlons-en&nbsp;!</Link>
           </div>
           <div className="dsk-navbar__right-block">
             <ul className="dsk-navbar__right-block--list">

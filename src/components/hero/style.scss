@@ -2,15 +2,12 @@
 
 .hero {
   display: flex;
-  // justify-content: space-between;
-  // align-items: center;
   background-color: vars.$dark;
   padding : 2.5em;
   @media (min-width: vars.$tablet) {
-    // align-items: flex-start;
     position: relative;
     z-index: 1;
-    min-height: 400px;
+    min-height: 500px;
   }
 
   &__title {
@@ -24,6 +21,7 @@
   }
 
   &__right-block {
+    display: none;
     @media (min-width: vars.$mobile) {
       width: 50%; 
       display: flex;

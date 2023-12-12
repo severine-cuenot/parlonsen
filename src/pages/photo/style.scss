@@ -1,0 +1,16 @@
+@use '../../styles/vars';
+
+
+.photo {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: vars.$dark;
+    padding : 2.5em;
+  }
+
+  &__header--title {
+    text-align: center;
+  }
+}

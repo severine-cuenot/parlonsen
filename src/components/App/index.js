@@ -1,5 +1,6 @@
 // React import
 import { Route, Routes } from 'react-router-dom';
+import useScrollTop from '../../hooks';
 
 // Pages import
 import Home from '../../pages/Home';
@@ -14,15 +15,18 @@ import Multimedia from '../../pages/multimedia';
 import Podcast from '../../pages/podcast';
 import Video from '../../pages/video';
 import Livret from '../../pages/livret';
+import Photo from '../../pages/photo';
 
 // Components import
 import AppHeader from '../AppHeader';
 import AppFooter from '../AppFooter';
+import ScrollToTop from '../ScrollToTop';
 
 // Import
 import './styles.css';
 
 function App() {
+  useScrollTop();
   return (
     <div className="app">
       <AppHeader />
@@ -35,11 +39,13 @@ function App() {
         <Route path="/multimedia" element={<Multimedia />} />
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/video" element={<Video />} />
-        <Route path="/livrets" element={<Livret />} />
+        <Route path="/ecrit" element={<Livret />} />
+        <Route path="/photo" element={<Photo />} />
         <Route path="/about" element={<About />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/credits" element={<Credits />} />
       </Routes>
+      <ScrollToTop />
       <AppFooter />
     </div>
   );

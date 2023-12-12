@@ -1,0 +1,13 @@
+@use '../../styles/vars';
+
+
+
+.photo {
+  &__wrapper {
+    margin-bottom: 2em;
+    @media (min-width: vars.$mobile) {
+      margin-bottom: 4em;
+    }
+  }
+
+}

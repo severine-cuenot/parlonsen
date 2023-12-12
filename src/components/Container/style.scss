@@ -29,7 +29,7 @@
     }
   }
 
-  &__podcast, &__livret {
+  &__podcast, &__livret, &__photo {
     margin: 2.5em;
     @media (min-width: vars.$mobile) {
       margin: 4em 5em;

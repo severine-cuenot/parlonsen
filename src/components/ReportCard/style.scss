@@ -1,0 +1,18 @@
+@use '../../styles/vars';
+
+
+.oneReport {
+  &__text {
+    margin-bottom: 2.5em;
+    line-height: vars.$lineHeight;
+  }
+  &__text li{
+    margin-bottom: 1em;
+  }
+  &__link {
+    color: vars.$orange;
+  }
+  &__link:hover {
+    font-weight: 700;
+  }
+}

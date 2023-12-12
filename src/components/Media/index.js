@@ -30,7 +30,7 @@ function Media() {
             <div>
               <img src={book} className="media__icon" alt="vidéo" />
             </div>
-            <h3 className="media__title">Livrets</h3>
+            <h3 className="media__title">Ecrits</h3>
           </article>
         </Link>
         <Link to="/podcast" className="media__link">

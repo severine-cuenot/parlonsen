@@ -13,4 +13,27 @@
   &__header--title {
     text-align: center;
   }
+
+   &__section--title {
+    margin: 1em 0;
+    color: vars.$dark;
+    font-size: 2em;
+   } 
+}
+
+.reports {
+  &__section {
+    margin-bottom: 2em;
+    padding: 1em;
+    background-color: vars.$lightGrey;
+    border-radius: vars.$btnRadius;
+    @media (min-width: vars.$mobile) {
+      margin: 2em 0 4em;
+    }
+  }
+  &__header {
+    margin-bottom: 1em;
+    color: vars.$dark;
+    font-size: 2em;
+   }
 }

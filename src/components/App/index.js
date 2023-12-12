@@ -1,5 +1,6 @@
 // React import
 import { Route, Routes } from 'react-router-dom';
+import useScrollTop from '../../hooks';
 
 // Pages import
 import Home from '../../pages/Home';
@@ -25,6 +26,7 @@ import ScrollToTop from '../ScrollToTop';
 import './styles.css';
 
 function App() {
+  useScrollTop();
   return (
     <div className="app">
       <AppHeader />

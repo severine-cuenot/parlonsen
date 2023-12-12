@@ -36,6 +36,7 @@ import audio14 from '../../../public/mp3/201911_exclusions.mp3';
 import audio15 from '../../../public/mp3/202001_regles_lieu.mp3';
 import audio16 from '../../../public/mp3/202002_nouvelles_rue_hiver.mp3';
 import audio17 from '../../../public/mp3/202004_115.mp3';
+import audio18 from '../../../public/mp3/202101_alimentation.mp3';
 
 function OnePodcast() {
   // Player audio1
@@ -182,6 +183,15 @@ function OnePodcast() {
   const progressBar17 = useRef();
   const animationRef17 = useRef();
 
+  // Player audio18
+  const [isPlaying18, setIsPlaying18] = useState(false);
+  const [currentTime18, setCurrentTime18] = useState(0);
+  const [duration18, setDuration18] = useState(0);
+
+  const audioPlayer18 = useRef();
+  const progressBar18 = useRef();
+  const animationRef18 = useRef();
+
   const onLoadedMetadata = (index) => {
     if (index === 1) {
       setDuration1(Math.floor(audioPlayer1.current.duration));
@@ -231,6 +241,9 @@ function OnePodcast() {
     else if (index === 17) {
       setDuration17(Math.floor(audioPlayer17.current.duration));
     }
+    else if (index === 18) {
+      setDuration18(Math.floor(audioPlayer18.current.duration));
+    }
   };
 
   useEffect(() => {
@@ -252,6 +265,7 @@ function OnePodcast() {
     progressBar15.current.max = Math.floor(audioPlayer15.current.duration);
     progressBar16.current.max = Math.floor(audioPlayer16.current.duration);
     progressBar17.current.max = Math.floor(audioPlayer17.current.duration);
+    progressBar18.current.max = Math.floor(audioPlayer18.current.duration);
   }, [
     // Player audio1
     audioPlayer1?.current?.loadedmetadata,
@@ -301,6 +315,9 @@ function OnePodcast() {
     // Player audio17
     audioPlayer17?.current?.loadedmetadata,
     audioPlayer17?.current?.readyState,
+    // Player audio18
+    audioPlayer18?.current?.loadedmetadata,
+    audioPlayer18?.current?.readyState,
   ]);
 
   const calculateTime = (secs) => {
@@ -428,6 +445,13 @@ function OnePodcast() {
         progressBar = progressBar17.current;
         animationRef = animationRef17;
         break;
+      case 18:
+        prevValue = isPlaying18;
+        setIsPlaying18(!prevValue);
+        audioPlayer = audioPlayer18.current;
+        progressBar = progressBar18.current;
+        animationRef = animationRef18;
+        break;
       default:
         break;
     }
@@ -510,6 +534,10 @@ function OnePodcast() {
       case 17:
         audioPlayer = audioPlayer17.current;
         progressBar = progressBar17.current;
+        break;
+      case 18:
+        audioPlayer = audioPlayer18.current;
+        progressBar = progressBar18.current;
         break;
       default:
         break;
@@ -594,6 +622,10 @@ function OnePodcast() {
         audioPlayer = audioPlayer17.current;
         progressBar = progressBar17.current;
         break;
+      case 18:
+        audioPlayer = audioPlayer18.current;
+        progressBar = progressBar18.current;
+        break;
       default:
         break;
     }
@@ -637,6 +669,8 @@ function OnePodcast() {
           return progressBar16.current;
         case 17:
           return progressBar17.current;
+        case 18:
+          return progressBar18.current;
         default:
           return null;
       }
@@ -694,6 +728,9 @@ function OnePodcast() {
         case 17:
           selectedDuration = duration17;
           break;
+        case 18:
+          selectedDuration = duration18;
+          break;
         default:
           break;
       }
@@ -749,6 +786,9 @@ function OnePodcast() {
         case 17:
           setCurrentTime17(progressBar.value);
           break;
+        case 18:
+          setCurrentTime18(progressBar.value);
+          break;
         default:
           break;
       }
@@ -790,6 +830,8 @@ function OnePodcast() {
           return progressBar16.current;
         case 17:
           return progressBar17.current;
+        case 18:
+          return progressBar18.current;
         default:
           return null;
       }
@@ -836,6 +878,8 @@ function OnePodcast() {
           return audioPlayer16.current;
         case 17:
           return audioPlayer17.current;
+        case 18:
+          return audioPlayer18.current;
         default:
           return null;
       }
@@ -875,6 +919,8 @@ function OnePodcast() {
           return progressBar16.current;
         case 17:
           return progressBar17.current;
+        case 18:
+          return progressBar18.current;
         default:
           return null;
       }
@@ -932,6 +978,9 @@ function OnePodcast() {
         case 17:
           selectedDuration = duration17;
           break;
+        case 18:
+          selectedDuration = duration18;
+          break;
         default:
           break;
       }
@@ -947,6 +996,53 @@ function OnePodcast() {
   return (
     <Container>
       <section className="onePodcast">
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Accès à l'alimentation et précarité</h3>
+              <p className="audioPlayer__date">Enregistré en janvier 2021</p>
+            </header>
+            <p>
+              La crise sanitaire révèle les inégalités, voire fait basculer de nouvelles personnes dans la précarité. L'insécurité alimentaire, entre autres, touche les personnes en galère. <br />
+              Quelles sont les expériences vécues lors de ces confinements successifs&nbsp;? <br />
+              Où et comment -bien- manger lorsqu'on est à la rue ou en grande précarité&nbsp;? <br />
+              Quelles initiatives existent, tant du côté des collectifs, des personnes et des associations que des structures d'action sociale à Grenoble&nbsp;? <br />
+              Que voudrait-on changer/imaginer&nbsp;?
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer18} src={audio18} preload="metadata" onLoadedData={() => onLoadedMetadata(18)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(18)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(18)} className="audioPlayer__main-btn">
+                  {isPlaying18 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(18)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime18)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar18} onChange={() => changeRange(18)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration18 && !Number.isNaN(duration18)) && calculateTime(duration18)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(18)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(18)} className="audioPlayer__main-btn">
+                  {isPlaying18 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(18)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">

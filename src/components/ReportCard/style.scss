@@ -2,6 +2,12 @@
 
 
 .oneReport {
+  display: flex;
+  flex-direction: column;
+  @media (min-width: vars.$mobile) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
   &__text {
     margin-bottom: 2.5em;
     line-height: vars.$lineHeight;
@@ -9,10 +15,23 @@
   &__text li{
     margin-bottom: 1em;
   }
+  &__date {
+    color: vars.$dark;
+    font-size: 2em;
+  }
   &__link {
     color: vars.$orange;
   }
   &__link:hover {
     font-weight: 700;
   }
+  &__right-block {
+    @media (min-width: vars.$mobile) {
+      width: 30%;
+    }
+  }
+  &__right-block--img {
+    width: 100%;
+  }
+  
 }

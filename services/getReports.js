@@ -12,6 +12,7 @@ const getReports = async () => {
       handle
       height
       width
+      date
     }
   }
   

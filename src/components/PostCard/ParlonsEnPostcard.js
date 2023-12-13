@@ -17,7 +17,7 @@ function ParlonsEnPostCard({ posts }) {
       const dateB = new Date(b.node.dateArticle);
 
       // Comparer les dates
-      return dateA - dateB;
+      return dateB - dateA; // Tri décroissant (plus récent en haut)
     });
 
   // change the dateArticle format
@@ -33,8 +33,10 @@ function ParlonsEnPostCard({ posts }) {
         <div key={parlonsen.node.slug}>
           <header className="post__title">
             {parlonsen.node.titre}
-            <div>{formatDate(parlonsen.node.dateArticle)}</div>
           </header>
+          <div className="post__date">
+            Article du {formatDate(parlonsen.node.dateArticle)}
+          </div>
           <div className="post__excerpt">
             {parlonsen.node.extrait}
           </div>
@@ -44,6 +46,10 @@ function ParlonsEnPostCard({ posts }) {
 
             <RichText
               content={parlonsen.node.contenu.raw}
+              renderers={{
+                bold: ({ children }) => <span className="strong">{children}</span>,
+                italic: ({ children }) => <span className="italic">{children}</span>,
+              }}
             />
             {/* Boucle pour afficher les fichiers */}
             {parlonsen.node.fichier && parlonsen.node.fichier.map((fichier) => (

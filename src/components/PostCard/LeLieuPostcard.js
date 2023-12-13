@@ -9,14 +9,33 @@ import { RichText } from '@graphcms/rich-text-react-renderer';
 import './style.scss';
 
 function LeLieuPostcard({ posts }) {
-  const leLieuPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Le Lîeu'));
+  const leLieuPosts = posts
+    .filter((post) => post.node.categories.some((category) => category.nom === 'Le Lîeu'))
+    .sort((a, b) => {
+      // Convertir les dates en objets Date pour la comparaison
+      const dateA = new Date(a.node.dateArticle);
+      const dateB = new Date(b.node.dateArticle);
+
+      // Comparer les dates
+      return dateB - dateA; // Tri décroissant (plus récent en haut)
+    });
+
+  // change the dateArticle format
+  const formatDate = (rawDate) => {
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    const formattedDate = new Date(rawDate).toLocaleDateString('fr-FR', options);
+    return formattedDate;
+  };
 
   return (
     <article className="post__block">
       {leLieuPosts.map((lieu) => (
         <div key={lieu.node.slug}>
-          <div className="post__title">
+          <header className="post__title">
             {lieu.node.titre}
+          </header>
+          <div className="post__date">
+            Article du {formatDate(lieu.node.dateArticle)}
           </div>
           <div className="post__excerpt">
             {lieu.node.extrait}
@@ -27,6 +46,10 @@ function LeLieuPostcard({ posts }) {
 
             <RichText
               content={lieu.node.contenu.raw}
+              renderers={{
+                bold: ({ children }) => <span className="strong">{children}</span>,
+                italic: ({ children }) => <span className="italic">{children}</span>,
+              }}
             />
             {/* Boucle pour afficher les fichiers */}
             {lieu.node.fichier && lieu.node.fichier.map((fichier) => (

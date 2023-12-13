@@ -5,7 +5,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 const getReports = async () => {
   const query = gql`
   query MyQuery {
-    assets(where: {compteRendu: true}) {
+    assets(where: {compteRendu: true} first: 1000) {
       id
       nomDuFichier
       url

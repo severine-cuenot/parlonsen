@@ -39,11 +39,11 @@ function Livret() {
       <Container className="container__livret">
         <section>
           <article>
-            <header className="livret__section--title">Nos livrets</header>
+            <header className="livret__section--title header">Nos livrets</header>
             <LivretCard />
           </article>
           <article className="reports__section">
-            <header className="reports__header">Nos comptes-rendus</header>
+            <header className="reports__header header">Nos comptes-rendus</header>
             <ReportCard reports={reportsList} />
           </article>
           <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="video1" /></Link>

@@ -10,14 +10,14 @@
   }
   &__text {
     margin-bottom: 2.5em;
+  }
+  &__li{
     line-height: vars.$lineHeight;
   }
-  &__text li{
-    margin-bottom: 1em;
-  }
   &__date {
+    margin-bottom: 0.5em;
     color: vars.$dark;
-    font-size: 2em;
+    font-size: 1.3em;
   }
   &__link {
     color: vars.$orange;

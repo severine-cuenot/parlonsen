@@ -17,6 +17,12 @@
     margin-bottom: 1em;
   }
 
+  &__date {
+    font-size: 1em;
+    color: vars.$lightGrey;
+    margin-bottom: 1em;
+  }
+
   &__excerpt {
     font-weight: 700;
     line-height: vars.$lineHeight;

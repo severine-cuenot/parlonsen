@@ -9,14 +9,33 @@ import { RichText } from '@graphcms/rich-text-react-renderer';
 import './style.scss';
 
 function ParlonsEnPostCard({ posts }) {
-  const parlonsEnPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Parlons-en'));
+  const parlonsEnPosts = posts
+    .filter((post) => post.node.categories.some((category) => category.nom === 'Parlons-en'))
+    .sort((a, b) => {
+      // Convertir les dates en objets Date pour la comparaison
+      const dateA = new Date(a.node.dateArticle);
+      const dateB = new Date(b.node.dateArticle);
+
+      // Comparer les dates
+      return dateB - dateA; // Tri décroissant (plus récent en haut)
+    });
+
+  // change the dateArticle format
+  const formatDate = (rawDate) => {
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    const formattedDate = new Date(rawDate).toLocaleDateString('fr-FR', options);
+    return formattedDate;
+  };
 
   return (
     <article className="post__block">
       {parlonsEnPosts.map((parlonsen) => (
         <div key={parlonsen.node.slug}>
-          <div className="post__title">
+          <header className="post__title">
             {parlonsen.node.titre}
+          </header>
+          <div className="post__date">
+            Article du {formatDate(parlonsen.node.dateArticle)}
           </div>
           <div className="post__excerpt">
             {parlonsen.node.extrait}
@@ -27,6 +46,10 @@ function ParlonsEnPostCard({ posts }) {
 
             <RichText
               content={parlonsen.node.contenu.raw}
+              renderers={{
+                bold: ({ children }) => <span className="strong">{children}</span>,
+                italic: ({ children }) => <span className="italic">{children}</span>,
+              }}
             />
             {/* Boucle pour afficher les fichiers */}
             {parlonsen.node.fichier && parlonsen.node.fichier.map((fichier) => (

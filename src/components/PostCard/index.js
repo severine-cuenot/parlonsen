@@ -2,26 +2,40 @@
 /* eslint-disable react/no-array-index-key */
 
 // React imports
-// import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { RichText } from '@graphcms/rich-text-react-renderer';
-// import Lightbox from 'react-awesome-lightbox';
-// import 'react-awesome-lightbox/build/style.css';
-// import ModalImage from 'react-modal-image';
 
 // imports
 import './style.scss';
 
 function PostCard({ posts }) {
-  console.log('How many post do I have before filter:', posts);
-  const unipopiaPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Unipopia'));
+  const unipopiaPosts = posts
+    .filter((post) => post.node.categories.some((category) => category.nom === 'Unipopia'))
+    .sort((a, b) => {
+      // Convertir les dates en objets Date pour la comparaison
+      const dateA = new Date(a.node.dateArticle);
+      const dateB = new Date(b.node.dateArticle);
+
+      // Comparer les dates
+      return dateB - dateA; // Tri décroissant (plus récent en haut)
+    });
+
+  // change the dateArticle format
+  const formatDate = (rawDate) => {
+    const options = { month: 'long', day: 'numeric', year: 'numeric' };
+    const formattedDate = new Date(rawDate).toLocaleDateString('fr-FR', options);
+    return formattedDate;
+  };
 
   return (
     <article className="post__block">
       {unipopiaPosts.map((unipopia) => (
         <div key={unipopia.node.slug}>
-          <div className="post__title">
+          <header className="post__title">
             {unipopia.node.titre}
+          </header>
+          <div className="post__date">
+            Article du {formatDate(unipopia.node.dateArticle)}
           </div>
           <div className="post__excerpt">
             {unipopia.node.extrait}

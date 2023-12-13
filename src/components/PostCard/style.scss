@@ -37,6 +37,11 @@
       padding-bottom: 3em;
     }
   }
+  &__content-h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: vars.$lineHeight;
+  }
 
   &__content p {
     margin-bottom: 1.5em;

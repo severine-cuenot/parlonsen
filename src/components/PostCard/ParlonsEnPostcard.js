@@ -49,6 +49,7 @@ function ParlonsEnPostCard({ posts }) {
               renderers={{
                 bold: ({ children }) => <span className="strong">{children}</span>,
                 italic: ({ children }) => <span className="italic">{children}</span>,
+                h3: ({ children }) => <span className="post__content-h3">{children}</span>,
               }}
             />
             {/* Boucle pour afficher les fichiers */}

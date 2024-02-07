@@ -41,6 +41,7 @@ function AppHeader() {
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="lieu">Le Lîeu</NavLink></li>
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="unipopia">Unipopia</NavLink></li>
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="multimedia">Multimédia</NavLink></li>
+            <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="coeur">&#10084;</NavLink></li>
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="about">Contact</NavLink></li>
           </ul>
         </nav>
@@ -56,6 +57,7 @@ function AppHeader() {
               <li className="dsk-navbar__right-block--element"><NavLink to="lieu" activeclassname="active">Le Lîeu</NavLink></li>
               <li className="dsk-navbar__right-block--element"><NavLink to="unipopia" activeclassname="active">Unipopia</NavLink></li>
               <li className="dsk-navbar__right-block--element"><NavLink to="multimedia" activeclassname="active">Multimédia</NavLink></li>
+              <li className="dsk-navbar__right-block--element"><NavLink to="coeur">&#10084;</NavLink></li>
               <li className="dsk-navbar__right-block--element"><NavLink to="about" activeclassname="active">Contact</NavLink></li>
             </ul>
           </div>

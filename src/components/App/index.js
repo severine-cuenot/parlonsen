@@ -16,6 +16,7 @@ import Podcast from '../../pages/podcast';
 import Video from '../../pages/video';
 import Livret from '../../pages/livret';
 import Photo from '../../pages/photo';
+import Coeur from '../../pages/coeur';
 
 // Components import
 import AppHeader from '../AppHeader';
@@ -44,6 +45,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/credits" element={<Credits />} />
+        <Route path="/coeur" element={<Coeur />} />
       </Routes>
       <ScrollToTop />
       <AppFooter />

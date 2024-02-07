@@ -10,4 +10,49 @@
     padding: 1.5em 0;
     background-image: url(../../../public/img/reunion.jpg);
   }
+  &__main-block {
+    color: vars.$dark;
+    margin-bottom: 2em;
+    padding: 1em;
+    background-color: vars.$lightGrey;
+    border-radius: vars.$btnRadius;
+    line-height: vars.$lineHeight;
+    @media (min-width: vars.$mobile) {
+      margin: 2em 0 4em;
+      padding: 2em;
+    }
+  }
+  &__nav ul, &__article ul {
+    margin-bottom: 2em;
+  }
+
+  &__nav-link {
+    color: vars.$orange;
+  }
+
+  &__nav-link:hover {
+    font-weight: 700;
+  }
+
+  &__article--img {
+    float: left;
+    margin: 0 2em 2em 0;
+  }
+
+  &__article--img2 {
+    float: right;
+    margin: 0 0 2em 2em;
+  }
+
+  &__article h2 {
+    margin-bottom: 1em;
+  }
+
+  &__article p {
+    margin-bottom: 1.5em;
+  }
+
+  &__article li {
+    list-style: inside;
+  }
 }

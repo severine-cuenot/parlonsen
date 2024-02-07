@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 // imports
 import './style.scss';
-import reuImg from '../../../public/img/dessinparlonsen.jpg';
+import reuImg from '../../../public/img/dessin_parlonsen_transparent.png';
+
 
 function ReportCard({ reports }) {
   // checking dates of my reports to filter and map them

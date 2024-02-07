@@ -24,14 +24,21 @@
   }
   &__link:hover {
     font-weight: 700;
+  } 
+  &__left-block {
+    @media (min-width: vars.$mobile) {
+      margin-left: 2em;
+    }
   }
   &__right-block {
     @media (min-width: vars.$mobile) {
       width: 30%;
-    }
+        margin-right: 3em;
+      }
   }
   &__right-block--img {
     width: 100%;
+    
   }
   
 }

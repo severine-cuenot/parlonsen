@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import './style.scss';
 import reuImg from '../../../public/img/dessin_parlonsen_transparent.png';
 
+
 function ReportCard({ reports }) {
   // checking dates of my reports to filter and map them
   const reportsYear = [...new Set(reports.map((report) => report.date))];

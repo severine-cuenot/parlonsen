@@ -14,7 +14,7 @@
     font-size: 3em;
     margin-bottom: 0.5em;
     @media (min-width: vars.$mobile) {
-      font-size: 6em;
+      font-size: 5em;
       margin-top: 0.5em;
     }
   }
@@ -41,7 +41,10 @@
   &__left-block { 
     @media (min-width: vars.$mobile) {
       width: 60%; 
-      margin-right: 1em;
+      margin-right: 2em;
+      display: flex;
+      flex-direction: column;
+      justify-content:baseline;
     }
   } 
 } 

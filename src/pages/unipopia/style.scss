@@ -8,7 +8,8 @@
     justify-content: center;
     align-items: center;
     padding: 1.5em 0;
-    background-image: url(../../../public/img/reunion.jpg);
+    background-color: vars.$dark;
+    // background-image: url(../../../public/img/reunion.jpg);
   }
   &__main-block {
     color: vars.$dark;
@@ -23,11 +24,11 @@
     }
   }
 
-  &__nav-link {
+  &__link {
     color: vars.$orange;
   }
 
-  &__nav-link:hover {
+  &__link:hover {
     font-weight: 700;
   }
 
@@ -47,6 +48,15 @@
 
   &__article p {
     margin-bottom: 1.5em;
+  }
+
+  &__article ul {
+    margin-bottom: 2em;
+    margin-left: 2em;
+  }
+
+  &__article li {
+    list-style: inside;
   }
 
   &__article--img-left {

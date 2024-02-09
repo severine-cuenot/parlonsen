@@ -51,49 +51,35 @@ function Unipopia() {
               Trois jours de rencontres ont eu lieu à Grenoble, au Lîeu des Habitant-e-s de la rue et de la ville (Association Parlons-en)&nbsp;: "Rencontre des précaires d’ici et d'ailleurs&nbsp;: Comment des précaires ont inventé d'autres manières de faire pendant la crise sanitaire". Quinze groupes de France et de Belgique ont échangé autour de leurs actions, et ont imaginé le lancement d'une Université Populaire pour poursuivre l'aventure.
             </p>
             <p>
-              Vous retrouverez sur cette page le début de l'aventure. RDV sur www.unipopia.org ou sur contact@unipopia.org pour les nouvelles&nbsp;!
+              Vous retrouverez sur cette page le début de l'aventure. RDV sur <a href="https://unipopia.org/" target="_blank" className="unipopia__link" rel="noreferrer">www.unipopia.org</a> ou sur <a href="mailto:contact@unipopia.org" target="_blank" className="unipopia__link" rel="noreferrer">contact@unipopia.org</a> pour les nouvelles&nbsp;!
             </p>
             <h2 className="header">Les groupes</h2>
-
-            Y participent aujourd’hui: 
-
-            Terrain d’Entente (Saint Etienne) 
-
-            D-Base (Drôme) 
-
-            Parlons-en (Grenoble) 
-
-            Mme RueTabaga (Grenoble) 
-
-            Street Reporters (Lyon) 
-
-            Résidence de demain (Paris) 
-
-            Après-M (Marseille) 
-
-            Amelior (Montreuil) 
-
-            CHO3 (Marseille) 
-
-            Coeurs Résistants (Rennes) 
-
-            C Prévu (Charleroi, Belgique) 
-
-            UNIPOPIA est financée par la Fondation Abbé Pierre et accompagnée par Periferia 
-
-            LES ACTIONS 
-
-            En 2022, L’Université a cheminé autour de groupes thématiques de recherche: La Cabane (Rue, squat, logement); La Cagnotte (travail et rémunération); La FourchEtte (accès à une alimentation digne); et le Cybercafé (Fracture numérique). Chaque groupe se réunit en «virtuel» tous les mois. 
-
-            Des rencontres physiques ont été organisées : 
-
-            • «Sortir de la charité: comment accéder à une alimentation digne?» à Saint-Etienne, 
-
-            • «De l’hébergement imposé à l’habitat choisi» à Lyon, 
-
-            • «De la survie à la vie: travail et reconnaissance des capacités» à Bobigny, 
-
-            • «Territoire, économie, entraide» à Marseille.
+            <p>Y participent aujourd'hui&nbsp;:</p>
+            <ul>
+              <li>Terrain d'Entente (Saint Etienne)</li>
+              <li>D-Base (Drôme)</li>
+              <li>Parlons-en (Grenoble)</li>
+              <li>Mme RueTabaga (Grenoble)</li>
+              <li>Street Reporters (Lyon)</li>
+              <li>Résidence de demain (Paris)</li>
+              <li>Après-M (Marseille)</li>
+              <li>Amelior (Montreuil)</li>
+              <li>CHO3 (Marseille)</li>
+              <li>Coeurs Résistants (Rennes)</li>
+              <li>C Prévu (Charleroi, Belgique)</li>
+            </ul>
+            <p>UNIPOPIA est financée par la Fondation Abbé Pierre et accompagnée par Periferia.</p>
+            <h2 className="header">Les Actions</h2>
+            <p>
+              En 2022, L'Université a cheminé autour de groupes thématiques de recherche&nbsp;: La Cabane (Rue, squat, logement)&nbsp;; La Cagnotte (travail et rémunération)&nbsp;; La FourchEtte (accès à une alimentation digne)&nbsp;; et le Cybercafé (Fracture numérique). Chaque groupe se réunit en "virtuel" tous les mois.
+            </p>
+            <p>Des rencontres physiques ont été organisées&nbsp;:</p>
+            <ul>
+              <li>"Sortir de la charité&nbsp;: comment accéder à une alimentation digne&nbsp;?" à Saint-Etienne,</li>
+              <li>"De l'hébergement imposé à l'habitat choisi" à Lyon,</li>
+              <li>"De la survie à la vie&nbsp;: travail et reconnaissance des capacités" à Bobigny,</li>
+              <li>"Territoire, économie, entraide" à Marseille.</li>
+            </ul>
           </article>
         </section>
         <PostCard posts={postList} />

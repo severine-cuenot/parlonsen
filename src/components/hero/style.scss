@@ -13,17 +13,21 @@
   &__title {
     font-size: 3em;
     margin-bottom: 0.5em;
+    @media (min-width: vars.$mobile) {
+      font-size: 6em;
+      margin-top: 0.5em;
+    }
   }
 
   &__text {
-    font-size: 1.3em;
+    font-size: 1.5em;
     margin-bottom: 1.3em;
   }
 
   &__right-block {
     display: none;
     @media (min-width: vars.$mobile) {
-      width: 50%; 
+      width: 40%; 
       display: flex;
       align-items:center;
       justify-content: center;
@@ -36,7 +40,8 @@
 
   &__left-block { 
     @media (min-width: vars.$mobile) {
-      width: 50%; 
+      width: 60%; 
+      margin-right: 1em;
     }
   } 
 } 

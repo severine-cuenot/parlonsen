@@ -32,7 +32,7 @@
   }
 
   &__article {
-    margin-bottom: 3.5em;
+    margin-bottom: 2.5em;
   }
 
   &__article h2 {
@@ -51,7 +51,7 @@
 
   &__article--img-left {
     margin:auto;
-    padding-bottom: 1em;
+    // padding-bottom: 1em;
     width: 100%;
     @media (min-width: vars.$mobile) {
     float: left;
@@ -65,7 +65,7 @@
   @media (min-width: vars.$mobile) {
     display: block;
     width:70%;
-    max-width: 75%;
+    max-width: 60%;
     margin:auto;
   }
 }

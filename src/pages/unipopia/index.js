@@ -11,6 +11,7 @@ import Header from '../../components/CategoriesHeader';
 
 // Imports
 import getPosts from '../../../services/getPosts';
+import nom from '../../../public/img/unipopia_nom.png';
 import './style.scss';
 
 function Unipopia() {
@@ -39,6 +40,7 @@ function Unipopia() {
       <Container className="container__unipopia">
         <section className="unipopia__main-block">
           <article className="unipopia__article">
+            <img src={nom} alt="Photos des rencontres" className="unipopia__article--img-left" />
             <p>
               L'UNIVERSITÉ POPULAIRE D'ICI ET D'AILLEURS permet la rencontre entre des groupes portés par des personnes précaires qui tentent de sortir de l'urgence et de changer les choses. Croiser des récits, des personnes et des parcours; mettre en lumière la diversité des manières d'agir, de s'organiser et de créer selon les territoires et les histoires. Affirmer les capacités que nous développons quand nous subissons la survie et la précarité. Se revendiquer chercheuses et chercheurs populaires&nbsp;!
             </p>

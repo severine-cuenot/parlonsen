@@ -64,7 +64,7 @@ function Parlonsen() {
           </nav>
 
           <article className="parlonsen__article">
-            <img src={banSinges} alt="Parlons-en !" className="parlonsen__article--img" />
+            <img src={banSinges} alt="Parlons-en !" className="parlonsen__article--img-left img-rounded" />
             <p>
               Le Parlons-en est un espace de débat rassemblant les personnes concernées par les questions de la grande précarité&nbsp;: habitant-es de la rue, associations, acteurs sociaux,  institutions, élu-es… Originaire de Charleroi en Belgique, en 2000, il a été mis en place à Grenoble en 2009. Animé par l'association arpenteurs jusqu'en 2o15, il est aujourd'hui porté par l'association "Parlons-en".
             </p>
@@ -77,7 +77,7 @@ function Parlonsen() {
               <li>Pour créer d'autres liens entre les différents acteurs qui agissent contre la précarité</li>
               <li>Pour faire évoluer les politiques publiques en matière de participation et de lutte contre la précarité.</li>
             </ul>
-            <img src={imgPlaquettes} alt="Photos des rencontres" className="parlonsen__article--img2" />
+            <img src={imgPlaquettes} alt="Photos des rencontres" className="parlonsen__article--img-right" />
             <h2 className="header">Comment se déroulent les rencontres&nbsp;?</h2>
             <ul>
               <li><span className="strong">Petit déjeuner</span>&nbsp;: on se rencontre autour du café</li>

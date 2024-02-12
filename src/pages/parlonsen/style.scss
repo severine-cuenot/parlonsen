@@ -34,18 +34,30 @@
     font-weight: 700;
   }
 
-  &__article--img {
+  &__article--img-left {
+    margin:auto;
+    // padding-bottom: 1em;
+    width: 100%;
+    @media (min-width: vars.$mobile) {
     float: left;
     margin: 0 2em 2em 0;
+    width: 35%;
   }
-
-  &__article--img2 {
+}
+&__article--img-right {
+    margin:auto;
+    padding-bottom: 1em;
+    width: 100%;
+    @media (min-width: vars.$mobile) {
     float: right;
-    margin: 0 0 2em 2em;
+    margin: 0 2em 2em 0;
+    width: auto;
   }
+}
 
   &__article h2 {
     margin-bottom: 1em;
+    line-height: vars.$lineHeight;
   }
 
   &__article p {

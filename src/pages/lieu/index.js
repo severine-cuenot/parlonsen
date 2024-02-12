@@ -13,6 +13,8 @@ import Header from '../../components/CategoriesHeader';
 import getPosts from '../../../services/getPosts';
 import planLieu from '../../../public/img/lieu_plan.png';
 import projets from '../../../public/img/DessinCoquille.png';
+import toutou from '../../../public/img/toutoupanier.jpg';
+
 import './style.scss';
 
 function Lieu() {
@@ -44,7 +46,7 @@ function Lieu() {
         <section className="lieu__main-block">
           <article className="lieu__article">
             <h2 className="header">Le Lîeu, c'est quoi&nbsp;? </h2>
-            <img src={planLieu} alt="Le plan du Lîeu" className="lieu__article--img-left" />
+            <img src={planLieu} alt="Le plan du Lîeu" className="lieu__article--img-left img-rounded" />
             <p>
               "Le Lîeu des Habitant·es de la Rue et de la Ville" est un espace d'accueil, de rencontre et de fabrication visant à permettre l'émergence de projets collectifs portés par des personnes de tous horizons.
             </p>
@@ -108,6 +110,7 @@ function Lieu() {
             <p>
               Le Lîeu respecte l'anonymat des personnes ne désirant pas donner leur identité. Il garantit aux personnes la confdentialité sur leurs paroles ou comportements.
             </p>
+            <img src={toutou} alt="Le plan du Lîeu" className="lieu__article--img-center img-rounded" />
           </article>
         </section>
         <LeLieuPostcard posts={postList} />

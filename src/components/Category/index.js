@@ -21,7 +21,7 @@ function Category() {
           </div>
           <div>
             <h2 className="oneCategory__title">Le Parlons-en</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
+            <p>Le Parlons-en est un espace de débat rassemblant les personnes concernées par les questions de la grande précarité&nbsp;: habitant-es de la rue, associations, acteurs sociaux, institutions, élu-es...</p>
           </div>
           <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
         </article>

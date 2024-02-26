@@ -14,6 +14,7 @@ import getPosts from '../../../services/getPosts';
 import planLieu from '../../../public/img/lieu_plan.png';
 import projets from '../../../public/img/DessinCoquille.png';
 import toutou from '../../../public/img/toutoupanier.jpg';
+import calendar from '../../../public/img/calendar.png';
 
 import './style.scss';
 
@@ -111,6 +112,14 @@ function Lieu() {
               Le Lîeu respecte l'anonymat des personnes ne désirant pas donner leur identité. Il garantit aux personnes la confdentialité sur leurs paroles ou comportements.
             </p>
             <img src={toutou} alt="Le plan du Lîeu" className="lieu__article--img-center img-rounded" />
+          </article>
+          <article className="lieu__article">
+            <h2 className="header">Accédez à notre calendrier </h2>
+            <p>
+              Pour télécharger le calendrier, <a href="https://framagenda.org/remote.php/dav/public-calendars/HCYYTSQZWAQHT07R/?export" target="_blank" rel="noreferrer">cliquez ici</a>.<br />
+              Pour y accéder directement en ligne, <a href="https://framagenda.org/apps/calendar/p/HCYYTSQZWAQHT07R/dayGridMonth/now" target="_blank" rel="noreferrer">cliquez ici</a>.
+            </p>
+            <img src={calendar} alt="L'agenda des événements" className="lieu__article--img-center img-rounded" />
           </article>
         </section>
         <LeLieuPostcard posts={postList} />

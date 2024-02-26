@@ -16,6 +16,7 @@ import pdf1 from '../../../public/pdf/parlonsen-recit-pm2020-1.pdf';
 import './style.scss';
 import banSinges from '../../../public/img/ban_singes.jpg';
 import imgPlaquettes from '../../../public/img/mini_plaquettes_parlonsen.png';
+// import parlonsEn from '../../../public/img/parlent.png';
 import plaquette from '../../../public/pdf/plaquetteparlonsen_web.pdf';
 
 function Parlonsen() {

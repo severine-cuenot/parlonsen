@@ -21,7 +21,7 @@ function Category() {
           </div>
           <div>
             <h2 className="oneCategory__title">Le Parlons-en</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
+            <p>Le Parlons-en est un espace de débat rassemblant les personnes concernées par les questions de la grande précarité&nbsp;: habitant-es de la rue, associations, acteurs sociaux, institutions, élu-es...</p>
           </div>
           <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
         </article>
@@ -33,7 +33,7 @@ function Category() {
           </div>
           <div>
             <h2 className="oneCategory__title">Le Lîeu</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
+            <p>"Le Lîeu des Habitant·es de la Rue et de la Ville" est un espace d'accueil, de rencontre et de fabrication visant à permettre l'émergence de projets collectifs portés par des personnes de tous horizons.</p>
           </div>
           <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
         </article>
@@ -45,7 +45,7 @@ function Category() {
           </div>
           <div>
             <h2 className="oneCategory__title">Unipopia</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus, assumenda? Beatae atque quos rerum amet, iusto facere officiis veritatis nam eaque officia error! Dicta numquam illum, voluptatem voluptatibus animi repellat.</p>
+            <p>L'UNIVERSITÉ POPULAIRE D'ICI ET D'AILLEURS permet la rencontre entre des groupes portés par des personnes précaires qui tentent de sortir de l'urgence et de changer les choses.</p>
           </div>
           <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
         </article>

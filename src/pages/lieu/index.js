@@ -116,10 +116,10 @@ function Lieu() {
           <article className="lieu__article">
             <h2 className="header">Accédez à notre calendrier </h2>
             <p>
-              Pour télécharger le calendrier, <a href="https://framagenda.org/remote.php/dav/public-calendars/HCYYTSQZWAQHT07R/?export" target="_blank" rel="noreferrer">cliquez ici</a>.<br />
-              Pour y accéder directement en ligne, <a href="https://framagenda.org/apps/calendar/p/HCYYTSQZWAQHT07R/dayGridMonth/now" target="_blank" rel="noreferrer">cliquez ici</a>.
+              Pour télécharger le calendrier, <a href="https://framagenda.org/remote.php/dav/public-calendars/HCYYTSQZWAQHT07R/?export" target="_blank" rel="noreferrer" className="lieu__nav-link">cliquez ici</a>.<br />
+              Pour y accéder directement en ligne, <a href="https://framagenda.org/apps/calendar/p/HCYYTSQZWAQHT07R/dayGridMonth/now" target="_blank" rel="noreferrer" className="lieu__nav-link">cliquez ici</a>.
             </p>
-            <img src={calendar} alt="L'agenda des événements" className="lieu__article--img-center img-rounded" />
+            <a href="https://framagenda.org/apps/calendar/p/HCYYTSQZWAQHT07R/dayGridMonth/now" target="_blank" rel="noreferrer" title="Cliquez ici pour accéder à l'agenda en ligne"><img src={calendar} alt="L'agenda des événements" className="lieu__article--img-center img-rounded" /></a>
           </article>
         </section>
         <LeLieuPostcard posts={postList} />

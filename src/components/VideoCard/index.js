@@ -25,6 +25,18 @@ function VideoCard({ posts }) {
               renderers={{
                 bold: ({ children }) => <span className="strong">{children}</span>,
                 italic: ({ children }) => <span className="italic">{children}</span>,
+                link: ({ children }) => (
+                  <div className="post__video">
+                    <iframe
+                      className="post__video-block"
+                      src={children}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={video.node.titre}
+                      loading="lazy"
+                    />
+                  </div>
+                ),
               }}
             />
             <div className="post__video">

@@ -4,14 +4,11 @@
   &__block {
     color: vars.$dark;
     display: flex;
-    flex-direction: column;
-    @media (min-width: vars.$tablet) {
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  &__videoCard {
+   &__videoCard {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -19,10 +16,20 @@
     border: 1px solid vars.$lightGrey;
     border-radius: vars.$btnRadius;
     padding: 1.5em;
-  @media (min-width: vars.$tablet) {
-    width: 47%;
-    justify-content: center;
-    margin: 1em;
+
+    @media (min-width: 1100px) {
+      width: calc(50% - 0.75em); /* 50% de largeur avec une marge de 0.75em entre les éléments */
+      margin-right: 1.5em; /* Marge à droite pour les éléments à partir du deuxième */
+      &:nth-child(2n) {
+        margin-right: 0; /* Annuler la marge à droite pour les éléments pairs */
+      }
+    }
+
+    @media (max-width: 1100px) {
+      width: calc(100% - 1.5em); /* 100% de largeur avec une marge de 0.75em de chaque côté */
+      margin-right: 0; 
+      margin-left: 0.75em; 
+      margin-bottom: 1.5em; 
     }
   }
 

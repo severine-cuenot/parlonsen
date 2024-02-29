@@ -3,19 +3,35 @@
 .post {
   &__block {
     color: vars.$dark;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: vars.$tablet) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
 
-  &__inner-block {
-      margin-bottom: 1em;
+  &__videoCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5em;
+    border: 1px solid vars.$lightGrey;
+    border-radius: vars.$btnRadius;
+    padding: 1.5em;
+  @media (min-width: vars.$tablet) {
+    width: 47%;
+    justify-content: center;
+    margin: 1em;
+    }
   }
 
-  &__title {
-    font-size: 1.5em;
-    font-weight: 700;
-    margin-bottom: 1em;
+  &__videoCardTitle {
+    font-size: 1.3em;
+    margin-bottom: 0.6em;
   }
 
-  &__content {
+  &__videoCardContent {
     display: flex;
     flex-direction: column;
     padding-bottom: 0;
@@ -24,11 +40,11 @@
     }
   }
 
-  &__content p {
+  &__videoCardContent p {
     margin-bottom: 1.5em;
   }
 
-  &__content img {
+  &__videoCardContent img {
     display: block;
     margin: auto;
     width: 80%;
@@ -41,11 +57,11 @@
     }
   }
 
-  &__content a {
+  &__videoCardContent a {
     color: vars.$orange;
   }
   
-  &__content blockquote {
+  &__videoCardContent blockquote {
     margin-left: 1.5em;
     font-style: italic;
     color: vars.$grey;
@@ -54,7 +70,7 @@
     }
   }
 
-  &__content ul, &__content ol {
+  &__videoCardContent ul, &__videoCardContent ol {
     margin-left: 2em;
     line-height: vars.$lineHeight;
     @media (min-width: vars.$tablet) {
@@ -62,15 +78,15 @@
     }
   }
 
-   &__content ol > li {
+   &__videoCardContent ol > li {
     list-style:decimal;
   }
 
-   &__content ul > li {
+   &__videoCardContent ul > li {
     list-style: disc;
   }
 
-  &__excerpt {
+  &__video {
     display: flex;
     justify-content: center;
     @media (min-width: vars.$mobile) {
@@ -84,8 +100,8 @@
     height: 100%;
     width: 100%;
     @media (min-width: vars.$mobile) {
-      height: 40%;
-      width: 40%;
+      height: 100%;
+      width: 100%;
     }
   }
 }

@@ -33,7 +33,7 @@ function Photo() {
   return (
     <Page>
       <header className="photo__header">
-        <h1 className="photo__header--title header">Photos</h1>
+        <h1 className="photo__header--title header">Images</h1>
       </header>
       <Container className="container__photo">
         <section>

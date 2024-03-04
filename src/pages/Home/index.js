@@ -10,8 +10,8 @@ function Home() {
     <Page>
       <Hero />
       <Category />
-      <Feed1 />
       <Media />
+      <Feed1 />
     </Page>
   );
 }

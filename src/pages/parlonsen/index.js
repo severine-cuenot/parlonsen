@@ -2,7 +2,7 @@
 // React imports
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
+// import { HashLink } from 'react-router-hash-link';
 
 // Components imports
 import ParlonsEnPostCard from '../../components/PostCard/ParlonsEnPostcard';
@@ -49,14 +49,19 @@ function Parlonsen() {
           <nav className="parlonsen__nav">
             <ul>
               <li>
-                &diams; Pour télécharger en PDF un récit retraçant l'histoire et les enjeux du Parlons-en sur 10&nbsp;ans&nbsp;: <br />
-                <a href={pdf1} className="parlonsen__nav-link" target="_blank" rel="noreferrer"><span className="underline">Le Parlons-en – Récit d'une odyssée improbable</span> – 2008/2020. Un livre de Pierre Mahey</a>
+                &diams; Pour télécharger en PDF un récit retraçant l'histoire et les enjeux du Parlons-en sur 10&nbsp;ans&nbsp;: <a href={pdf1} className="parlonsen__nav-link" target="_blank" rel="noreferrer"><span className="underline">Le Parlons-en – Récit d'une odyssée improbable</span> – 2008/2020. Un livre de Pierre Mahey</a>
               </li>
-              <li>
+              {/* <li>
                 &diams; Pour les dates et thèmes des prochaines rencontres, <HashLink to="/parlonsen#newsParlonsEn" className="parlonsen__nav-link">Cliquez ici</HashLink>.
-              </li>
+              </li> */}
               <li>
                 &diams; Pour les comptes-rendus, <Link to="/ecrit" className="parlonsen__nav-link">c'est ici</Link>.
+              </li>
+              <li>
+                &diams; Pour les podcasts Parlons-en, <Link to="/podcast" className="parlonsen__nav-link">c'est ici</Link>.
+              </li>
+              <li>
+                &diams; Et pour les dernières actualités, <a href={pdf1} className="parlonsen__nav-link" target="_blank" rel="noreferrer">c'est sur Facebook</a>.
               </li>
               <li>
                 &diams; Télécharger la plaquette <a href={plaquette} className="parlonsen__nav-link">ici</a>.

@@ -7,7 +7,7 @@ import Button from '../Button';
 
 // Imports
 import './style.scss';
-import card1 from '../../../public/img/reunion.png';
+import card1 from '../../../public/img/thumb_unipopia.png';
 import card2 from '../../../public/img/lieu.png';
 import card3 from '../../../public/img/parlonsen.png';
 
@@ -41,11 +41,11 @@ function Category() {
       <Link to="/unipopia" className="oneCategory zoom">
         <article>
           <div>
-            <img src={card1} alt="Illustration de nos réuions" className="oneCategory__img" />
+            <img src={card1} alt="Illustration de nos réunions" className="oneCategory__img" />
           </div>
           <div>
             <h2 className="oneCategory__title">Unipopia</h2>
-            <p>L'UNIVERSITÉ POPULAIRE D'ICI ET D'AILLEURS permet la rencontre entre des groupes portés par des personnes précaires qui tentent de sortir de l'urgence et de changer les choses.</p>
+            <p>L'<span className="em">UNI</span>versité <span className="em">POP</span>ulaire d'<span className="em">I</span>ci et d'<span className="em">A</span>illeurs permet la rencontre entre des groupes portés par des personnes précaires qui tentent de sortir de l'urgence et de changer les choses.</p>
           </div>
           <Button label="En savoir plus" type="button" btnstyle="oneCategory" />
         </article>

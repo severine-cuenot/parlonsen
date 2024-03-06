@@ -13,11 +13,11 @@ function VideoCard({ posts }) {
   return (
     <article className="post__block">
       {videos.map((video) => (
-        <div key={video.node.slug} className="post__inner-block">
-          <div className="post__title">
+        <div key={video.node.slug} className="post__videoCard">
+          <h3 className="post__videoCardTitle header">
             {video.node.titre}
-          </div>
-          <div className="post__content">
+          </h3>
+          <div className="post__videoCardContent">
             {console.log('Contenu brut :', video.node.contenu.raw.children)}
 
             <RichText
@@ -25,9 +25,21 @@ function VideoCard({ posts }) {
               renderers={{
                 bold: ({ children }) => <span className="strong">{children}</span>,
                 italic: ({ children }) => <span className="italic">{children}</span>,
+                link: ({ children }) => (
+                  <div className="post__video">
+                    <iframe
+                      className="post__video-block"
+                      src={children}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={video.node.titre}
+                      loading="lazy"
+                    />
+                  </div>
+                ),
               }}
             />
-            <div className="post__excerpt">
+            <div className="post__video">
               <iframe
                 className="post__video-block"
                 src={video.node.extrait}

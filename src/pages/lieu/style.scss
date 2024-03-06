@@ -11,6 +11,14 @@
     background-color: vars.$dark;
     // background-image: url(../../../public/img/reunion.jpg);
   }
+  &__header--yellowText {
+    color: vars.$yellow;
+  }
+  &__header--blueText {
+    color: vars.$blue;
+    font-size: 1.2em;
+  }
+  
   &__main-block {
     color: vars.$dark;
     margin-bottom: 2em;

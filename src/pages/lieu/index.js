@@ -7,7 +7,7 @@ import { HashLink } from 'react-router-hash-link';
 import LeLieuPostcard from '../../components/PostCard/LeLieuPostcard';
 import Page from '../../components/Page';
 import Container from '../../components/Container';
-import Header from '../../components/CategoriesHeader';
+// import Header from '../../components/CategoriesHeader';
 
 // Imports
 import getPosts from '../../../services/getPosts';
@@ -39,10 +39,11 @@ function Lieu() {
 
   return (
     <Page>
-      <Header
-        pageTitle="Le Lîeu"
-        specificClass="lieu__header"
-      />
+      <header className="lieu__header">
+        <h1 className="header">
+          <span className="lieu__header--yellowText">Le L</span><span className="lieu__header--blueText">î</span><span className="lieu__header--yellowText">eu</span>
+        </h1>
+      </header>
       <Container className="container__lieu">
         <section className="lieu__main-block">
           <article className="lieu__article">

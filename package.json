@@ -6,7 +6,8 @@
     "lint": "eslint ./src/** --no-error-on-unmatched-pattern",
     "lint:fix": "eslint --fix ./src/** --no-error-on-unmatched-pattern",
     "clean": "rm -rf dist",
-    "clean:all": "rm -rf dist node_modules yarn.lock package-lock.json"
+    "clean:all": "rm -rf dist node_modules yarn.lock package-lock.json",
+    "homepage": "."
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

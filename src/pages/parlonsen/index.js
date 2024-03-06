@@ -64,7 +64,7 @@ function Parlonsen() {
                 &diams; Et pour les dernières actualités, <a href={pdf1} className="parlonsen__nav-link" target="_blank" rel="noreferrer">c'est sur Facebook</a>.
               </li>
               <li>
-                &diams; Télécharger la plaquette <a href={plaquette} className="parlonsen__nav-link">ici</a>.
+                &diams; Télécharger la plaquette <a href={plaquette} className="parlonsen__nav-link" target="_blank" rel="noreferrer">ici</a>.
               </li>
             </ul>
           </nav>

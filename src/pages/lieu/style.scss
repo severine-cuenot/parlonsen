@@ -31,6 +31,9 @@
       padding: 2em;
     }
   }
+  &__nav ul, &__article ul {
+    margin-bottom: 2em;
+  }
 
   &__nav-link {
     color: vars.$orange;

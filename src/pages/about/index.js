@@ -10,10 +10,11 @@ import Container from '../../components/Container';
 import './style.scss';
 
 function About() {
-  const emailPart1 = 'lieu.grenoble';
+  // hiding email address from bot
+  const emailPart1 = 'contact';
   const emailPart2 = 2 ** 6;
   const emailPart3 = String.fromCharCode(emailPart2);
-  const emailPart4 = 'gmail.com';
+  const emailPart4 = 'parlonsengrenoble.org';
   const emailPart5 = emailPart1 + String.fromCharCode(emailPart2) + emailPart4;
   const emailLink = `mailto:${emailPart5}`;
   const emailText = emailPart1 + emailPart3 + emailPart4;

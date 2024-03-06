@@ -15,6 +15,8 @@ import planLieu from '../../../public/img/lieu_plan.png';
 import projets from '../../../public/img/DessinCoquille.png';
 import toutou from '../../../public/img/toutoupanier.jpg';
 import calendar from '../../../public/img/calendar.png';
+import plaquette from '../../../public/pdf/plaquettelieu2021_web.pdf';
+import livret from '../../../public/pdf/LivretLieu2021_Fonctionnement.pdf';
 
 import './style.scss';
 
@@ -46,6 +48,16 @@ function Lieu() {
       </header>
       <Container className="container__lieu">
         <section className="lieu__main-block">
+          <nav className="lieu__nav">
+            <ul>
+              <li>
+                &diams; Télécharger la plaquette <a href={plaquette} className="lieu__nav-link" target="_blank" rel="noreferrer">ici</a>.
+              </li>
+              <li>
+                &diams; Télécharger le livret de fonctionnement <a href={livret} className="lieu__nav-link" target="_blank" rel="noreferrer">ici</a>.
+              </li>
+            </ul>
+          </nav>
           <article className="lieu__article">
             <h2 className="header">Le Lîeu, c'est quoi&nbsp;? </h2>
             <img src={planLieu} alt="Le plan du Lîeu" className="lieu__article--img-left img-rounded" />
@@ -74,7 +86,7 @@ function Lieu() {
             </p>
             <h3>Les locaux</h3>
             <p>
-              L'espace est constitué d'une salle polyvalente de 70m<sup>2</sup> incluant un coin cuisine, d'un espace-cocon de 20m<sup>2</sup>, d’une cour de 160m2 et de deux ateliers de 25m<sup>2</sup>.
+              L'espace est constitué d'une salle polyvalente de 70m2 incluant un coin cuisine, d'un espace-cocon de 20m2, d’une cour de 160m2 et de deux ateliers de 25m2.
             </p>
             <h3>Qui peut demander&nbsp;?</h3>
             <p>
@@ -121,6 +133,12 @@ function Lieu() {
               Pour y accéder directement en ligne, <a href="https://framagenda.org/apps/calendar/p/HCYYTSQZWAQHT07R/dayGridMonth/now" target="_blank" rel="noreferrer" className="lieu__nav-link">cliquez ici</a>.
             </p>
             <a href="https://framagenda.org/apps/calendar/p/HCYYTSQZWAQHT07R/dayGridMonth/now" target="_blank" rel="noreferrer" title="Cliquez ici pour accéder à l'agenda en ligne"><img src={calendar} alt="L'agenda des événements" className="lieu__article--img-center img-rounded" /></a>
+          </article>
+          <article className="lieu__article">
+            <h2 className="header">Compte-rendus</h2>
+            <p>
+              blablabla
+            </p>
           </article>
         </section>
         <LeLieuPostcard posts={postList} />

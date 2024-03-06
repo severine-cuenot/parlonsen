@@ -14,7 +14,7 @@ function Credits() {
     <Container className="container__credits">
       <section className="credits">
         <header className="credits__header header">
-          <h2>Crédits</h2>
+          <h1>Crédits</h1>
         </header>
         <ul className="credits__text" role="list">
           <li>&diams; Icon des vidéos créée par <a href="https://www.flaticon.com/free-icons/video" target="_blank" rel="noreferrer" title="video icons">Freepik - Flaticon</a></li>

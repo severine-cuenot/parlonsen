@@ -38,6 +38,12 @@
     margin-bottom: 0.6em;
   }
 
+  &__videoCardDate {
+    font-size: 1em;
+    color: vars.$lightGrey;
+    margin-bottom: 1em;
+  }
+
   &__videoCardContent {
     display: flex;
     flex-direction: column;

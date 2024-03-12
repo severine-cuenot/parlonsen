@@ -23,7 +23,9 @@ function About() {
     <section className="about">
       <header className="about__header">
         <h2 className="about__header--title header">à propos de nous</h2>
-        <p className="about__header--text">Nous nous situons au 17, rue Abbé Grégoire, 38000 Grenoble, à dix minutes à pied de la gare et à deux pas de la Place St Bruno.</p>
+        <p className="about__header--text">Nous nous situons au 17, rue Abbé Grégoire, 38000 Grenoble,<br />
+          à dix minutes à pied de la gare et à deux pas de la Place St Bruno.
+        </p>
       </header>
       <Container className="container__about">
         <article className="about__map-block">

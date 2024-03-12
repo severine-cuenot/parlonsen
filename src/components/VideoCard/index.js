@@ -8,7 +8,24 @@ import { RichText } from '@graphcms/rich-text-react-renderer';
 import './style.scss';
 
 function VideoCard({ posts }) {
-  const videos = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'));
+  // const videos = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'));
+
+  const videos = posts
+    .filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'))
+    .sort((a, b) => {
+      // Convertir les dates en objets Date pour la comparaison
+      const dateA = new Date(a.node.dateArticle);
+      const dateB = new Date(b.node.dateArticle);
+
+      // Comparer les dates
+      return dateB - dateA; // Tri décroissant (plus récent en haut)
+    });
+  // change the dateArticle format
+  const formatDate = (rawDate) => {
+    const options = { month: 'long', year: 'numeric' };
+    const formattedDate = new Date(rawDate).toLocaleDateString('fr-FR', options);
+    return formattedDate;
+  };
 
   return (
     <article className="post__block">
@@ -17,6 +34,9 @@ function VideoCard({ posts }) {
           <h3 className="post__videoCardTitle header">
             {video.node.titre}
           </h3>
+          <div className="post__videoCardDate">
+            {formatDate(video.node.dateArticle)}
+          </div>
           <div className="post__videoCardContent">
             {console.log('Contenu brut :', video.node.contenu.raw.children)}
 
@@ -25,18 +45,18 @@ function VideoCard({ posts }) {
               renderers={{
                 bold: ({ children }) => <span className="strong">{children}</span>,
                 italic: ({ children }) => <span className="italic">{children}</span>,
-                link: ({ children }) => (
-                  <div className="post__video">
-                    <iframe
-                      className="post__video-block"
-                      src={children}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      title={video.node.titre}
-                      loading="lazy"
-                    />
-                  </div>
-                ),
+                // link: ({ children }) => (
+                //   <div className="post__video">
+                //     <iframe
+                //       className="post__video-block"
+                //       src={children}
+                //       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                //       allowFullScreen
+                //       title={video.node.titre}
+                //       loading="lazy"
+                //     />
+                //   </div>
+                // ),
               }}
             />
             <div className="post__video">

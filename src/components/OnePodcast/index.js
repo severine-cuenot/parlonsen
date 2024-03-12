@@ -19,24 +19,24 @@ import Container from '../Container';
 import './style.scss';
 
 // imports MP3
-import audio1 from '../../../public/mp3/201711_sdf_habitants_police.mp3';
-import audio2 from '../../../public/mp3/201802_relations_rue.mp3';
-import audio3 from '../../../public/mp3/20180314_jeunes_rue_chiens.mp3';
-import audio4 from '../../../public/mp3/201804_rue_systemeD.mp3';
-import audio5 from '../../../public/mp3/201809_manche_taf.mp3';
-import audio6 from '../../../public/mp3/201811_dormir_hiver.mp3';
-import audio7 from '../../../public/mp3/201901_sac_a_dos.mp3';
-import audio8 from '../../../public/mp3/201902_guichet.mp3';
-import audio9 from '../../../public/mp3/20190314_apres_hiver.mp3';
+import audio1 from '../../../public/img/201711_sdf_habitants_police.mp3';
+import audio2 from '../../../public/img/201802_relations_rue.mp3';
+import audio3 from '../../../public/img/20180314_jeunes_rue_chiens.mp3';
+import audio4 from '../../../public/img/201804_rue_systemeD.mp3';
+import audio5 from '../../../public/img/201809_manche_taf.mp3';
+import audio6 from '../../../public/img/201811_dormir_hiver.mp3';
+import audio7 from '../../../public/img/201901_sac_a_dos.mp3';
+import audio8 from '../../../public/img/201902_guichet.mp3';
+import audio9 from '../../../public/img/20190314_apres_hiver.mp3';
 
-import audio11 from '../../../public/mp3/20190613_vacances.mp3';
-import audio12 from '../../../public/mp3/20190912_guide_galere.mp3';
-import audio13 from '../../../public/mp3/201910_douche_ciel.mp3';
-import audio14 from '../../../public/mp3/201911_exclusions.mp3';
-import audio15 from '../../../public/mp3/202001_regles_lieu.mp3';
-import audio16 from '../../../public/mp3/202002_nouvelles_rue_hiver.mp3';
-import audio17 from '../../../public/mp3/202004_115.mp3';
-import audio18 from '../../../public/mp3/202101_alimentation.mp3';
+import audio11 from '../../../public/img/20190613_vacances.mp3';
+import audio12 from '../../../public/img/20190912_guide_galere.mp3';
+import audio13 from '../../../public/img/201910_douche_ciel.mp3';
+import audio14 from '../../../public/img/201911_exclusions.mp3';
+import audio15 from '../../../public/img/202001_regles_lieu.mp3';
+import audio16 from '../../../public/img/202002_nouvelles_rue_hiver.mp3';
+import audio17 from '../../../public/img/202004_115.mp3';
+import audio18 from '../../../public/img/202101_alimentation.mp3';
 
 function OnePodcast() {
   // Player audio1
@@ -1374,7 +1374,7 @@ function OnePodcast() {
             </div>
           </article>
         </div>
-        <div className="audioPlayers-block">
+        {/* <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
               <h3 className="header">Une clé, et après&nbsp;? La galère ne s'arrête pas une fois qu'on a un toit</h3>
@@ -1394,8 +1394,8 @@ function OnePodcast() {
             {/* <div className="audioPlayer__player">
               <audio ref={audioPlayer9} src={audio9} preload="metadata" onLoadedData={() => onLoadedMetadata(9)} /> */}
 
-            {/* Buttons for desktop */}
-            {/* <div className="audioPlayer__player-btn displayNoneMobile">
+        {/* Buttons for desktop */}
+        {/* <div className="audioPlayer__player-btn displayNoneMobile">
                 <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
                 <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
                   {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
@@ -1403,28 +1403,28 @@ function OnePodcast() {
                 <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div> */}
 
-            {/* <div className="audioPlayer__player-bar"> */}
-            {/* current time */}
-            {/* <div className="audioPlayer__currentTime">{calculateTime(currentTime9)}</div> */}
-            {/* Progress bar */}
-            {/* <div>
+        {/* <div className="audioPlayer__player-bar"> */}
+        {/* current time */}
+        {/* <div className="audioPlayer__currentTime">{calculateTime(currentTime9)}</div> */}
+        {/* Progress bar */}
+        {/* <div>
                   <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar9} onChange={() => changeRange(9)} />
                 </div> */}
-            {/* duration */}
-            {/* <div className="audioPlayer__duration">{(duration9 && !Number.isNaN(duration9)) && calculateTime(duration9)}</div> */}
-            {/* </div> */}
+        {/* duration */}
+        {/* <div className="audioPlayer__duration">{(duration9 && !Number.isNaN(duration9)) && calculateTime(duration9)}</div> */}
+        {/* </div> */}
 
-            {/* Buttons for mobile */}
-            {/* <div className="audioPlayer__player-btn displayNoneDesktop">
+        {/* Buttons for mobile */}
+        {/* <div className="audioPlayer__player-btn displayNoneDesktop">
                 <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
                 <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
                   {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
                 <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div> */}
-            {/* </div> */}
-          </article>
-        </div>
+        {/* </div> */}
+        {/* </article> */}
+        {/* </div> */}
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">

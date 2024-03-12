@@ -19,24 +19,24 @@ import Container from '../Container';
 import './style.scss';
 
 // imports MP3
-import audio1 from '../../../public/img/201711_sdf_habitants_police.mp3';
-import audio2 from '../../../public/img/201802_relations_rue.mp3';
-import audio3 from '../../../public/img/20180314_jeunes_rue_chiens.mp3';
-import audio4 from '../../../public/img/201804_rue_systemeD.mp3';
-import audio5 from '../../../public/img/201809_manche_taf.mp3';
-import audio6 from '../../../public/img/201811_dormir_hiver.mp3';
-import audio7 from '../../../public/img/201901_sac_a_dos.mp3';
-import audio8 from '../../../public/img/201902_guichet.mp3';
-import audio9 from '../../../public/img/20190314_apres_hiver.mp3';
+import audio1 from '../../../public/mp3/201711_sdf_habitants_police.mp3';
+import audio2 from '../../../public/mp3/201802_relations_rue.mp3';
+import audio3 from '../../../public/mp3/20180314_jeunes_rue_chiens.mp3';
+import audio4 from '../../../public/mp3/201804_rue_systemeD.mp3';
+import audio5 from '../../../public/mp3/201809_manche_taf.mp3';
+import audio6 from '../../../public/mp3/201811_dormir_hiver.mp3';
+import audio7 from '../../../public/mp3/201901_sac_a_dos.mp3';
+import audio8 from '../../../public/mp3/201902_guichet.mp3';
+import audio9 from '../../../public/mp3/20190314_apres_hiver.mp3';
 
-import audio11 from '../../../public/img/20190613_vacances.mp3';
-import audio12 from '../../../public/img/20190912_guide_galere.mp3';
-import audio13 from '../../../public/img/201910_douche_ciel.mp3';
-import audio14 from '../../../public/img/201911_exclusions.mp3';
-import audio15 from '../../../public/img/202001_regles_lieu.mp3';
-import audio16 from '../../../public/img/202002_nouvelles_rue_hiver.mp3';
-import audio17 from '../../../public/img/202004_115.mp3';
-import audio18 from '../../../public/img/202101_alimentation.mp3';
+import audio11 from '../../../public/mp3/20190613_vacances.mp3';
+import audio12 from '../../../public/mp3/20190912_guide_galere.mp3';
+import audio13 from '../../../public/mp3/201910_douche_ciel.mp3';
+import audio14 from '../../../public/mp3/201911_exclusions.mp3';
+import audio15 from '../../../public/mp3/202001_regles_lieu.mp3';
+import audio16 from '../../../public/mp3/202002_nouvelles_rue_hiver.mp3';
+import audio17 from '../../../public/mp3/202004_115.mp3';
+import audio18 from '../../../public/mp3/202101_alimentation.mp3';
 
 function OnePodcast() {
   // Player audio1

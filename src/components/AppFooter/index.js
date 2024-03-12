@@ -13,7 +13,7 @@ function AppFooter() {
     <footer className="footer">
       <div className="footer__topblock">
         <div className="footer__right-block">
-          <h1 className="footer__right-block-title header">Le Parlons-en - Grenoble</h1>
+          <h1 className="footer__right-block-title header">Le Parlons-en</h1>
           <p>
             Un espace de débat et de projets par les habitant.e.s de la rue et de la ville
           </p>
@@ -52,7 +52,7 @@ function AppFooter() {
       </div>
       <hr className="footer__separation" />
       <div className="footer__copyright">
-        <p>Tous droits réservés &copy; Association Parlons-en {year}</p>
+        <p>Tous droits réservés &copy; {year} Association Parlons-en </p>
         <p>Site réalisé par <a href="http://severine-cuenot.surge.sh/" className="link">Nine</a></p>
       </div>
     </footer>

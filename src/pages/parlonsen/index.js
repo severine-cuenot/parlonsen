@@ -16,7 +16,7 @@ import pdf1 from '../../../public/pdf/parlonsen-recit-pm2020-1.pdf';
 import './style.scss';
 import banSinges from '../../../public/img/ban_singes.jpg';
 import imgPlaquettes from '../../../public/img/mini_plaquettes_parlonsen.png';
-// import parlonsEn from '../../../public/img/parlent.png';
+import hautparleur from '../../../public/img/hautparleur.png';
 import plaquette from '../../../public/pdf/plaquetteparlonsen_web.pdf';
 
 function Parlonsen() {
@@ -91,6 +91,7 @@ function Parlonsen() {
               <li><span className="strong">Débat</span> ou temps de travail collectif sur un thème choisi parmi les différents sujets qui ont émergé au fil des rencontres précédentes, avec l'intervention d'une ou plusieurs personnes "spécialistes"</li>
               <li><span className="strong">Repas</span> pour terminer la rencontre</li>
             </ul>
+            <img src={hautparleur} alt="Parlons-en !" className="parlonsen__article--img-center" />
           </article>
         </section>
         <span id="newsParlonsEn">&nbsp;</span>

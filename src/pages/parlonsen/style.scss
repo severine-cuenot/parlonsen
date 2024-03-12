@@ -56,6 +56,16 @@
   }
 }
 
+&__article--img-center {
+  margin:auto;
+  width:100%;
+  @media (min-width: vars.$mobile) {
+    display: block;
+    width:50%;
+    margin:auto;
+  }
+}
+
   &__article h2 {
     margin-bottom: 1em;
     line-height: vars.$lineHeight;

@@ -76,8 +76,8 @@
   width:100%;
   @media (min-width: vars.$mobile) {
     display: block;
-    width:70%;
-    max-width: 60%;
+    width:50%;
+    // max-width: 60%;
     margin:auto;
   }
 }

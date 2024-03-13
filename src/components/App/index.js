@@ -1,5 +1,5 @@
 // React import
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import useScrollTop from '../../hooks';
 
 // Pages import
@@ -38,14 +38,15 @@ function App() {
         <Route path="/lieu" element={<Lieu />} />
         <Route path="/parlonsen" element={<Parlonsen />} />
         <Route path="/multimedia" element={<Multimedia />} />
-        <Route path="/podcast" element={<Podcast />} />
-        <Route path="/video" element={<Video />} />
-        <Route path="/ecrit" element={<Livret />} />
-        <Route path="/photo" element={<Photo />} />
+        <Route path="/multimedia/podcast" element={<Podcast />} />
+        <Route path="/multimedia/video" element={<Video />} />
+        <Route path="/multimedia/ecrit" element={<Livret />} />
+        <Route path="/multimedia/photo" element={<Photo />} />
         <Route path="/about" element={<About />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/credits" element={<Credits />} />
         <Route path="/coeur" element={<Coeur />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
       <ScrollToTop />
       <AppFooter />

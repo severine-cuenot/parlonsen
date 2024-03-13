@@ -29,10 +29,10 @@ function AppFooter() {
             </ul>
             <ul>
               <h3 className="footer__left-block-title">Contenu multimédia</h3>
-              <li><Link to="/video" className="link">Vidéos</Link></li>
-              <li><Link to="/ecrit" className="link">Ecrits</Link></li>
-              <li><Link to="/podcast" className="link">Podcasts</Link></li>
-              <li><Link to="/multimedia" className="link">Photos</Link></li>
+              <li><Link to="/multimedia/video" className="link">Vidéos</Link></li>
+              <li><Link to="/multimedia/ecrit" className="link">Ecrits</Link></li>
+              <li><Link to="/multimedia/podcast" className="link">Podcasts</Link></li>
+              <li><Link to="/multimedia/multimedia" className="link">Photos</Link></li>
             </ul>
           </div>
           <div className="footer__left-block3">

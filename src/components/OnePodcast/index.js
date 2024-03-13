@@ -28,7 +28,6 @@ import audio6 from '../../../public/mp3/201811_dormir_hiver.mp3';
 import audio7 from '../../../public/mp3/201901_sac_a_dos.mp3';
 import audio8 from '../../../public/mp3/201902_guichet.mp3';
 import audio9 from '../../../public/mp3/20190314_apres_hiver.mp3';
-
 import audio11 from '../../../public/mp3/20190613_vacances.mp3';
 import audio12 from '../../../public/mp3/20190912_guide_galere.mp3';
 import audio13 from '../../../public/mp3/201910_douche_ciel.mp3';
@@ -329,221 +328,183 @@ function OnePodcast() {
   };
 
   const togglePlayPause = (index) => {
-    let prevValue; let audioPlayer; let progressBar; let
-      animationRef;
+    const audioPlayerArray = [
+      audioPlayer1.current,
+      audioPlayer2.current,
+      audioPlayer3.current,
+      audioPlayer4.current,
+      audioPlayer5.current,
+      audioPlayer6.current,
+      audioPlayer7.current,
+      audioPlayer8.current,
+      audioPlayer9.current,
+      null, // Index 10 is skipped
+      audioPlayer11.current,
+      audioPlayer12.current,
+      audioPlayer13.current,
+      audioPlayer14.current,
+      audioPlayer15.current,
+      audioPlayer16.current,
+      audioPlayer17.current,
+      audioPlayer18.current,
+    ];
 
-    switch (index) {
-      case 1:
-        prevValue = isPlaying1;
-        setIsPlaying1(!prevValue);
-        audioPlayer = audioPlayer1.current;
-        progressBar = progressBar1.current;
-        animationRef = animationRef1;
-        break;
-      case 2:
-        prevValue = isPlaying2;
-        setIsPlaying2(!prevValue);
-        audioPlayer = audioPlayer2.current;
-        progressBar = progressBar2.current;
-        animationRef = animationRef2;
-        break;
-      case 3:
-        prevValue = isPlaying3;
-        setIsPlaying3(!prevValue);
-        audioPlayer = audioPlayer3.current;
-        progressBar = progressBar3.current;
-        animationRef = animationRef3;
-        break;
-      case 4:
-        prevValue = isPlaying4;
-        setIsPlaying4(!prevValue);
-        audioPlayer = audioPlayer4.current;
-        progressBar = progressBar4.current;
-        animationRef = animationRef4;
-        break;
-      case 5:
-        prevValue = isPlaying5;
-        setIsPlaying5(!prevValue);
-        audioPlayer = audioPlayer5.current;
-        progressBar = progressBar5.current;
-        animationRef = animationRef5;
-        break;
-      case 6:
-        prevValue = isPlaying6;
-        setIsPlaying6(!prevValue);
-        audioPlayer = audioPlayer6.current;
-        progressBar = progressBar6.current;
-        animationRef = animationRef6;
-        break;
-      case 7:
-        prevValue = isPlaying7;
-        setIsPlaying7(!prevValue);
-        audioPlayer = audioPlayer7.current;
-        progressBar = progressBar7.current;
-        animationRef = animationRef7;
-        break;
-      case 8:
-        prevValue = isPlaying8;
-        setIsPlaying8(!prevValue);
-        audioPlayer = audioPlayer8.current;
-        progressBar = progressBar8.current;
-        animationRef = animationRef8;
-        break;
-      case 9:
-        prevValue = isPlaying9;
-        setIsPlaying9(!prevValue);
-        audioPlayer = audioPlayer9.current;
-        progressBar = progressBar9.current;
-        animationRef = animationRef9;
-        break;
-      case 11:
-        prevValue = isPlaying11;
-        setIsPlaying11(!prevValue);
-        audioPlayer = audioPlayer11.current;
-        progressBar = progressBar11.current;
-        animationRef = animationRef11;
-        break;
-      case 12:
-        prevValue = isPlaying12;
-        setIsPlaying12(!prevValue);
-        audioPlayer = audioPlayer12.current;
-        progressBar = progressBar12.current;
-        animationRef = animationRef12;
-        break;
-      case 13:
-        prevValue = isPlaying13;
-        setIsPlaying13(!prevValue);
-        audioPlayer = audioPlayer13.current;
-        progressBar = progressBar13.current;
-        animationRef = animationRef13;
-        break;
-      case 14:
-        prevValue = isPlaying14;
-        setIsPlaying14(!prevValue);
-        audioPlayer = audioPlayer14.current;
-        progressBar = progressBar14.current;
-        animationRef = animationRef14;
-        break;
-      case 15:
-        prevValue = isPlaying15;
-        setIsPlaying15(!prevValue);
-        audioPlayer = audioPlayer15.current;
-        progressBar = progressBar15.current;
-        animationRef = animationRef15;
-        break;
-      case 16:
-        prevValue = isPlaying16;
-        setIsPlaying16(!prevValue);
-        audioPlayer = audioPlayer16.current;
-        progressBar = progressBar16.current;
-        animationRef = animationRef16;
-        break;
-      case 17:
-        prevValue = isPlaying17;
-        setIsPlaying17(!prevValue);
-        audioPlayer = audioPlayer17.current;
-        progressBar = progressBar17.current;
-        animationRef = animationRef17;
-        break;
-      case 18:
-        prevValue = isPlaying18;
-        setIsPlaying18(!prevValue);
-        audioPlayer = audioPlayer18.current;
-        progressBar = progressBar18.current;
-        animationRef = animationRef18;
-        break;
-      default:
-        break;
+    const progressBarArray = [
+      progressBar1.current,
+      progressBar2.current,
+      progressBar3.current,
+      progressBar4.current,
+      progressBar5.current,
+      progressBar6.current,
+      progressBar7.current,
+      progressBar8.current,
+      progressBar9.current,
+      null, // Index 10 is skipped
+      progressBar11.current,
+      progressBar12.current,
+      progressBar13.current,
+      progressBar14.current,
+      progressBar15.current,
+      progressBar16.current,
+      progressBar17.current,
+      progressBar18.current,
+    ];
+
+    const isPlayingArray = [
+      isPlaying1,
+      isPlaying2,
+      isPlaying3,
+      isPlaying4,
+      isPlaying5,
+      isPlaying6,
+      isPlaying7,
+      isPlaying8,
+      isPlaying9,
+      null, // Index 10 is skipped
+      isPlaying11,
+      isPlaying12,
+      isPlaying13,
+      isPlaying14,
+      isPlaying15,
+      isPlaying16,
+      isPlaying17,
+      isPlaying18,
+    ];
+
+    const setIsPlayingArray = [
+      setIsPlaying1,
+      setIsPlaying2,
+      setIsPlaying3,
+      setIsPlaying4,
+      setIsPlaying5,
+      setIsPlaying6,
+      setIsPlaying7,
+      setIsPlaying8,
+      setIsPlaying9,
+      null, // Index 10 is skipped
+      setIsPlaying11,
+      setIsPlaying12,
+      setIsPlaying13,
+      setIsPlaying14,
+      setIsPlaying15,
+      setIsPlaying16,
+      setIsPlaying17,
+      setIsPlaying18,
+    ];
+
+    const animationRefArray = [
+      animationRef1,
+      animationRef2,
+      animationRef3,
+      animationRef4,
+      animationRef5,
+      animationRef6,
+      animationRef7,
+      animationRef8,
+      animationRef9,
+      null, // Index 10 is skipped
+      animationRef11,
+      animationRef12,
+      animationRef13,
+      animationRef14,
+      animationRef15,
+      animationRef16,
+      animationRef17,
+      animationRef18,
+    ];
+
+    let prevValue;
+    let audioPlayer;
+    let progressBar;
+    let animationRef;
+
+    if (index >= 1 && index <= 18) {
+      prevValue = isPlayingArray[index - 1];
+      setIsPlayingArray[index - 1](!prevValue);
+      audioPlayer = audioPlayerArray[index - 1];
+      progressBar = progressBarArray[index - 1];
+      animationRef = animationRefArray[index - 1];
     }
 
-    if (!prevValue) {
-      audioPlayer.play();
-      animationRef.current = requestAnimationFrame(() => whilePlaying(index, animationRef));
-    }
-    else {
-      audioPlayer.pause();
-      cancelAnimationFrame(animationRef.current);
+    if (audioPlayer && progressBar && animationRef) {
+      if (!prevValue) {
+        audioPlayer.play();
+        animationRef.current = requestAnimationFrame(() => whilePlaying(index, animationRef));
+      }
+      else {
+        audioPlayer.pause();
+        cancelAnimationFrame(animationRef.current);
+      }
     }
   };
 
   const whilePlaying = (index, animationRef) => {
-    let audioPlayer; let
-      progressBar;
+    const audioPlayerArray = [
+      audioPlayer1.current,
+      audioPlayer2.current,
+      audioPlayer3.current,
+      audioPlayer4.current,
+      audioPlayer5.current,
+      audioPlayer6.current,
+      audioPlayer7.current,
+      audioPlayer8.current,
+      audioPlayer9.current,
+      null, // Index 10 is skipped
+      audioPlayer11.current,
+      audioPlayer12.current,
+      audioPlayer13.current,
+      audioPlayer14.current,
+      audioPlayer15.current,
+      audioPlayer16.current,
+      audioPlayer17.current,
+      audioPlayer18.current,
+    ];
 
-    switch (index) {
-      case 1:
-        audioPlayer = audioPlayer1.current;
-        progressBar = progressBar1.current;
-        break;
-      case 2:
-        audioPlayer = audioPlayer2.current;
-        progressBar = progressBar2.current;
-        break;
-      case 3:
-        audioPlayer = audioPlayer3.current;
-        progressBar = progressBar3.current;
-        break;
-      case 4:
-        audioPlayer = audioPlayer4.current;
-        progressBar = progressBar4.current;
-        break;
-      case 5:
-        audioPlayer = audioPlayer5.current;
-        progressBar = progressBar5.current;
-        break;
-      case 6:
-        audioPlayer = audioPlayer6.current;
-        progressBar = progressBar6.current;
-        break;
-      case 7:
-        audioPlayer = audioPlayer7.current;
-        progressBar = progressBar7.current;
-        break;
-      case 8:
-        audioPlayer = audioPlayer8.current;
-        progressBar = progressBar8.current;
-        break;
-      case 9:
-        audioPlayer = audioPlayer9.current;
-        progressBar = progressBar9.current;
-        break;
-      case 11:
-        audioPlayer = audioPlayer11.current;
-        progressBar = progressBar11.current;
-        break;
-      case 12:
-        audioPlayer = audioPlayer12.current;
-        progressBar = progressBar12.current;
-        break;
-      case 13:
-        audioPlayer = audioPlayer13.current;
-        progressBar = progressBar13.current;
-        break;
-      case 14:
-        audioPlayer = audioPlayer14.current;
-        progressBar = progressBar14.current;
-        break;
-      case 15:
-        audioPlayer = audioPlayer15.current;
-        progressBar = progressBar15.current;
-        break;
-      case 16:
-        audioPlayer = audioPlayer16.current;
-        progressBar = progressBar16.current;
-        break;
-      case 17:
-        audioPlayer = audioPlayer17.current;
-        progressBar = progressBar17.current;
-        break;
-      case 18:
-        audioPlayer = audioPlayer18.current;
-        progressBar = progressBar18.current;
-        break;
-      default:
-        break;
-    }
+    const progressBarArray = [
+      progressBar1.current,
+      progressBar2.current,
+      progressBar3.current,
+      progressBar4.current,
+      progressBar5.current,
+      progressBar6.current,
+      progressBar7.current,
+      progressBar8.current,
+      progressBar9.current,
+      null, // Index 10 is skipped
+      progressBar11.current,
+      progressBar12.current,
+      progressBar13.current,
+      progressBar14.current,
+      progressBar15.current,
+      progressBar16.current,
+      progressBar17.current,
+      progressBar18.current,
+    ];
 
-    if (animationRef && animationRef.current) {
+    const audioPlayer = audioPlayerArray[index - 1];
+    const progressBar = progressBarArray[index - 1];
+
+    if (audioPlayer && progressBar && animationRef && animationRef.current) {
       progressBar.value = audioPlayer.currentTime;
       changePlayerCurrentTime(index);
 
@@ -554,438 +515,217 @@ function OnePodcast() {
   };
 
   const changeRange = (index) => {
-    let audioPlayer; let
-      progressBar;
+    const audioPlayerArray = [
+      audioPlayer1.current,
+      audioPlayer2.current,
+      audioPlayer3.current,
+      audioPlayer4.current,
+      audioPlayer5.current,
+      audioPlayer6.current,
+      audioPlayer7.current,
+      audioPlayer8.current,
+      audioPlayer9.current,
+      null, // Index 10 is skipped
+      audioPlayer11.current,
+      audioPlayer12.current,
+      audioPlayer13.current,
+      audioPlayer14.current,
+      audioPlayer15.current,
+      audioPlayer16.current,
+      audioPlayer17.current,
+      audioPlayer18.current,
+    ];
+    const progressBarArray = [
+      progressBar1.current,
+      progressBar2.current,
+      progressBar3.current,
+      progressBar4.current,
+      progressBar5.current,
+      progressBar6.current,
+      progressBar7.current,
+      progressBar8.current,
+      progressBar9.current,
+      null, // Index 10 is skipped
+      progressBar11.current,
+      progressBar12.current,
+      progressBar13.current,
+      progressBar14.current,
+      progressBar15.current,
+      progressBar16.current,
+      progressBar17.current,
+      progressBar18.current,
+    ];
 
-    switch (index) {
-      case 1:
-        audioPlayer = audioPlayer1.current;
-        progressBar = progressBar1.current;
-        break;
-      case 2:
-        audioPlayer = audioPlayer2.current;
-        progressBar = progressBar2.current;
-        break;
-      case 3:
-        audioPlayer = audioPlayer3.current;
-        progressBar = progressBar3.current;
-        break;
-      case 4:
-        audioPlayer = audioPlayer4.current;
-        progressBar = progressBar4.current;
-        break;
-      case 5:
-        audioPlayer = audioPlayer5.current;
-        progressBar = progressBar5.current;
-        break;
-      case 6:
-        audioPlayer = audioPlayer6.current;
-        progressBar = progressBar6.current;
-        break;
-      case 7:
-        audioPlayer = audioPlayer7.current;
-        progressBar = progressBar7.current;
-        break;
-      case 8:
-        audioPlayer = audioPlayer8.current;
-        progressBar = progressBar8.current;
-        break;
-      case 9:
-        audioPlayer = audioPlayer9.current;
-        progressBar = progressBar9.current;
-        break;
-      case 11:
-        audioPlayer = audioPlayer11.current;
-        progressBar = progressBar11.current;
-        break;
-      case 12:
-        audioPlayer = audioPlayer12.current;
-        progressBar = progressBar12.current;
-        break;
-      case 13:
-        audioPlayer = audioPlayer13.current;
-        progressBar = progressBar13.current;
-        break;
-      case 14:
-        audioPlayer = audioPlayer14.current;
-        progressBar = progressBar14.current;
-        break;
-      case 15:
-        audioPlayer = audioPlayer15.current;
-        progressBar = progressBar15.current;
-        break;
-      case 16:
-        audioPlayer = audioPlayer16.current;
-        progressBar = progressBar16.current;
-        break;
-      case 17:
-        audioPlayer = audioPlayer17.current;
-        progressBar = progressBar17.current;
-        break;
-      case 18:
-        audioPlayer = audioPlayer18.current;
-        progressBar = progressBar18.current;
-        break;
-      default:
-        break;
+    const audioPlayer = audioPlayerArray[index - 1];
+    const progressBar = progressBarArray[index - 1];
+
+    if (audioPlayer && progressBar) {
+      audioPlayer.currentTime = progressBar.value;
+      changePlayerCurrentTime(index);
     }
-
-    audioPlayer.currentTime = progressBar.value;
-    changePlayerCurrentTime(index);
   };
 
   const changePlayerCurrentTime = (index) => {
-    const progressBar = (() => {
-      switch (index) {
-        case 1:
-          return progressBar1.current;
-        case 2:
-          return progressBar2.current;
-        case 3:
-          return progressBar3.current;
-        case 4:
-          return progressBar4.current;
-        case 5:
-          return progressBar5.current;
-        case 6:
-          return progressBar6.current;
-        case 7:
-          return progressBar7.current;
-        case 8:
-          return progressBar8.current;
-        case 9:
-          return progressBar9.current;
-        case 11:
-          return progressBar11.current;
-        case 12:
-          return progressBar12.current;
-        case 13:
-          return progressBar13.current;
-        case 14:
-          return progressBar14.current;
-        case 15:
-          return progressBar15.current;
-        case 16:
-          return progressBar16.current;
-        case 17:
-          return progressBar17.current;
-        case 18:
-          return progressBar18.current;
-        default:
-          return null;
-      }
-    })();
+    const progressBarArray = [
+      progressBar1.current,
+      progressBar2.current,
+      progressBar3.current,
+      progressBar4.current,
+      progressBar5.current,
+      progressBar6.current,
+      progressBar7.current,
+      progressBar8.current,
+      progressBar9.current,
+      null, // Index 10 is skipped
+      progressBar11.current,
+      progressBar12.current,
+      progressBar13.current,
+      progressBar14.current,
+      progressBar15.current,
+      progressBar16.current,
+      progressBar17.current,
+      progressBar18.current,
+    ];
+
+    const progressBar = progressBarArray[index - 1];
 
     if (progressBar) {
-      let selectedDuration;
+      let selectedDuration = null;
 
-      switch (index) {
-        case 1:
-          selectedDuration = duration1;
-          break;
-        case 2:
-          selectedDuration = duration2;
-          break;
-        case 3:
-          selectedDuration = duration3;
-          break;
-        case 4:
-          selectedDuration = duration4;
-          break;
-        case 5:
-          selectedDuration = duration5;
-          break;
-        case 6:
-          selectedDuration = duration6;
-          break;
-        case 7:
-          selectedDuration = duration7;
-          break;
-        case 8:
-          selectedDuration = duration8;
-          break;
-        case 9:
-          selectedDuration = duration9;
-          break;
-        case 11:
-          selectedDuration = duration11;
-          break;
-        case 12:
-          selectedDuration = duration12;
-          break;
-        case 13:
-          selectedDuration = duration13;
-          break;
-        case 14:
-          selectedDuration = duration14;
-          break;
-        case 15:
-          selectedDuration = duration15;
-          break;
-        case 16:
-          selectedDuration = duration16;
-          break;
-        case 17:
-          selectedDuration = duration17;
-          break;
-        case 18:
-          selectedDuration = duration18;
-          break;
-        default:
-          break;
-      }
+      const durationMap = {
+        1: duration1,
+        2: duration2,
+        3: duration3,
+        4: duration4,
+        5: duration5,
+        6: duration6,
+        7: duration7,
+        8: duration8,
+        9: duration9,
+        11: duration11,
+        12: duration12,
+        13: duration13,
+        14: duration14,
+        15: duration15,
+        16: duration16,
+        17: duration17,
+        18: duration18,
+      };
 
-      progressBar.style.setProperty('--seek-before-width', `${progressBar.value / selectedDuration * 100}%`);
+      selectedDuration = durationMap[index];
 
-      switch (index) {
-        case 1:
-          setCurrentTime1(progressBar.value);
-          break;
-        case 2:
-          setCurrentTime2(progressBar.value);
-          break;
-        case 3:
-          setCurrentTime3(progressBar.value);
-          break;
-        case 4:
-          setCurrentTime4(progressBar.value);
-          break;
-        case 5:
-          setCurrentTime5(progressBar.value);
-          break;
-        case 6:
-          setCurrentTime6(progressBar.value);
-          break;
-        case 7:
-          setCurrentTime7(progressBar.value);
-          break;
-        case 8:
-          setCurrentTime8(progressBar.value);
-          break;
-        case 9:
-          setCurrentTime9(progressBar.value);
-          break;
-        case 11:
-          setCurrentTime11(progressBar.value);
-          break;
-        case 12:
-          setCurrentTime12(progressBar.value);
-          break;
-        case 13:
-          setCurrentTime13(progressBar.value);
-          break;
-        case 14:
-          setCurrentTime14(progressBar.value);
-          break;
-        case 15:
-          setCurrentTime15(progressBar.value);
-          break;
-        case 16:
-          setCurrentTime16(progressBar.value);
-          break;
-        case 17:
-          setCurrentTime17(progressBar.value);
-          break;
-        case 18:
-          setCurrentTime18(progressBar.value);
-          break;
-        default:
-          break;
+      if (selectedDuration !== null) {
+        progressBar.style.setProperty('--seek-before-width', `${progressBar.value / selectedDuration * 100}%`);
+
+        const setCurrentTimeFunction = `setCurrentTime${index}`;
+        if (typeof window[setCurrentTimeFunction] === 'function') {
+          window[setCurrentTimeFunction](progressBar.value);
+        }
       }
     }
   };
 
   const backThirty = (index) => {
-    const progressBar = (() => {
-      switch (index) {
-        case 1:
-          return progressBar1.current;
-        case 2:
-          return progressBar2.current;
-        case 3:
-          return progressBar3.current;
-        case 4:
-          return progressBar4.current;
-        case 5:
-          return progressBar5.current;
-        case 6:
-          return progressBar6.current;
-        case 7:
-          return progressBar7.current;
-        case 8:
-          return progressBar8.current;
-        case 9:
-          return progressBar9.current;
-        case 11:
-          return progressBar11.current;
-        case 12:
-          return progressBar12.current;
-        case 13:
-          return progressBar13.current;
-        case 14:
-          return progressBar14.current;
-        case 15:
-          return progressBar15.current;
-        case 16:
-          return progressBar16.current;
-        case 17:
-          return progressBar17.current;
-        case 18:
-          return progressBar18.current;
-        default:
-          return null;
-      }
-    })();
+    const progressBarArray = [
+      progressBar1.current,
+      progressBar2.current,
+      progressBar3.current,
+      progressBar4.current,
+      progressBar5.current,
+      progressBar6.current,
+      progressBar7.current,
+      progressBar8.current,
+      progressBar9.current,
+      null, // Index 10 is skipped
+      progressBar11.current,
+      progressBar12.current,
+      progressBar13.current,
+      progressBar14.current,
+      progressBar15.current,
+      progressBar16.current,
+      progressBar17.current,
+      progressBar18.current,
+    ];
+
+    const progressBar = progressBarArray[index - 1];
 
     if (progressBar) {
-      progressBar.value = Number(progressBar.value - 30);
+      progressBar.value -= 30;
       changeRange(index);
     }
   };
 
   const forwardThirty = (index) => {
-    const audioPlayer = (() => {
-      switch (index) {
-        case 1:
-          return audioPlayer1.current;
-        case 2:
-          return audioPlayer2.current;
-        case 3:
-          return audioPlayer3.current;
-        case 4:
-          return audioPlayer4.current;
-        case 5:
-          return audioPlayer5.current;
-        case 6:
-          return audioPlayer6.current;
-        case 7:
-          return audioPlayer7.current;
-        case 8:
-          return audioPlayer8.current;
-        case 9:
-          return audioPlayer9.current;
-        case 11:
-          return audioPlayer11.current;
-        case 12:
-          return audioPlayer12.current;
-        case 13:
-          return audioPlayer13.current;
-        case 14:
-          return audioPlayer14.current;
-        case 15:
-          return audioPlayer15.current;
-        case 16:
-          return audioPlayer16.current;
-        case 17:
-          return audioPlayer17.current;
-        case 18:
-          return audioPlayer18.current;
-        default:
-          return null;
-      }
-    })();
+    const audioPlayerArray = [
+      audioPlayer1.current,
+      audioPlayer2.current,
+      audioPlayer3.current,
+      audioPlayer4.current,
+      audioPlayer5.current,
+      audioPlayer6.current,
+      audioPlayer7.current,
+      audioPlayer8.current,
+      audioPlayer9.current,
+      null, // Index 10 is skipped
+      audioPlayer11.current,
+      audioPlayer12.current,
+      audioPlayer13.current,
+      audioPlayer14.current,
+      audioPlayer15.current,
+      audioPlayer16.current,
+      audioPlayer17.current,
+      audioPlayer18.current,
+    ];
+    const audioPlayer = audioPlayerArray[index - 1] || null;
 
     const progressBar = (() => {
-      switch (index) {
-        case 1:
-          return progressBar1.current;
-        case 2:
-          return progressBar2.current;
-        case 3:
-          return progressBar3.current;
-        case 4:
-          return progressBar4.current;
-        case 5:
-          return progressBar5.current;
-        case 6:
-          return progressBar6.current;
-        case 7:
-          return progressBar7.current;
-        case 8:
-          return progressBar8.current;
-        case 9:
-          return progressBar9.current;
-        case 11:
-          return progressBar11.current;
-        case 12:
-          return progressBar12.current;
-        case 13:
-          return progressBar13.current;
-        case 14:
-          return progressBar14.current;
-        case 15:
-          return progressBar15.current;
-        case 16:
-          return progressBar16.current;
-        case 17:
-          return progressBar17.current;
-        case 18:
-          return progressBar18.current;
-        default:
-          return null;
-      }
+      const progressBarArray = [
+        progressBar1.current,
+        progressBar2.current,
+        progressBar3.current,
+        progressBar4.current,
+        progressBar5.current,
+        progressBar6.current,
+        progressBar7.current,
+        progressBar8.current,
+        progressBar9.current,
+        null, // Index 10 is skipped
+        progressBar11.current,
+        progressBar12.current,
+        progressBar13.current,
+        progressBar14.current,
+        progressBar15.current,
+        progressBar16.current,
+        progressBar17.current,
+        progressBar18.current,
+      ];
+      return progressBarArray[index - 1] || null;
     })();
 
     if (audioPlayer && progressBar) {
       const newTime = audioPlayer.currentTime + 30;
-      let selectedDuration;
-      switch (index) {
-        case 1:
-          selectedDuration = duration1;
-          break;
-        case 2:
-          selectedDuration = duration2;
-          break;
-        case 3:
-          selectedDuration = duration3;
-          break;
-        case 4:
-          selectedDuration = duration4;
-          break;
-        case 5:
-          selectedDuration = duration5;
-          break;
-        case 6:
-          selectedDuration = duration6;
-          break;
-        case 7:
-          selectedDuration = duration7;
-          break;
-        case 8:
-          selectedDuration = duration8;
-          break;
-        case 9:
-          selectedDuration = duration9;
-          break;
-        case 11:
-          selectedDuration = duration11;
-          break;
-        case 12:
-          selectedDuration = duration12;
-          break;
-        case 13:
-          selectedDuration = duration13;
-          break;
-        case 14:
-          selectedDuration = duration14;
-          break;
-        case 15:
-          selectedDuration = duration15;
-          break;
-        case 16:
-          selectedDuration = duration16;
-          break;
-        case 17:
-          selectedDuration = duration17;
-          break;
-        case 18:
-          selectedDuration = duration18;
-          break;
-        default:
-          break;
-      }
-
-      if (newTime <= selectedDuration) {
+      let selectedDuration = null;
+      const durationMap = {
+        1: duration1,
+        2: duration2,
+        3: duration3,
+        4: duration4,
+        5: duration5,
+        6: duration6,
+        7: duration7,
+        8: duration8,
+        9: duration9,
+        11: duration11,
+        12: duration12,
+        13: duration13,
+        14: duration14,
+        15: duration15,
+        16: duration16,
+        17: duration17,
+        18: duration18,
+      };
+      selectedDuration = durationMap[index];
+      if (selectedDuration !== null && newTime <= selectedDuration) {
         audioPlayer.currentTime = newTime;
         progressBar.value = newTime;
         changePlayerCurrentTime(index);

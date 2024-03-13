@@ -1,5 +1,7 @@
 // React import
-import { Route, Routes, Navigate } from 'react-router-dom';
+import {
+  Route, Routes, Navigate,
+} from 'react-router-dom';
 import useScrollTop from '../../hooks';
 
 // Pages import

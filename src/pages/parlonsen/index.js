@@ -9,6 +9,7 @@ import ParlonsEnPostCard from '../../components/PostCard/ParlonsEnPostcard';
 import Page from '../../components/Page';
 import Container from '../../components/Container';
 import Header from '../../components/CategoriesHeader';
+import Button from '../../components/Button';
 
 // Imports
 import getPosts from '../../../services/getPosts';
@@ -96,6 +97,7 @@ function Parlonsen() {
         </section>
         <span id="newsParlonsEn">&nbsp;</span>
         <ParlonsEnPostCard posts={postList} />
+        <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="credits" /></Link>
       </Container>
     </Page>
   );

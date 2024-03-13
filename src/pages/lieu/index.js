@@ -1,12 +1,14 @@
 /* eslint-disable max-len */
 // React imports
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 // Components imports
 import LeLieuPostcard from '../../components/PostCard/LeLieuPostcard';
 import Page from '../../components/Page';
 import Container from '../../components/Container';
+import Button from '../../components/Button';
 // import Header from '../../components/CategoriesHeader';
 
 // Imports
@@ -207,6 +209,7 @@ function Lieu() {
           </article>
         </section>
         <LeLieuPostcard posts={postList} />
+        <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="credits" /></Link>
       </Container>
     </Page>
   );

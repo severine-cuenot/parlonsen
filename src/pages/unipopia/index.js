@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 // React imports
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 // Components imports
@@ -8,6 +9,7 @@ import PostCard from '../../components/PostCard';
 import Page from '../../components/Page';
 import Container from '../../components/Container';
 import Header from '../../components/CategoriesHeader';
+import Button from '../../components/Button';
 
 // Imports
 import getPosts from '../../../services/getPosts';
@@ -86,6 +88,7 @@ function Unipopia() {
           </article>
         </section>
         <PostCard posts={postList} />
+        <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="credits" /></Link>
       </Container>
     </Page>
   );

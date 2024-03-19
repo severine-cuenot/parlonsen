@@ -2,7 +2,7 @@
 
 // React imports
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
 // imports
@@ -10,6 +10,11 @@ import './style.scss';
 
 function VideoCard({ posts }) {
   const [selectedTab, setSelectedTab] = useState(0);
+
+  useEffect(() => {
+    // Mettre automatiquement le focus sur la première tab lors du chargement de la page
+    document.querySelector('.post__tab-content:first-child').focus();
+  }, []);
 
   // Filtrer les vidéos en fonction de la catégorie de l'onglet sélectionné
   const filteredVideos = (tabIndex) => {
@@ -20,7 +25,7 @@ function VideoCard({ posts }) {
   // Définir le contenu de chaque onglet
   const tabs = [
     { buttonContent: 'Les vidéos du Parlons-en' },
-    { buttonContent: 'Silence on parle !' },
+    { buttonContent: 'Les vidéos "Silence on parle !"' },
   ];
 
   // const videos = posts
@@ -41,21 +46,23 @@ function VideoCard({ posts }) {
   };
 
   return (
-    <div>
-      <div>
-        {tabs.map((obj, index) => (
-          <button
-            type="button"
-            key={index}
-            onClick={() => setSelectedTab(index)}
-          >
-            {tabs[index].tabTitle}
-          </button>
-        ))}
+    <div className="post__frame">
+      <div className="post__tab-block">
+        <div className="post__tab">
+          {tabs.map((obj, index) => (
+            <button
+              type="button"
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              className="post__tab-content header"
+              onClick={() => setSelectedTab(index)}
+            >
+              {tabs[index].buttonContent}
+            </button>
+          ))}
+        </div>
       </div>
-
       <article className="post__block">
-        <h2>{tabs[selectedTab].tabTitle}</h2>
         <div className="post__videos-block">
           {filteredVideos(selectedTab).map((video) => (
             <div key={video.node.slug} className="post__videoCard">

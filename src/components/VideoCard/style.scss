@@ -1,17 +1,44 @@
 @use '../../styles/vars';
 
 .post {
+  &__frame {
+    background-color: vars.$lightGrey;
+  }
+
   &__block {
     color: vars.$dark;
     display: flex;
     flex-direction: column;
-    // flex-wrap: wrap;
+    
+  }
+  &__tab-block {
+    background-color: vars.$white;
+  }
+
+  &__tab {
+    color: vars.$dark;
+  }
+
+  &__tab-content {
+    background-color: vars.$white;
+    border: none;
+    border-radius: 0 vars.$btnRadius 0 0;
+    font-size: 1.5em;
+    padding: 1em;
+  }
+
+  &__tab-content:focus{
+    background-color: vars.$lightGrey;
+    border: none;
+    color: vars.$orange;
+    border-radius: 0 vars.$btnRadius 0 0;
   }
 
   &__videos-block {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 1em;
   }
 
    &__videoCard {
@@ -22,6 +49,7 @@
     border: 1px solid vars.$lightGrey;
     border-radius: vars.$btnRadius;
     padding: 1.5em;
+    background-color: vars.$white;
 
     @media (min-width: 1100px) {
       width: calc(50% - 0.75em); /* 50% de largeur avec une marge de 0.75em entre les éléments */

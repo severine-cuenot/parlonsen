@@ -31,9 +31,9 @@ function ReportCard({ reports }) {
           </div>
         ))}
       </div>
-      <div className="oneReport__right-block">
+      {/* <div className="oneReport__right-block">
         <img src={reuImg} alt="réunion" className="oneReport__right-block--img" />
-      </div>
+      </div> */}
     </section>
   );
 }

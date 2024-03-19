@@ -38,19 +38,20 @@
     }
   }
 
+  &__content img {
+    display: block;
+    margin: auto;
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
+    max-height: 350px; /* Limitez la hauteur à 350 pixels */
+    width: auto; /* Permet à l'image de conserver son ratio hauteur/largeur */
+    height: auto; /* Permet à l'image de conserver son ratio hauteur/largeur */
+  }
+
   &__text {
     font-size: 1em;
     color: vars.$lightGrey;
     margin-bottom: 1em;
   }
 
-  &__content img {
-    display: block;
-    margin: auto;
-    width: 80%;
-    height: auto;
-    @media (min-width: vars.$mobile) {
-      // width: 50%;
-    }
-  }
+  
 }

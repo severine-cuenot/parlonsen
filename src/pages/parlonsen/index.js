@@ -9,6 +9,7 @@ import ParlonsEnPostCard from '../../components/PostCard/ParlonsEnPostcard';
 import Page from '../../components/Page';
 import Container from '../../components/Container';
 import Header from '../../components/CategoriesHeader';
+import Button from '../../components/Button';
 
 // Imports
 import getPosts from '../../../services/getPosts';
@@ -16,7 +17,7 @@ import pdf1 from '../../../public/pdf/parlonsen-recit-pm2020-1.pdf';
 import './style.scss';
 import banSinges from '../../../public/img/ban_singes.jpg';
 import imgPlaquettes from '../../../public/img/mini_plaquettes_parlonsen.png';
-// import parlonsEn from '../../../public/img/parlent.png';
+import hautparleur from '../../../public/img/hautparleur.png';
 import plaquette from '../../../public/pdf/plaquetteparlonsen_web.pdf';
 
 function Parlonsen() {
@@ -64,7 +65,7 @@ function Parlonsen() {
                 &diams; Et pour les dernières actualités, <a href={pdf1} className="parlonsen__nav-link" target="_blank" rel="noreferrer">c'est sur Facebook</a>.
               </li>
               <li>
-                &diams; Télécharger la plaquette <a href={plaquette} className="parlonsen__nav-link">ici</a>.
+                &diams; Télécharger la plaquette <a href={plaquette} className="parlonsen__nav-link" target="_blank" rel="noreferrer">ici</a>.
               </li>
             </ul>
           </nav>
@@ -91,10 +92,12 @@ function Parlonsen() {
               <li><span className="strong">Débat</span> ou temps de travail collectif sur un thème choisi parmi les différents sujets qui ont émergé au fil des rencontres précédentes, avec l'intervention d'une ou plusieurs personnes "spécialistes"</li>
               <li><span className="strong">Repas</span> pour terminer la rencontre</li>
             </ul>
+            <img src={hautparleur} alt="Parlons-en !" className="parlonsen__article--img-center" />
           </article>
         </section>
         <span id="newsParlonsEn">&nbsp;</span>
         <ParlonsEnPostCard posts={postList} />
+        <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="credits" /></Link>
       </Container>
     </Page>
   );

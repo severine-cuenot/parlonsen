@@ -1,9 +1,10 @@
 @use '../../styles/vars';
 
 
-.credits {
+.coeur {
   color: vars.$dark;
   margin: 3em;
+  text-align: center;
   &__header {
     margin-bottom: 2.5em;
   }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 // imports
 import './style.scss';
-import reuImg from '../../../public/img/dessin_parlonsen_transparent.png';
+// import reuImg from '../../../public/img/dessin_parlonsen_transparent.png';
 
 
 function ReportCard({ reports }) {
@@ -32,9 +32,9 @@ function ReportCard({ reports }) {
           </div>
         ))}
       </div>
-      <div className="oneReport__right-block">
+      {/* <div className="oneReport__right-block">
         <img src={reuImg} alt="réunion" className="oneReport__right-block--img" />
-      </div>
+      </div> */}
     </section>
   );
 }

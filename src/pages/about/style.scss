@@ -28,6 +28,7 @@
   }
 
   &__header--text {
+    font-size: 1.2em;
     @media (min-width: vars.$mobile) {
     margin: 0 2.5em;
     text-align: center;
@@ -41,7 +42,7 @@
     align-items: center;
     color: vars.$dark;
     position: relative;
-    top: -95px;
+    top: -70px;
     z-index: 2;
     @media (min-width: vars.$tablet) {
       top: -200px;

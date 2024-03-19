@@ -14,8 +14,17 @@
     align-items: flex-start;
     margin: 0 4em 2em;
     position: relative;
-    top: -80px;
+    top: -64px;
     z-index: 2;
+  }
+  @media (max-width: 1200px) {
+    top: -57px;
+  }
+  @media (max-width: 1600px) {
+    top: -70px;
+  }
+  @media (min-width: 1601px) {
+    top: -130px;
   }
 }
 

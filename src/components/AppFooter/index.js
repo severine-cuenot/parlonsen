@@ -13,7 +13,7 @@ function AppFooter() {
     <footer className="footer">
       <div className="footer__topblock">
         <div className="footer__right-block">
-          <h1 className="footer__right-block-title header">LLLPE</h1>
+          <h1 className="footer__right-block-title header">Le Parlons-en</h1>
           <p>
             Un espace de débat et de projets par les habitant.e.s de la rue et de la ville
           </p>
@@ -29,10 +29,10 @@ function AppFooter() {
             </ul>
             <ul>
               <h3 className="footer__left-block-title">Contenu multimédia</h3>
-              <li><Link to="/video" className="link">Vidéos</Link></li>
-              <li><Link to="/ecrit" className="link">Ecrits</Link></li>
-              <li><Link to="/podcast" className="link">Podcasts</Link></li>
-              <li><Link to="/multimedia" className="link">Photos</Link></li>
+              <li><Link to="/multimedia/video" className="link">Vidéos</Link></li>
+              <li><Link to="/multimedia/ecrit" className="link">Ecrits</Link></li>
+              <li><Link to="/multimedia/podcast" className="link">Podcasts</Link></li>
+              <li><Link to="/multimedia/multimedia" className="link">Photos</Link></li>
             </ul>
           </div>
           <div className="footer__left-block3">
@@ -52,7 +52,7 @@ function AppFooter() {
       </div>
       <hr className="footer__separation" />
       <div className="footer__copyright">
-        <p>Tous droits réservés &copy; LLLPE {year}</p>
+        <p>Tous droits réservés &copy; {year} Association Parlons-en </p>
         <p>Site réalisé par <a href="http://severine-cuenot.surge.sh/" className="link">Nine</a></p>
       </div>
     </footer>

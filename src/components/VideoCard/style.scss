@@ -4,6 +4,12 @@
   &__block {
     color: vars.$dark;
     display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+  }
+
+  &__videos-block {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -36,6 +42,12 @@
   &__videoCardTitle {
     font-size: 1.3em;
     margin-bottom: 0.6em;
+  }
+
+  &__videoCardDate {
+    font-size: 1em;
+    color: vars.$lightGrey;
+    margin-bottom: 1em;
   }
 
   &__videoCardContent {

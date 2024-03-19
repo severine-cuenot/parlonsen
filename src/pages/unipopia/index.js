@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 // React imports
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 // Components imports
@@ -8,6 +9,7 @@ import PostCard from '../../components/PostCard';
 import Page from '../../components/Page';
 import Container from '../../components/Container';
 import Header from '../../components/CategoriesHeader';
+import Button from '../../components/Button';
 
 // Imports
 import getPosts from '../../../services/getPosts';
@@ -43,7 +45,7 @@ function Unipopia() {
           <article className="unipopia__article">
             <img src={nom} alt="Photos des rencontres" className="unipopia__article--img-left" />
             <p>
-              L'UNIVERSITÉ POPULAIRE D'ICI ET D'AILLEURS permet la rencontre entre des groupes portés par des personnes précaires qui tentent de sortir de l'urgence et de changer les choses. Croiser des récits, des personnes et des parcours; mettre en lumière la diversité des manières d'agir, de s'organiser et de créer selon les territoires et les histoires. Affirmer les capacités que nous développons quand nous subissons la survie et la précarité. Se revendiquer chercheuses et chercheurs populaires&nbsp;!
+              L'<span className="em">UNI</span>versité <span className="em">POP</span>ulaire d'<span className="em">I</span>ci et d'<span className="em">A</span>illeurs permet la rencontre entre des groupes portés par des personnes précaires qui tentent de sortir de l'urgence et de changer les choses. Croiser des récits, des personnes et des parcours; mettre en lumière la diversité des manières d'agir, de s'organiser et de créer selon les territoires et les histoires. Affirmer les capacités que nous développons quand nous subissons la survie et la précarité. Se revendiquer chercheuses et chercheurs populaires&nbsp;!
             </p>
             <h2 className="header">Pour quoi faire&nbsp;?</h2>
             <p>
@@ -56,22 +58,17 @@ function Unipopia() {
             <p>
               Vous retrouverez sur cette page le début de l'aventure. RDV sur <a href="https://unipopia.org/" target="_blank" className="unipopia__link" rel="noreferrer">www.unipopia.org</a> ou sur <a href="mailto:contact@unipopia.org" target="_blank" className="unipopia__link" rel="noreferrer">contact@unipopia.org</a> pour les nouvelles&nbsp;!
             </p>
-            <h2 className="header">Les groupes</h2>
-            <p>Y participent aujourd'hui&nbsp;:</p>
-            <ul>
-              <li>Terrain d'Entente (Saint Etienne)</li>
-              <li>D-Base (Drôme)</li>
-              <li>Parlons-en (Grenoble)</li>
-              <li>Mme RueTabaga (Grenoble)</li>
-              <li>Street Reporters (Lyon)</li>
-              <li>Résidence de demain (Paris)</li>
-              <li>Après-M (Marseille)</li>
-              <li>Amelior (Montreuil)</li>
-              <li>CHO3 (Marseille)</li>
-              <li>Coeurs Résistants (Rennes)</li>
-              <li>C Prévu (Charleroi, Belgique)</li>
-            </ul>
-            <p>UNIPOPIA est financée par la Fondation Abbé Pierre et accompagnée par Periferia.</p>
+            <h2 className="header">Présentation</h2>
+            <div className="unipopia__video-block">
+              <iframe
+                className="unipopia__video"
+                src="https://www.dailymotion.com/embed/video/k2a5zNbMbXOe1JxVEpk?pubtool=oembed"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Rencontres d'octobre 2021 au Lîeu – vers une université populaire ?"
+                loading="lazy"
+              />
+            </div>
             <h2 className="header">Les Actions</h2>
             <p>
               En 2022, L'Université a cheminé autour de groupes thématiques de recherche&nbsp;: La Cabane (Rue, squat, logement)&nbsp;; La Cagnotte (travail et rémunération)&nbsp;; La FourchEtte (accès à une alimentation digne)&nbsp;; et le Cybercafé (Fracture numérique). Chaque groupe se réunit en "virtuel" tous les mois.
@@ -83,9 +80,11 @@ function Unipopia() {
               <li>"De la survie à la vie&nbsp;: travail et reconnaissance des capacités" à Bobigny,</li>
               <li>"Territoire, économie, entraide" à Marseille.</li>
             </ul>
+            <p>UNIPOPIA est financée par la Fondation Abbé Pierre et accompagnée par Periferia.</p>
           </article>
         </section>
         <PostCard posts={postList} />
+        <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="credits" /></Link>
       </Container>
     </Page>
   );

@@ -39,7 +39,7 @@ function Photo() {
         <section>
           <Photobox photos={assetsList} />
           <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="video1" /></Link>
-          <Link to="/multimedia"><Button type="button" label="Retourner à la liste des média" btnstyle="video2" /></Link>
+          <Link to="/multimedia"><Button type="button" label="Retourner à la liste des médias" btnstyle="video2" /></Link>
         </section>
       </Container>
     </Page>

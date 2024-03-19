@@ -5,50 +5,53 @@
   margin-bottom: 0.6em;
 }
 
-.oneCoeur{
-  color: vars.$dark;
-  @media (min-width: vars.$tablet) {
+.oneCoeur {
+  &__block {
+    color: vars.$dark;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  &__card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 1.5em;
-  border: 1px solid vars.$lightGrey;
-  border-radius: vars.$btnRadius;
-  padding: 1.5em;
-  @media (min-width: vars.$tablet) {
-    width: 30%;
-    justify-content: center;
-    margin: 1em;
+    flex-direction: column;
+    @media (min-width: vars.$mobile) {
+      flex-direction: row;
+      justify-content: space-around;
+      margin-bottom: 2em;
     }
   }
 
-  &__date {
-    font-size: 0.8em;
-    color: vars.$grey;
+  &__card {
     margin-bottom: 1.5em;
+    border: 1px solid vars.$lightGrey;
+    border-radius: vars.$btnRadius;
+    padding: 1em;
+    width: 100%;
+    @media (min-width: vars.$mobile) {
+      max-width: 40%;
+      margin: 0 1em;
+    }
   }
 
-  &__content-pdf-block {
+  &__content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    padding-bottom: 2em;
+    @media (min-width: vars.$mobile) {
+      padding-bottom: 3em;
+    }
   }
 
-  &__content-pdf-img {
-    width: auto;
-    max-height: 300px;
+  &__content img {
+    display: block;
+    margin: auto;
+    max-width: 100%; /* Assurez-vous que l'image ne dépasse pas la largeur du conteneur */
+    max-height: 350px; /* Limitez la hauteur à 350 pixels */
+    width: auto; /* Permet à l'image de conserver son ratio hauteur/largeur */
+    height: auto; /* Permet à l'image de conserver son ratio hauteur/largeur */
   }
 
-  &__content-pdf-text {
-    font-size: 0.6em;
-    font-style: italic;
-    text-align: center;
+  &__text {
+    font-size: 1em;
+    color: vars.$lightGrey;
+    margin-bottom: 1em;
   }
+
+  
 }

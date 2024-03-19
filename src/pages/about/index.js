@@ -10,10 +10,11 @@ import Container from '../../components/Container';
 import './style.scss';
 
 function About() {
-  const emailPart1 = 'lieu.grenoble';
+  // hiding email address from bot
+  const emailPart1 = 'contact';
   const emailPart2 = 2 ** 6;
   const emailPart3 = String.fromCharCode(emailPart2);
-  const emailPart4 = 'gmail.com';
+  const emailPart4 = 'parlonsengrenoble.org';
   const emailPart5 = emailPart1 + String.fromCharCode(emailPart2) + emailPart4;
   const emailLink = `mailto:${emailPart5}`;
   const emailText = emailPart1 + emailPart3 + emailPart4;
@@ -22,7 +23,9 @@ function About() {
     <section className="about">
       <header className="about__header">
         <h2 className="about__header--title header">à propos de nous</h2>
-        <p className="about__header--text">Nous nous situons au 17, rue Abbé Grégoire, 38000 Grenoble, à dix minutes à pied de la gare et à deux pas de la Place St Bruno.</p>
+        <p className="about__header--text">Nous nous situons au 17, rue Abbé Grégoire, 38000 Grenoble,<br />
+          à dix minutes à pied de la gare et à deux pas de la Place St Bruno.
+        </p>
       </header>
       <Container className="container__about">
         <article className="about__map-block">

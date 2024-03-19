@@ -19,26 +19,22 @@ function VideoCard({ posts }) {
   // Filtrer les vidéos en fonction de la catégorie de l'onglet sélectionné
   const filteredVideos = (tabIndex) => {
     const tabCategories = ['Vidéos-parlonsen', 'Vidéos-silence'];
-    return posts.filter((post) => post.node.categories.some((category) => category.nom === tabCategories[tabIndex]));
+    const filteredPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === tabCategories[tabIndex]));
+    // Trier les vidéos filtrées par date
+    const sortedVideos = filteredPosts.sort((a, b) => {
+      const dateA = new Date(a.node.dateArticle);
+      const dateB = new Date(b.node.dateArticle);
+      return dateB - dateA; // Tri décroissant (plus récent en haut)
+    });
+    return sortedVideos;
   };
 
   // Définir le contenu de chaque onglet
   const tabs = [
     { buttonContent: 'Les vidéos du Parlons-en' },
-    { buttonContent: 'Les vidéos "Silence on parle !"' },
+    { buttonContent: 'Les vidéos "Silence ! On parle"' },
   ];
 
-  // const videos = posts
-  //   .filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'))
-  //   .sort((a, b) => {
-  //     // Convertir les dates en objets Date pour la comparaison
-  //     const dateA = new Date(a.node.dateArticle);
-  //     const dateB = new Date(b.node.dateArticle);
-
-  //     // Comparer les dates
-  //     return dateB - dateA; // Tri décroissant (plus récent en haut)
-  //   });
-  // change the dateArticle format
   const formatDate = (rawDate) => {
     const options = { month: 'long', year: 'numeric' };
     const formattedDate = new Date(rawDate).toLocaleDateString('fr-FR', options);

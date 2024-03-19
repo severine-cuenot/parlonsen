@@ -4,6 +4,12 @@
   &__block {
     color: vars.$dark;
     display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+  }
+
+  &__videos-block {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }

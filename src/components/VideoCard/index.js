@@ -2,24 +2,37 @@
 
 // React imports
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 
 // imports
 import './style.scss';
 
 function VideoCard({ posts }) {
-  // const videos = posts.filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'));
+  const [selectedTab, setSelectedTab] = useState(0);
 
-  const videos = posts
-    .filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'))
-    .sort((a, b) => {
-      // Convertir les dates en objets Date pour la comparaison
-      const dateA = new Date(a.node.dateArticle);
-      const dateB = new Date(b.node.dateArticle);
+  // Filtrer les vidéos en fonction de la catégorie de l'onglet sélectionné
+  const filteredVideos = (tabIndex) => {
+    const tabCategories = ['Vidéos-parlonsen', 'Vidéos-silence'];
+    return posts.filter((post) => post.node.categories.some((category) => category.nom === tabCategories[tabIndex]));
+  };
 
-      // Comparer les dates
-      return dateB - dateA; // Tri décroissant (plus récent en haut)
-    });
+  // Définir le contenu de chaque onglet
+  const tabs = [
+    { buttonContent: 'Les vidéos du Parlons-en' },
+    { buttonContent: 'Silence on parle !' },
+  ];
+
+  // const videos = posts
+  //   .filter((post) => post.node.categories.some((category) => category.nom === 'Vidéos'))
+  //   .sort((a, b) => {
+  //     // Convertir les dates en objets Date pour la comparaison
+  //     const dateA = new Date(a.node.dateArticle);
+  //     const dateB = new Date(b.node.dateArticle);
+
+  //     // Comparer les dates
+  //     return dateB - dateA; // Tri décroissant (plus récent en haut)
+  //   });
   // change the dateArticle format
   const formatDate = (rawDate) => {
     const options = { month: 'long', year: 'numeric' };
@@ -28,11 +41,23 @@ function VideoCard({ posts }) {
   };
 
   return (
-    <>
+    <div>
+      <div>
+        {tabs.map((obj, index) => (
+          <button
+            type="button"
+            key={index}
+            onClick={() => setSelectedTab(index)}
+          >
+            {tabs[index].tabTitle}
+          </button>
+        ))}
+      </div>
+
       <article className="post__block">
-        <h2>Les vidéos du Parlons-en</h2>
+        <h2>{tabs[selectedTab].tabTitle}</h2>
         <div className="post__videos-block">
-          {videos.map((video) => (
+          {filteredVideos(selectedTab).map((video) => (
             <div key={video.node.slug} className="post__videoCard">
               <h3 className="post__videoCardTitle header">
                 {video.node.titre}
@@ -41,8 +66,6 @@ function VideoCard({ posts }) {
                 {formatDate(video.node.dateArticle)}
               </div>
               <div className="post__videoCardContent">
-                {console.log('Contenu brut :', video.node.contenu.raw.children)}
-
                 <RichText
                   content={video.node.contenu.raw.children}
                   renderers={{
@@ -60,52 +83,12 @@ function VideoCard({ posts }) {
                     loading="lazy"
                   />
                 </div>
-
               </div>
-
             </div>
           ))}
         </div>
       </article>
-      <article className="post__block">
-        <h2>Silence on parle&nbsp;!</h2>
-        <div className="post__videos-block">
-          {videos.map((video) => (
-            <div key={video.node.slug} className="post__videoCard">
-              <h3 className="post__videoCardTitle header">
-                {video.node.titre}
-              </h3>
-              <div className="post__videoCardDate">
-                {formatDate(video.node.dateArticle)}
-              </div>
-              <div className="post__videoCardContent">
-                {console.log('Contenu brut :', video.node.contenu.raw.children)}
-
-                <RichText
-                  content={video.node.contenu.raw.children}
-                  renderers={{
-                    bold: ({ children }) => <span className="strong">{children}</span>,
-                    italic: ({ children }) => <span className="italic">{children}</span>,
-                  }}
-                />
-                <div className="post__video">
-                  <iframe
-                    className="post__video-block"
-                    src={video.node.extrait}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title={video.node.titre}
-                    loading="lazy"
-                  />
-                </div>
-
-              </div>
-
-            </div>
-          ))}
-        </div>
-      </article>
-    </>
+    </div>
   );
 }
 

@@ -23,9 +23,9 @@ function AppFooter() {
           <div className="footer__left-block1">
             <ul>
               <h3 className="footer__left-block-title">Explorer</h3>
-              <li><Link to="/unipopia" className="link">Unipopia</Link></li>
-              <li><Link to="/lieu" className="link">Le Lîeu</Link></li>
               <li><Link to="/parlonsen" className="link">Le Parlons-en</Link></li>
+              <li><Link to="/lieu" className="link">Le Lîeu</Link></li>
+              <li><Link to="/unipopia" className="link">Unipopia</Link></li>
             </ul>
             <ul>
               <h3 className="footer__left-block-title">Contenu multimédia</h3>

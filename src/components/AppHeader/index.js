@@ -37,6 +37,7 @@ function AppHeader() {
             </button>
           </div>
           <ul className={isExpanded ? 'navbar__expanded' : 'navbar__not-expanded'}>
+            <li onClick={handleClick} className="navbar__expanded--element"><Link to="/">Retour à l'accueil</Link></li>
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="parlonsen">Le Parlons-en</NavLink></li>
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="lieu">Le Lîeu</NavLink></li>
             <li onClick={handleClick} className="navbar__expanded--element"><NavLink to="unipopia">Unipopia</NavLink></li>

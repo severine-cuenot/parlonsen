@@ -38,7 +38,16 @@
   &__right-block {
     margin-bottom: 1.5em;
     @media (min-width: vars.$mobile) {
+      display: flex;
+      flex-direction: column;
       width: 30%;
+    }
+  }
+  &__right-block ul {
+    
+    @media (min-width: vars.$mobile) {
+      display: flex;
+      flex-direction: row;
     }
   }
 
@@ -87,12 +96,28 @@
     display: none;
     @media (min-width: vars.$mobile) {
       display: block;
+      margin: 1em 1em 0 0;
+      height: 30px;
+    }
+  }
+
+  &__ytimg-dsktop {
+    display: none;
+    @media (min-width: vars.$mobile) {
+      display: block;
       margin-top: 1em;
-      width: 8%;
+      height: 30px;
     }
   }
 
   &__fbimg-mobile {
+    margin-top: 1em;
+    width: 20px;
+    @media (min-width: vars.$mobile) {
+      display: none;
+    }
+  }
+  &__ytimg-mobile {
     margin-top: 1em;
     width: 20px;
     @media (min-width: vars.$mobile) {

@@ -16,6 +16,15 @@
     width: fit-content;
   }
 
+  &__notFound {
+    background-color: vars.$orange;
+    color: vars.$white;
+    font-weight: bold;
+    font-size: 1em;
+    width: fit-content;
+    margin-bottom: 2em;
+  }
+
   &__oneCategory {
     background-color: vars.$orange;
     color: vars.$white;
@@ -33,7 +42,7 @@
     }
   }
 
-  &__oneCategory:hover, &__credits:hover, &__about:hover, &__coeur:hover {
+  &__oneCategory:hover, &__credits:hover, &__about:hover, &__coeur:hover, &__notFound:hover {
     @media (min-width: vars.$mobile) {
       background-color: vars.$dark;
     }

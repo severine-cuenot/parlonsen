@@ -46,7 +46,7 @@ function Media() {
             <div>
               <img src={photo} className="media__icon" alt="vidéo" />
             </div>
-            <h3 className="media__title">Photos</h3>
+            <h3 className="media__title">Images</h3>
           </article>
         </Link>
       </div>

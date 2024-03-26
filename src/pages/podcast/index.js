@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // React imports
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -9,7 +10,8 @@ import Page from '../../components/Page';
 import OnePodcast from '../../components/OnePodcast';
 
 // imports
-import logoRadio from '../../../public/img/gresivaudan-logo-white.png';
+// import logoRadio from '../../../public/img/gresivaudan-logo-white.png';
+import jeanno from '../../../public/img/podcast_jean_no.png';
 import getPosts from '../../../services/getPosts';
 import './style.scss';
 
@@ -36,12 +38,13 @@ function Podcast() {
         <div className="podcast__header-block">
           <div className="podcast__header-block-img">
             <a href="https://www.radio-gresivaudan.org/" title="Page officielle de radio Gresivaudan" target="_blank" rel="noreferrer">
-              <img src={logoRadio} alt="Radio Gresivaudan" className="img-gresivaudan" />
+              <img src={jeanno} alt="Radio Gresivaudan" className="img-gresivaudan" />
             </a>
           </div>
           <p className="OnePodcast__excerpt">
-            Depuis octobre 2018, les "Parlons-en" sont diffusés sur <em className="podcast__em">Radio Grésivaudan</em> chaque 4ème mercredi du mois&nbsp;! <br />
-            Plus d'infos sur le site de <em className="podcast__em"><a href="https://www.radio-gresivaudan.org/nos-emissions/parlons-en/" target="__blank" rel="noreferrer">Radio Grésivaudan</a></em>.
+            Depuis octobre 2018, les "Parlons-en" étaient diffusés sur  <em className="podcast__em"><a href="https://www.radio-gresivaudan.org/nos-emissions/parlons-en/" target="__blank" rel="noreferrer">Radio Grésivaudan</a></em> grâce à notre ami Jean-No, "Jean-No d'la radio".<br />
+            Tu nous as quittés en juillet 2023.<br />
+            Tu nous manques fort, on ne t'oublie pas&nbsp;! <br />
           </p>
         </div>
       </header>

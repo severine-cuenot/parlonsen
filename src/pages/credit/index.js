@@ -17,6 +17,7 @@ function Credits() {
           <h1>Crédits</h1>
         </header>
         <ul className="credits__text" role="list">
+          <li>&diams; Illustration de la page 404 et design du site réalisés par <a href="http://nineinjections.fr/" target="_blank" rel="noreferrer" title="design et illustrations du site">Nine</a></li>
           <li>&diams; Icon des vidéos créée par <a href="https://www.flaticon.com/free-icons/video" target="_blank" rel="noreferrer" title="video icons">Freepik - Flaticon</a></li>
           <li>&diams; Icon des livres créée par <a href="https://www.flaticon.com/free-icons/book" title="book icons" target="_blank" rel="noreferrer">mikan933 - Flaticon</a></li>
           <li>&diams; Icon des podcasts créée par<a href="https://www.flaticon.com/free-icons/podcast" title="podcast icons" target="_blank" rel="noreferrer"> Freepik - Flaticon</a></li>

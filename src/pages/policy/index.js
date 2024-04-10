@@ -34,9 +34,7 @@ function Policy() {
           Le Site est hébergé par la société <em>O2Switch</em>, située 222 Boulevard Gustave Flaubert, 63000 Clermont-Ferrand, (contact téléphonique&nbsp;: (+33) 4 44 44 60 40).
         </p>
         <h2 className="header">Directeur de publication</h2>
-
         <p>Le Directeur de la publication du Site est Claire Cuenot.</p>
-
         <h2 className="header">Nous contacter</h2>
         <p>
           <ul>
@@ -45,16 +43,18 @@ function Policy() {
             <li>Par courrier&nbsp;: 17, rue Abbé Grégoire, 38000 Grenoble</li>
           </ul>
         </p>
-
         <h2 className="header">Accès au site</h2>
-        <p>Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découlant d’une nécessité de maintenance.</p>
-
-        <p>En cas de modification, interruption ou suspension du Site, l'Editeur ne saurait être tenu responsable.</p>
+        <p>
+          Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découlant d'une nécessité de maintenance. En cas de modification, interruption ou suspension du Site, l'Editeur ne saurait être tenu responsable.
+        </p>
 
         <h2 className="header">Collecte des données</h2>
-        <p>Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure où il ne collecte aucune donnée concernant les utilisateurs.</p>
-
-        <p>Toute utilisation, reproduction, diffusion, commercialisation, modification de tout ou partie du Site, sans autorisation de l'Editeur est prohibée et pourra entraîner des actions et poursuites judiciaires telles que notamment prévues par le Code de la propriété intellectuelle et le Code civil.</p>
+        <p>
+          Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure où il ne collecte aucune donnée concernant les utilisateurs.
+        </p>
+        <p className="policy__lastParagraph">
+          Toute utilisation, reproduction, diffusion, commercialisation, modification de tout ou partie du Site, sans autorisation de l'Editeur est prohibée et pourra entraîner des actions et poursuites judiciaires telles que notamment prévues par le Code de la propriété intellectuelle et le Code civil.
+        </p>
 
         <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="credits" /></Link>
       </section>

@@ -70,10 +70,10 @@ function Parlonsen() {
                 &diams; Pour les dates et thèmes des prochaines rencontres, <HashLink to="/parlonsen#newsParlonsEn" className="parlonsen__nav-link">Cliquez ici</HashLink>.
               </li> */}
               <li>
-                &diams; Pour les comptes-rendus, <Link to="/ecrit" className="parlonsen__nav-link">c'est ici</Link>.
+                &diams; Pour les comptes-rendus, <Link to="/multimedia/ecrit" className="parlonsen__nav-link">c'est ici</Link>.
               </li>
               <li>
-                &diams; Pour les podcasts Parlons-en, <Link to="/podcast" className="parlonsen__nav-link">c'est ici</Link>.
+                &diams; Pour les podcasts Parlons-en, <Link to="/multimedia/podcast" className="parlonsen__nav-link">c'est ici</Link>.
               </li>
               <li>
                 &diams; Et pour les dernières actualités, <a href={pdf1} className="parlonsen__nav-link" target="_blank" rel="noreferrer">c'est sur Facebook</a>.

@@ -25,21 +25,21 @@ import audio3 from '../../../public/mp3/unipopia3.mp3';
 import audio4 from '../../../public/mp3/unipopia4.mp3';
 import audio5 from '../../../public/mp3/unipopia5.mp3';
 import audio6 from '../../../public/mp3/unipopia6.mp3';
-
-import audio7 from '../../../public/mp3/201901_sac_a_dos.mp3';
-import audio8 from '../../../public/mp3/201902_guichet.mp3';
-import audio9 from '../../../public/mp3/20190314_apres_hiver.mp3';
-import audio11 from '../../../public/mp3/20190613_vacances.mp3';
-import audio12 from '../../../public/mp3/20190912_guide_galere.mp3';
-import audio13 from '../../../public/mp3/201910_douche_ciel.mp3';
-import audio14 from '../../../public/mp3/201911_exclusions.mp3';
-import audio15 from '../../../public/mp3/202001_regles_lieu.mp3';
-import audio16 from '../../../public/mp3/202002_nouvelles_rue_hiver.mp3';
-import audio17 from '../../../public/mp3/202004_115.mp3';
-import audio18 from '../../../public/mp3/202101_alimentation.mp3';
-import audio19 from '../../../public/mp3/202103_manger_galere.mp3';
-import audio20 from '../../../public/mp3/202104_jeunes_en_galeres.mp3';
-import audio21 from '../../../public/mp3/202105_travail.mp3';
+import audio7 from '../../../public/mp3/unipopia7.mp3';
+import audio8 from '../../../public/mp3/unipopia8.mp3';
+import audio9 from '../../../public/mp3/unipopia9.mp3';
+import audio10 from '../../../public/mp3/unipopia10.mp3';
+import audio11 from '../../../public/mp3/unipopia11.mp3';
+import audio12 from '../../../public/mp3/unipopia12.mp3';
+import audio13 from '../../../public/mp3/unipopia13.mp3';
+import audio14 from '../../../public/mp3/unipopia14.mp3';
+import audio15 from '../../../public/mp3/unipopia15.mp3';
+import audio16 from '../../../public/mp3/unipopia16.mp3';
+import audio17 from '../../../public/mp3/unipopia17.mp3';
+import audio18 from '../../../public/mp3/unipopia18.mp3';
+import audio19 from '../../../public/mp3/unipopia19.mp3';
+import audio20 from '../../../public/mp3/unipopia20.mp3';
+import audio21 from '../../../public/mp3/unipopia21.mp3';
 
 function UnipopiaPodcats() {
   // Player audio1
@@ -122,6 +122,15 @@ function UnipopiaPodcats() {
   const audioPlayer9 = useRef();
   const progressBar9 = useRef();
   const animationRef9 = useRef();
+
+  // Player audio10
+  const [isPlaying10, setIsPlaying10] = useState(false);
+  const [currentTime10, setCurrentTime10] = useState(0);
+  const [duration10, setDuration10] = useState(0);
+
+  const audioPlayer10 = useRef();
+  const progressBar10 = useRef();
+  const animationRef10 = useRef();
 
   // Player audio11
   const [isPlaying11, setIsPlaying11] = useState(false);
@@ -222,15 +231,6 @@ function UnipopiaPodcats() {
   const progressBar21 = useRef();
   const animationRef21 = useRef();
 
-  // Player audio22
-  const [isPlaying22, setIsPlaying22] = useState(false);
-  const [currentTime22, setCurrentTime22] = useState(0);
-  const [duration22, setDuration22] = useState(0);
-
-  const audioPlayer22 = useRef();
-  const progressBar22 = useRef();
-  const animationRef22 = useRef();
-
   const onLoadedMetadata = (index) => {
     if (index === 1) {
       setDuration1(Math.floor(audioPlayer1.current.duration));
@@ -258,6 +258,9 @@ function UnipopiaPodcats() {
     }
     else if (index === 9) {
       setDuration9(Math.floor(audioPlayer9.current.duration));
+    }
+    else if (index === 10) {
+      setDuration10(Math.floor(audioPlayer10.current.duration));
     }
     else if (index === 11) {
       setDuration11(Math.floor(audioPlayer11.current.duration));
@@ -292,9 +295,6 @@ function UnipopiaPodcats() {
     else if (index === 21) {
       setDuration21(Math.floor(audioPlayer21.current.duration));
     }
-    else if (index === 22) {
-      setDuration22(Math.floor(audioPlayer22.current.duration));
-    }
   };
 
   useEffect(() => {
@@ -309,6 +309,7 @@ function UnipopiaPodcats() {
     progressBar7.current.max = Math.floor(audioPlayer7.current.duration);
     progressBar8.current.max = Math.floor(audioPlayer8.current.duration);
     progressBar9.current.max = Math.floor(audioPlayer9.current.duration);
+    progressBar10.current.max = Math.floor(audioPlayer10.current.duration);
     progressBar11.current.max = Math.floor(audioPlayer11.current.duration);
     progressBar12.current.max = Math.floor(audioPlayer12.current.duration);
     progressBar13.current.max = Math.floor(audioPlayer13.current.duration);
@@ -320,7 +321,6 @@ function UnipopiaPodcats() {
     progressBar19.current.max = Math.floor(audioPlayer19.current.duration);
     progressBar20.current.max = Math.floor(audioPlayer20.current.duration);
     progressBar21.current.max = Math.floor(audioPlayer21.current.duration);
-    progressBar22.current.max = Math.floor(audioPlayer22.current.duration);
   }, [
     // Player audio1
     audioPlayer1?.current?.loadedmetadata,
@@ -349,6 +349,9 @@ function UnipopiaPodcats() {
     // Player audio9
     audioPlayer9?.current?.loadedmetadata,
     audioPlayer9?.current?.readyState,
+    // Player audio10
+    audioPlayer10?.current?.loadedmetadata,
+    audioPlayer10?.current?.readyState,
     // Player audio11
     audioPlayer11?.current?.loadedmetadata,
     audioPlayer11?.current?.readyState,
@@ -382,9 +385,6 @@ function UnipopiaPodcats() {
     // Player audio21
     audioPlayer21?.current?.loadedmetadata,
     audioPlayer21?.current?.readyState,
-    // Player audio22
-    audioPlayer22?.current?.loadedmetadata,
-    audioPlayer22?.current?.readyState,
   ]);
 
   const calculateTime = (secs) => {
@@ -406,7 +406,7 @@ function UnipopiaPodcats() {
       audioPlayer7.current,
       audioPlayer8.current,
       audioPlayer9.current,
-      null, // Index 10 is skipped
+      audioPlayer10.current,
       audioPlayer11.current,
       audioPlayer12.current,
       audioPlayer13.current,
@@ -418,7 +418,6 @@ function UnipopiaPodcats() {
       audioPlayer19.current,
       audioPlayer20.current,
       audioPlayer21.current,
-      audioPlayer22.current,
     ];
 
     const progressBarArray = [
@@ -431,7 +430,7 @@ function UnipopiaPodcats() {
       progressBar7.current,
       progressBar8.current,
       progressBar9.current,
-      null, // Index 10 is skipped
+      progressBar10.current,
       progressBar11.current,
       progressBar12.current,
       progressBar13.current,
@@ -443,7 +442,6 @@ function UnipopiaPodcats() {
       progressBar19.current,
       progressBar20.current,
       progressBar21.current,
-      progressBar22.current,
     ];
 
     const isPlayingArray = [
@@ -456,7 +454,7 @@ function UnipopiaPodcats() {
       isPlaying7,
       isPlaying8,
       isPlaying9,
-      null, // Index 10 is skipped
+      isPlaying10,
       isPlaying11,
       isPlaying12,
       isPlaying13,
@@ -468,7 +466,6 @@ function UnipopiaPodcats() {
       isPlaying19,
       isPlaying20,
       isPlaying21,
-      isPlaying22,
     ];
 
     const setIsPlayingArray = [
@@ -481,7 +478,7 @@ function UnipopiaPodcats() {
       setIsPlaying7,
       setIsPlaying8,
       setIsPlaying9,
-      null, // Index 10 is skipped
+      setIsPlaying10,
       setIsPlaying11,
       setIsPlaying12,
       setIsPlaying13,
@@ -493,7 +490,6 @@ function UnipopiaPodcats() {
       setIsPlaying19,
       setIsPlaying20,
       setIsPlaying21,
-      setIsPlaying22,
     ];
 
     const animationRefArray = [
@@ -506,7 +502,7 @@ function UnipopiaPodcats() {
       animationRef7,
       animationRef8,
       animationRef9,
-      null, // Index 10 is skipped
+      animationRef10,
       animationRef11,
       animationRef12,
       animationRef13,
@@ -518,7 +514,6 @@ function UnipopiaPodcats() {
       animationRef19,
       animationRef20,
       animationRef21,
-      animationRef22,
     ];
 
     let prevValue;
@@ -557,7 +552,7 @@ function UnipopiaPodcats() {
       audioPlayer7.current,
       audioPlayer8.current,
       audioPlayer9.current,
-      null, // Index 10 is skipped
+      audioPlayer10.current,
       audioPlayer11.current,
       audioPlayer12.current,
       audioPlayer13.current,
@@ -569,7 +564,6 @@ function UnipopiaPodcats() {
       audioPlayer19.current,
       audioPlayer20.current,
       audioPlayer21.current,
-      audioPlayer22.current,
     ];
 
     const progressBarArray = [
@@ -582,7 +576,7 @@ function UnipopiaPodcats() {
       progressBar7.current,
       progressBar8.current,
       progressBar9.current,
-      null, // Index 10 is skipped
+      progressBar10.current,
       progressBar11.current,
       progressBar12.current,
       progressBar13.current,
@@ -594,7 +588,6 @@ function UnipopiaPodcats() {
       progressBar19.current,
       progressBar20.current,
       progressBar21.current,
-      progressBar22.current,
     ];
 
     const audioPlayer = audioPlayerArray[index - 1];
@@ -621,7 +614,7 @@ function UnipopiaPodcats() {
       audioPlayer7.current,
       audioPlayer8.current,
       audioPlayer9.current,
-      null, // Index 10 is skipped
+      audioPlayer10.current,
       audioPlayer11.current,
       audioPlayer12.current,
       audioPlayer13.current,
@@ -633,7 +626,6 @@ function UnipopiaPodcats() {
       audioPlayer19.current,
       audioPlayer20.current,
       audioPlayer21.current,
-      audioPlayer22.current,
     ];
     const progressBarArray = [
       progressBar1.current,
@@ -645,7 +637,7 @@ function UnipopiaPodcats() {
       progressBar7.current,
       progressBar8.current,
       progressBar9.current,
-      null, // Index 10 is skipped
+      progressBar10.current,
       progressBar11.current,
       progressBar12.current,
       progressBar13.current,
@@ -657,7 +649,6 @@ function UnipopiaPodcats() {
       progressBar19.current,
       progressBar20.current,
       progressBar21.current,
-      progressBar22.current,
     ];
 
     const audioPlayer = audioPlayerArray[index - 1];
@@ -680,7 +671,7 @@ function UnipopiaPodcats() {
       progressBar7.current,
       progressBar8.current,
       progressBar9.current,
-      null, // Index 10 is skipped
+      progressBar10.current,
       progressBar11.current,
       progressBar12.current,
       progressBar13.current,
@@ -692,7 +683,6 @@ function UnipopiaPodcats() {
       progressBar19.current,
       progressBar20.current,
       progressBar21.current,
-      progressBar22.current,
     ];
 
     const progressBar = progressBarArray[index - 1];
@@ -710,6 +700,7 @@ function UnipopiaPodcats() {
         7: duration7,
         8: duration8,
         9: duration9,
+        10: duration10,
         11: duration11,
         12: duration12,
         13: duration13,
@@ -721,7 +712,6 @@ function UnipopiaPodcats() {
         19: duration19,
         20: duration20,
         21: duration21,
-        22: duration22,
       };
 
       selectedDuration = durationMap[index];
@@ -748,7 +738,7 @@ function UnipopiaPodcats() {
       progressBar7.current,
       progressBar8.current,
       progressBar9.current,
-      null, // Index 10 is skipped
+      progressBar10.current,
       progressBar11.current,
       progressBar12.current,
       progressBar13.current,
@@ -760,7 +750,6 @@ function UnipopiaPodcats() {
       progressBar19.current,
       progressBar20.current,
       progressBar21.current,
-      progressBar22.current,
     ];
 
     const progressBar = progressBarArray[index - 1];
@@ -782,7 +771,7 @@ function UnipopiaPodcats() {
       audioPlayer7.current,
       audioPlayer8.current,
       audioPlayer9.current,
-      null, // Index 10 is skipped
+      audioPlayer10.current,
       audioPlayer11.current,
       audioPlayer12.current,
       audioPlayer13.current,
@@ -794,7 +783,6 @@ function UnipopiaPodcats() {
       audioPlayer19.current,
       audioPlayer20.current,
       audioPlayer21.current,
-      audioPlayer22.current,
     ];
     const audioPlayer = audioPlayerArray[index - 1] || null;
 
@@ -809,7 +797,7 @@ function UnipopiaPodcats() {
         progressBar7.current,
         progressBar8.current,
         progressBar9.current,
-        null, // Index 10 is skipped
+        progressBar10.current,
         progressBar11.current,
         progressBar12.current,
         progressBar13.current,
@@ -821,7 +809,6 @@ function UnipopiaPodcats() {
         progressBar19.current,
         progressBar20.current,
         progressBar21.current,
-        progressBar22.current,
       ];
       return progressBarArray[index - 1] || null;
     })();
@@ -839,6 +826,7 @@ function UnipopiaPodcats() {
         7: duration7,
         8: duration8,
         9: duration9,
+        10: duration10,
         11: duration11,
         12: duration12,
         13: duration13,
@@ -850,7 +838,6 @@ function UnipopiaPodcats() {
         19: duration19,
         20: duration20,
         21: duration21,
-        22: duration22,
       };
       selectedDuration = durationMap[index];
       if (selectedDuration !== null && newTime <= selectedDuration) {
@@ -1025,35 +1012,35 @@ function UnipopiaPodcats() {
               <em className="onePodcast__em">Chanson&nbsp;: Musicalement (in)correct, Indifférence.</em>
             </p>
             <div className="audioPlayer__player">
-              <audio ref={audioPlayer3} src={audio3} preload="metadata" onLoadedData={() => onLoadedMetadata(3)} />
+              <audio ref={audioPlayer4} src={audio4} preload="metadata" onLoadedData={() => onLoadedMetadata(4)} />
 
               {/* Buttons for desktop */}
               <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(3)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(3)} className="audioPlayer__main-btn">
-                  {isPlaying3 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(4)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(4)} className="audioPlayer__main-btn">
+                  {isPlaying4 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(3)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(4)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
 
               <div className="audioPlayer__player-bar">
                 {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime3)}</div>
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime4)}</div>
                 {/* Progress bar */}
                 <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar3} onChange={() => changeRange(3)} />
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar4} onChange={() => changeRange(4)} />
                 </div>
                 {/* duration */}
-                <div className="audioPlayer__duration">{(duration3 && !Number.isNaN(duration3)) && calculateTime(duration3)}</div>
+                <div className="audioPlayer__duration">{(duration4 && !Number.isNaN(duration4)) && calculateTime(duration4)}</div>
               </div>
 
               {/* Buttons for mobile */}
               <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(3)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(3)} className="audioPlayer__main-btn">
-                  {isPlaying3 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(4)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(4)} className="audioPlayer__main-btn">
+                  {isPlaying4 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(3)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(4)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
             </div>
           </article>
@@ -1061,7 +1048,7 @@ function UnipopiaPodcats() {
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
-              <h3 className="header">Portrait de participant&nbsp;: Grenoble</h3>
+              <h3 className="header">Grenoble</h3>
             </header>
             <p>
               Le Parlons-en et Le Lîeu des habitant.e.s de la rue et de la ville.
@@ -1106,516 +1093,10 @@ function UnipopiaPodcats() {
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
-              <h3 className="header">Portrait de participant&nbsp;: Mon chien ma vie</h3>
+              <h3 className="header">Mon chien ma vie</h3>
             </header>
             <p>
-              "Le 115" est un numéro d'urgence (au même titre que le SAMU ou les pompiers) qui vient en aide aux personnes sans abri et en grande difficulté sociale.
-            </p>
-            <p>
-              Comment fonctionne le 115 en Isère&nbsp;? Qui le gère&nbsp;? Avec quels moyens&nbsp;?<br />
-              "Critères de vulnérabilité", ça veut dire quoi&nbsp;?<br />
-              A quoi bon appeler s'il n'y a pas de places d'hébergement&nbsp;?<br />
-              De l'autre côté du combiné, quelles sont les réalités des écoutant-e-s&nbsp;?<br />
-              Y-a-t-il des possibilités d'action pour faire bouger les choses&nbsp;?
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer17} src={audio17} preload="metadata" onLoadedData={() => onLoadedMetadata(17)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(17)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(17)} className="audioPlayer__main-btn">
-                  {isPlaying17 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(17)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime17)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar17} onChange={() => changeRange(17)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration17 && !Number.isNaN(duration17)) && calculateTime(duration17)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(17)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(17)} className="audioPlayer__main-btn">
-                  {isPlaying17 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(17)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Quelles nouvelles de la rue&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré en février 2020</p>
-            </header>
-            <p>
-              SDF, précaires, pauvres, mal-logé-e-s...
-            </p>
-            <p>
-              Que se passe-t-il dans la rue cet hiver à Grenoble&nbsp;?<br />
-              Quelles sont les actualités, les colères, les alertes&nbsp;?<br />
-              Avantages et inconvénients du nouvel accueil de nuit 79 rue Stalingrad à Grenoble&nbsp;?
-            </p>
-            <p>
-              Retour sur le projet de la maison conventionnée "Le Tremplin".
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer16} src={audio16} preload="metadata" onLoadedData={() => onLoadedMetadata(16)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(16)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(16)} className="audioPlayer__main-btn">
-                  {isPlaying16 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(16)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime16)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar16} onChange={() => changeRange(16)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration16 && !Number.isNaN(duration16)) && calculateTime(duration16)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(16)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(16)} className="audioPlayer__main-btn">
-                  {isPlaying16 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(16)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Le Lîeu, quelles règles du jeu&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré en janvier 2020</p>
-            </header>
-            <p>
-              Le Lîeu, c'est un projet de croisements et d'échanges ouvert à tous-tes, cogéré par les habitants de la ville et de la rue, suffisamment ouvert et disponible pour que des idées et projets y trouvent leur place. Un lieu de rencontre, de bricolage&nbsp;; un lieu où se poser, trouver de l'information, s'entraider dans les démarches...
-            </p>
-            <p>
-              Ce projet fait suite à La Piscine – Fabrique de Solutions pour l'Habitat, première expérience qui a montré l'intérêt d'un lieu d'expérimentation, de réflexions et de solutions concrètes.
-            </p>
-            <p>
-              Situé au 17, rue Abbé Grégoire, Le Lîeu, ce sera un local permanent ouvert à tous-tes, et en particulier aux personnes en grande précarité.
-            </p>
-            <p>
-              Le Lîeu, d'où vient-il&nbsp;? Comment fonctionne-t-il&nbsp;? Qu'aimeriez-vous y trouver&nbsp;? Qu'aimeriez-vous y proposer&nbsp;?...
-            </p>
-            <p>
-              Le Lîeu a été Lauréat du Budget Participatif Octobre 2017.
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer15} src={audio15} preload="metadata" onLoadedData={() => onLoadedMetadata(15)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(15)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(15)} className="audioPlayer__main-btn">
-                  {isPlaying15 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(15)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime15)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar15} onChange={() => changeRange(15)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration15 && !Number.isNaN(duration15)) && calculateTime(duration15)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(15)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(15)} className="audioPlayer__main-btn">
-                  {isPlaying15 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(15)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Les exclusions – "tu t'es (encore) fait virer&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré en novembre 2019</p>
-            </header>
-            <p>
-              Dans les associations, les centres d'hébergement, les accueils de jour, les administrations...<br />
-              On peut se faire exclure pour cause de non respect des règles.
-            </p>
-            <p>
-              Mais qui fixe les règles&nbsp;?<br />
-              Qui les fait appliquer&nbsp;?<br />
-              Qui décide des exclusions, pour combien de temps&nbsp;?<br />
-              Comment lutter contre l'arbitraire&nbsp;?<br />
-              Comment gérer les conflits dans les lieux collectifs&nbsp;?
-            </p>
-            <p>
-              Chartes, règlements intérieurs, accords tacites...
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer14} src={audio14} preload="metadata" onLoadedData={() => onLoadedMetadata(14)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(14)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(14)} className="audioPlayer__main-btn">
-                  {isPlaying14 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(14)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime14)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar14} onChange={() => changeRange(14)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration14 && !Number.isNaN(duration14)) && calculateTime(duration14)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(14)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(14)} className="audioPlayer__main-btn">
-                  {isPlaying14 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(14)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Sous la douche, le ciel</h3>
-              <p className="audioPlayer__date">Enregistré en octobre 2019</p>
-            </header>
-            <p>
-              Prendre une douche, laver son linge, trouver de l'eau... Personnes précaires ou en galère, quelle était la situation à Grenoble durant le confinement&nbsp;?<br />
-              Aujourd'hui, quelles sont les difficultés pour accéder à l'eau et à l'hygiène&nbsp;?
-            </p>
-            <p>
-              En compagnie des agents des douches municipales de Grenoble.
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer13} src={audio13} preload="metadata" onLoadedData={() => onLoadedMetadata(13)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(13)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(13)} className="audioPlayer__main-btn">
-                  {isPlaying13 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(13)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime13)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar13} onChange={() => changeRange(13)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration13 && !Number.isNaN(duration13)) && calculateTime(duration13)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(13)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(13)} className="audioPlayer__main-btn">
-                  {isPlaying13 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(13)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Un guide de la galère&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré en septembre 2019</p>
-            </header>
-            <p>
-              Savoir où manger, dormir, se laver, se soigner, poser son sac, faire ses papiers, faire garder son chien, se faire entendre, rencontrer des gens, se défendre...<br />
-              Connaître ses droits lorsqu'on est à la rue ou en galère...
-            </p>
-            <p>
-              Où trouver les infos&nbsp;? Quels guides existent&nbsp;?<br />
-              Faut-il inventer autre chose&nbsp;?
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer12} src={audio12} preload="metadata" onLoadedData={() => onLoadedMetadata(12)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(12)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(12)} className="audioPlayer__main-btn">
-                  {isPlaying12 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(12)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime12)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar12} onChange={() => changeRange(12)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration12 && !Number.isNaN(duration12)) && calculateTime(duration12)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(12)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(12)} className="audioPlayer__main-btn">
-                  {isPlaying12 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(12)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Tu pars où en vacances&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré en juin 2019</p>
-            </header>
-            <p>
-              Comment s'annonce l'été pour les personnes à la rue ou en galère&nbsp;?<br />
-              Peut-on/veut-on quitter la ville&nbsp;?<br />
-              Quelles alternatives pour "partir en vacances"&nbsp;?<br />
-              Partir en vacances et revenir en errance.<br />
-              Manger, dormir, se soigner, se laver...<br />
-              Quelles structures restent ouvertes cet été à Grenoble&nbsp;?
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer11} src={audio11} preload="metadata" onLoadedData={() => onLoadedMetadata(11)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(11)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(11)} className="audioPlayer__main-btn">
-                  {isPlaying11 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(11)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime11)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar11} onChange={() => changeRange(11)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration11 && !Number.isNaN(duration11)) && calculateTime(duration11)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(11)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(11)} className="audioPlayer__main-btn">
-                  {isPlaying11 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(11)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Tu dors où après l'hiver&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré en mars 2019</p>
-            </header>
-            <p>
-              Qu'a-t-on pensé du dispositif d'urgence cet hiver&nbsp;? Comment l'ont vécu les personnes hébergées&nbsp;? Quelles conditions de vie dans les centres&nbsp;? Du changement par rapport aux hivers précédents&nbsp;? Les acteurs de l'hébergement d'urgence ont-ils des solutions pour les personnes accueillies cet hiver&nbsp;?
-            </p>
-            <p>
-              "Un chez-soi d'abord", "Un logement d'abord"&nbsp;: où en sont les politiques&nbsp;?<br />
-              Quels moyens mettre en œuvre pour sensibiliser les pouvoirs publics&nbsp;?
-            </p>
-            <p>
-              Avec la participation de Mme Françoise Cloteau, Vice-présidente en charge de l'hébergement à la Metro, et Mme Aurélie Duffey, Responsable Service Gestion du logement social et de l'hébergement à la Metro.
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer9} src={audio9} preload="metadata" onLoadedData={() => onLoadedMetadata(9)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
-                  {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime9)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar9} onChange={() => changeRange(9)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration9 && !Number.isNaN(duration9)) && calculateTime(duration9)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
-                  {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Des deux côtés du guichet</h3>
-              <p className="audioPlayer__date">Enregistré en février 2019</p>
-            </header>
-            <p>
-              Personnes à la rue ou en galère/Administrations, lieux d'accueil, travailleurs sociaux, bénévoles&nbsp;: comment on se regarde, comment on se parle&nbsp;?
-            </p>
-            <p>
-              Quand on est à la rue ou dans la précarité, on rencontre des professionnels et des bénévoles de différentes structures.
-            </p>
-            <p>
-              Quels regards pèsent sur nous&nbsp;? Comment on nous parle&nbsp;? Quelles postures nous renforcent&nbsp;? Lesquelles nous fragilisent&nbsp;? Quel impact sur l'accès au droit&nbsp;?
-            </p>
-            <p>
-              Quand on est travailleur social, bénévole, salarié, stagiaire, travailleur pair...<br />
-              Qu'est-ce qu'on apprend, comment on s'y prend, comment on se sent&nbsp;?...<br />
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer8} src={audio8} preload="metadata" onLoadedData={() => onLoadedMetadata(8)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(8)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(8)} className="audioPlayer__main-btn">
-                  {isPlaying8 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(8)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime8)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar8} onChange={() => changeRange(17)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration8 && !Number.isNaN(duration8)) && calculateTime(duration8)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(8)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(8)} className="audioPlayer__main-btn">
-                  {isPlaying8 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(8)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Tu mets quoi dans ton sac à dos&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré en janvier 2019</p>
-            </header>
-            <p>
-              Quand on n'a pas de maison, de quoi a-t-on besoin pour survivre à la rue&nbsp;?<br />
-              Où le trouve-ton, comment le transporte-t-on&nbsp;?<br />
-              Où est-il possible de poser son sac à Grenoble&nbsp;?
-            </p>
-            <div className="audioPlayer__player">
-              <audio ref={audioPlayer7} src={audio7} preload="metadata" onLoadedData={() => onLoadedMetadata(7)} />
-
-              {/* Buttons for desktop */}
-              <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(7)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(7)} className="audioPlayer__main-btn">
-                  {isPlaying7 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(7)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-
-              <div className="audioPlayer__player-bar">
-                {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime7)}</div>
-                {/* Progress bar */}
-                <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar7} onChange={() => changeRange(7)} />
-                </div>
-                {/* duration */}
-                <div className="audioPlayer__duration">{(duration17 && !Number.isNaN(duration7)) && calculateTime(duration7)}</div>
-              </div>
-
-              {/* Buttons for mobile */}
-              <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(7)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(7)} className="audioPlayer__main-btn">
-                  {isPlaying7 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
-                </button>
-                <button type="button" onClick={() => forwardThirty(7)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
-              </div>
-            </div>
-          </article>
-        </div>
-        <div className="audioPlayers-block">
-          <article className="audioPlayer">
-            <header className="audioPlayer__header">
-              <h3 className="header">Tu dors où cet hiver&nbsp;?</h3>
-              <p className="audioPlayer__date">Enregistré en novembre 204</p>
-            </header>
-            <p>
-              Nouvelles lois, trêve hivernale, accès à l'hébergement, risques d'expulsions...
-            </p>
-            <p>
-              Qu'est-ce qui s'annonce cet hiver à Grenoble pour les personnes à la rue ou en précarité de logement&nbsp;?<br />
-              Quelles sont les portes auxquelles on peut toquer, quelles sont les difficultés rencontrées dans l'accès à l'hébergement, quel avenir pour le squat&nbsp;?...<br />
-              Face au désengagement croissant de l'État comment les collectivités territoriales réagissent elles&nbsp;?
+              Venir en aide aux précaires et à leurs animaux
             </p>
             <div className="audioPlayer__player">
               <audio ref={audioPlayer6} src={audio6} preload="metadata" onLoadedData={() => onLoadedMetadata(6)} />
@@ -1654,45 +1135,41 @@ function UnipopiaPodcats() {
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
-              <h3 className="header">La manche, c'est du taf&nbsp;!</h3>
-              <p className="audioPlayer__date">Enregistré en septembre 2018</p>
+              <h3 className="header">Mme RueTabaga</h3>
             </header>
             <p>
-              Manches passives ou actives, parfois agressives ou festives, sont elles toutes légales&nbsp;?<br />
-              La manche comme unique revenu ou complément inévitable d'un maigre salaire ou de droits sociaux insuffisants&nbsp;?<br />
-              A quels regards et attitudes font face ceux qui demandent l'aumône&nbsp;?<br />
-              Et au fait ça rapporte combien de faire la manche&nbsp;?...
+              Éducation populaire par des ateliers de rue.
             </p>
             <div className="audioPlayer__player">
-              <audio ref={audioPlayer5} src={audio5} preload="metadata" onLoadedData={() => onLoadedMetadata(5)} />
+              <audio ref={audioPlayer7} src={audio7} preload="metadata" onLoadedData={() => onLoadedMetadata(7)} />
 
               {/* Buttons for desktop */}
               <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(5)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(5)} className="audioPlayer__main-btn">
-                  {isPlaying5 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(7)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(7)} className="audioPlayer__main-btn">
+                  {isPlaying7 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(5)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(7)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
 
               <div className="audioPlayer__player-bar">
                 {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime5)}</div>
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime7)}</div>
                 {/* Progress bar */}
                 <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar5} onChange={() => changeRange(5)} />
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar7} onChange={() => changeRange(7)} />
                 </div>
                 {/* duration */}
-                <div className="audioPlayer__duration">{(duration5 && !Number.isNaN(duration5)) && calculateTime(duration5)}</div>
+                <div className="audioPlayer__duration">{(duration7 && !Number.isNaN(duration7)) && calculateTime(duration7)}</div>
               </div>
 
               {/* Buttons for mobile */}
               <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(5)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(5)} className="audioPlayer__main-btn">
-                  {isPlaying5 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(7)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(7)} className="audioPlayer__main-btn">
+                  {isPlaying7 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(5)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(7)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
             </div>
           </article>
@@ -1700,45 +1177,41 @@ function UnipopiaPodcats() {
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
-              <h3 className="header">La rue et le système D</h3>
-              <p className="audioPlayer__date">Enregistré en avril 2018</p>
+              <h3 className="header">Un Ptit vélo dans la tête</h3>
             </header>
             <p>
-              Comment se débrouille-t-on pour manger, s'abriter, se chauffer, trouver de l'argent, vivre des relations quand on n'a pas de toit&nbsp;?<br />
-              Les techniques sont-elles les mêmes pour les hommes et pour les femmes&nbsp;?<br />
-              Le système D, c'est mieux tout seul ou en groupe&nbsp;?<br />
-              Système D opposé ou complément de l'assistance sociale&nbsp;?
+              Pratique et promotion du réemploi et du recyclage du vélo.
             </p>
             <div className="audioPlayer__player">
-              <audio ref={audioPlayer4} src={audio4} preload="metadata" onLoadedData={() => onLoadedMetadata(4)} />
+              <audio ref={audioPlayer8} src={audio8} preload="metadata" onLoadedData={() => onLoadedMetadata(8)} />
 
               {/* Buttons for desktop */}
               <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(4)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(4)} className="audioPlayer__main-btn">
-                  {isPlaying4 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(8)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(8)} className="audioPlayer__main-btn">
+                  {isPlaying8 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(4)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(8)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
 
               <div className="audioPlayer__player-bar">
                 {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime4)}</div>
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime8)}</div>
                 {/* Progress bar */}
                 <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar4} onChange={() => changeRange(4)} />
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar8} onChange={() => changeRange(8)} />
                 </div>
                 {/* duration */}
-                <div className="audioPlayer__duration">{(duration4 && !Number.isNaN(duration4)) && calculateTime(duration4)}</div>
+                <div className="audioPlayer__duration">{(duration8 && !Number.isNaN(duration8)) && calculateTime(duration8)}</div>
               </div>
 
               {/* Buttons for mobile */}
               <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(4)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(4)} className="audioPlayer__main-btn">
-                  {isPlaying4 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(8)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(8)} className="audioPlayer__main-btn">
+                  {isPlaying8 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(4)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(8)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
             </div>
           </article>
@@ -1746,46 +1219,41 @@ function UnipopiaPodcats() {
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
-              <h3 className="header">Jeunes à la rue avec chiens</h3>
-              <p className="audioPlayer__date">Enregistré en mars 2018</p>
+              <h3 className="header">LUCSE</h3>
             </header>
             <p>
-              Quels sont les regards, les préjugés, les réalités que vivent les jeunes sans logement propriétaires de chiens&nbsp;?<br />
-              Comment faire pour trouver un logement avec un chien&nbsp;?<br />
-              Peut-on accéder aux bâtiments publics&nbsp;?<br />
-              Sont-ils aidés dans les démarches administratives&nbsp;?<br />
-              Quels sont les critères de discrimination auxquels ces jeunes sont confrontés&nbsp;?
+              Faire du lien inter-luttes et dénoncer l'urbanisme agressif.
             </p>
             <div className="audioPlayer__player">
-              <audio ref={audioPlayer3} src={audio3} preload="metadata" onLoadedData={() => onLoadedMetadata(3)} />
+              <audio ref={audioPlayer9} src={audio9} preload="metadata" onLoadedData={() => onLoadedMetadata(9)} />
 
               {/* Buttons for desktop */}
               <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(3)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(3)} className="audioPlayer__main-btn">
-                  {isPlaying3 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
+                  {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(3)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
 
               <div className="audioPlayer__player-bar">
                 {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime3)}</div>
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime9)}</div>
                 {/* Progress bar */}
                 <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar3} onChange={() => changeRange(3)} />
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar9} onChange={() => changeRange(9)} />
                 </div>
                 {/* duration */}
-                <div className="audioPlayer__duration">{(duration3 && !Number.isNaN(duration3)) && calculateTime(duration3)}</div>
+                <div className="audioPlayer__duration">{(duration9 && !Number.isNaN(duration9)) && calculateTime(duration9)}</div>
               </div>
 
               {/* Buttons for mobile */}
               <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(3)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(3)} className="audioPlayer__main-btn">
-                  {isPlaying3 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(9)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(9)} className="audioPlayer__main-btn">
+                  {isPlaying9 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(3)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(9)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
             </div>
           </article>
@@ -1793,52 +1261,41 @@ function UnipopiaPodcats() {
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
-              <h3 className="header">Les relations affectives et sexuelles quand on est à la rue</h3>
-              <p className="audioPlayer__date">Enregistré en février 2018</p>
+              <h3 className="header">Le38-Centre Social Tchoukar et les Brigades de Solidarité Populaire</h3>
             </header>
             <p>
-              Quand on n'a pas de toit, comment vit-on nos relations avec les autres&nbsp;?
-            </p>
-            <p>
-              Aimer, s'aimer, être aimé-e...
-            </p>
-            <p>
-              Comment avoir une vie affective et/ou sexuelle quand on est privé d'intimité&nbsp;?<br />
-              Comment les lieux d'hébergement permettent-ils ou pas de vivre sa sexualité&nbsp;?<br />
-              Comment construire des amitiés quand on vit dans la rue&nbsp;?<br />
-              A quels risques est-on confrontés&nbsp;?<br />
-              Comment protéger sa santé physique et mentale&nbsp;?...
+              Rassemblement de collectifs et pratique d'autodéfense populaire.
             </p>
             <div className="audioPlayer__player">
-              <audio ref={audioPlayer2} src={audio2} preload="metadata" onLoadedData={() => onLoadedMetadata(2)} />
+              <audio ref={audioPlayer10} src={audio10} preload="metadata" onLoadedData={() => onLoadedMetadata(10)} />
 
               {/* Buttons for desktop */}
               <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(2)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(2)} className="audioPlayer__main-btn">
-                  {isPlaying2 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(10)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(10)} className="audioPlayer__main-btn">
+                  {isPlaying10 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(2)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(10)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
 
               <div className="audioPlayer__player-bar">
                 {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime2)}</div>
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime10)}</div>
                 {/* Progress bar */}
                 <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar2} onChange={() => changeRange(2)} />
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar10} onChange={() => changeRange(10)} />
                 </div>
                 {/* duration */}
-                <div className="audioPlayer__duration">{(duration2 && !Number.isNaN(duration2)) && calculateTime(duration2)}</div>
+                <div className="audioPlayer__duration">{(duration10 && !Number.isNaN(duration10)) && calculateTime(duration10)}</div>
               </div>
 
               {/* Buttons for mobile */}
               <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(2)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(2)} className="audioPlayer__main-btn">
-                  {isPlaying2 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(13)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(13)} className="audioPlayer__main-btn">
+                  {isPlaying13 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(2)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(13)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
             </div>
           </article>
@@ -1846,47 +1303,479 @@ function UnipopiaPodcats() {
         <div className="audioPlayers-block">
           <article className="audioPlayer">
             <header className="audioPlayer__header">
-              <h3 className="header">SDF, Police Municipale et Centre-ville</h3>
-              <p className="audioPlayer__date">Enregistré en novembre 2017</p>
+              <h3 className="header">Droit Au Logement&nbsp;38 et Les occupant.e.s des Volets Verts</h3>
             </header>
             <p>
-              Le centre-ville de Grenoble est un lieu qui cristallise les tensions entre personnes en errance, habitant-e-s et commerçant-e-s.
-            </p>
-            <p>
-              Quels sont les besoins, les réalités et les revendications des un-e-s et des autres&nbsp;?<br />
-              Quel est le rôle de la Police Municipale vis-à-vis des personnes en errance&nbsp;?<br />
-              Quelles sont les pratiques, les pouvoirs et les droits de chacun-e&nbsp;?
+              Pour l'application de la loi de réquisition.
             </p>
             <div className="audioPlayer__player">
-              <audio ref={audioPlayer1} src={audio1} preload="metadata" onLoadedData={() => onLoadedMetadata(1)} />
+              <audio ref={audioPlayer11} src={audio11} preload="metadata" onLoadedData={() => onLoadedMetadata(11)} />
 
               {/* Buttons for desktop */}
               <div className="audioPlayer__player-btn displayNoneMobile">
-                <button type="button" onClick={() => backThirty(1)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(1)} className="audioPlayer__main-btn">
-                  {isPlaying1 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(11)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(11)} className="audioPlayer__main-btn">
+                  {isPlaying11 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(1)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(11)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
 
               <div className="audioPlayer__player-bar">
                 {/* current time */}
-                <div className="audioPlayer__currentTime">{calculateTime(currentTime1)}</div>
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime11)}</div>
                 {/* Progress bar */}
                 <div>
-                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar1} onChange={() => changeRange(1)} />
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar11} onChange={() => changeRange(11)} />
                 </div>
                 {/* duration */}
-                <div className="audioPlayer__duration">{(duration1 && !Number.isNaN(duration1)) && calculateTime(duration1)}</div>
+                <div className="audioPlayer__duration">{(duration11 && !Number.isNaN(duration11)) && calculateTime(duration11)}</div>
               </div>
 
               {/* Buttons for mobile */}
               <div className="audioPlayer__player-btn displayNoneDesktop">
-                <button type="button" onClick={() => backThirty(1)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
-                <button type="button" onClick={() => togglePlayPause(1)} className="audioPlayer__main-btn">
-                  {isPlaying1 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                <button type="button" onClick={() => backThirty(11)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(11)} className="audioPlayer__main-btn">
+                  {isPlaying11 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
                 </button>
-                <button type="button" onClick={() => forwardThirty(1)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+                <button type="button" onClick={() => forwardThirty(11)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Le Chantier</h3>
+            </header>
+            <p>
+              Espace vert ouvert.
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer12} src={audio12} preload="metadata" onLoadedData={() => onLoadedMetadata(12)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(12)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(12)} className="audioPlayer__main-btn">
+                  {isPlaying12 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(12)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime12)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar12} onChange={() => changeRange(12)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration12 && !Number.isNaN(duration12)) && calculateTime(duration12)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(12)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(12)} className="audioPlayer__main-btn">
+                  {isPlaying12 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(12)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Lyon</h3>
+            </header>
+            <p>
+              Street reporters
+            </p>
+            <p>
+              <em className="onePodcast__em">Enquête de précaires sur le système social.</em>
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer13} src={audio13} preload="metadata" onLoadedData={() => onLoadedMetadata(13)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(13)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(13)} className="audioPlayer__main-btn">
+                  {isPlaying13 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(13)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime13)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar13} onChange={() => changeRange(13)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration13 && !Number.isNaN(duration13)) && calculateTime(duration13)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(13)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(13)} className="audioPlayer__main-btn">
+                  {isPlaying13 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(13)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Drôme</h3>
+            </header>
+            <p>
+              D-BASE
+            </p>
+            <p>
+              <em className="onePodcast__em">Équilibre entre travailleurs sociaux et personnes concernées.</em>
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer14} src={audio14} preload="metadata" onLoadedData={() => onLoadedMetadata(14)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(14)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(14)} className="audioPlayer__main-btn">
+                  {isPlaying14 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(14)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime14)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar14} onChange={() => changeRange(17)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration14 && !Number.isNaN(duration14)) && calculateTime(duration14)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(14)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(14)} className="audioPlayer__main-btn">
+                  {isPlaying14 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(14)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Montreuil</h3>
+            </header>
+            <p>
+              AMELIORE
+            </p>
+            <p>
+              <em className="onePodcast__em">Le droit à la biffe, à la solidarité et l'écologie.</em>
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer15} src={audio15} preload="metadata" onLoadedData={() => onLoadedMetadata(15)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(15)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(15)} className="audioPlayer__main-btn">
+                  {isPlaying15 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(15)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime15)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar15} onChange={() => changeRange(15)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration15 && !Number.isNaN(duration15)) && calculateTime(duration15)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(15)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(15)} className="audioPlayer__main-btn">
+                  {isPlaying15 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(15)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Saint-Etienne</h3>
+            </header>
+            <p>
+              Terrain d'entente
+            </p>
+            <p>
+              <em className="onePodcast__em">La voix-e des femmes.</em>
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer16} src={audio16} preload="metadata" onLoadedData={() => onLoadedMetadata(16)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(16)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(16)} className="audioPlayer__main-btn">
+                  {isPlaying16 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(16)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime16)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar16} onChange={() => changeRange(16)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration16 && !Number.isNaN(duration16)) && calculateTime(duration16)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(16)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(16)} className="audioPlayer__main-btn">
+                  {isPlaying16 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(16)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Marseille</h3>
+            </header>
+            <p>
+              L'Après-M/ La part du peuple
+            </p>
+            <p>
+              <em className="onePodcast__em">Maîtrise des bâtiments de l'ex MacDo et hamburgers sauvages.</em>
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer17} src={audio17} preload="metadata" onLoadedData={() => onLoadedMetadata(17)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(17)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(17)} className="audioPlayer__main-btn">
+                  {isPlaying17 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(17)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime17)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar17} onChange={() => changeRange(17)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration17 && !Number.isNaN(duration17)) && calculateTime(duration17)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(17)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(17)} className="audioPlayer__main-btn">
+                  {isPlaying17 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(17)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Poya</h3>
+            </header>
+            <p>
+              Afghanes, alphabétisation, Courante, Digne, insertion sociale.
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer18} src={audio18} preload="metadata" onLoadedData={() => onLoadedMetadata(18)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(18)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(18)} className="audioPlayer__main-btn">
+                  {isPlaying18 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(18)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime18)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar18} onChange={() => changeRange(18)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration18 && !Number.isNaN(duration18)) && calculateTime(duration18)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(18)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(18)} className="audioPlayer__main-btn">
+                  {isPlaying18 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(18)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Belgique</h3>
+            </header>
+            <p>
+              C prévu
+            </p>
+            <p>
+              <em className="onePodcast__em">Rompre la fracture numérique.</em>
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer19} src={audio19} preload="metadata" onLoadedData={() => onLoadedMetadata(19)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(19)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(19)} className="audioPlayer__main-btn">
+                  {isPlaying19 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(19)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime19)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar19} onChange={() => changeRange(19)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration19 && !Number.isNaN(duration19)) && calculateTime(duration19)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(19)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(19)} className="audioPlayer__main-btn">
+                  {isPlaying19 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(19)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Agence du squat</h3>
+            </header>
+            <p>
+              Pour des squats utiles aux propriétaires et promoteurs immobiliers.
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer20} src={audio20} preload="metadata" onLoadedData={() => onLoadedMetadata(20)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(20)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(20)} className="audioPlayer__main-btn">
+                  {isPlaying20 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(20)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime20)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar20} onChange={() => changeRange(20)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration20 && !Number.isNaN(duration20)) && calculateTime(duration20)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(20)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(20)} className="audioPlayer__main-btn">
+                  {isPlaying20 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(20)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div className="audioPlayers-block">
+          <article className="audioPlayer">
+            <header className="audioPlayer__header">
+              <h3 className="header">Periferia</h3>
+            </header>
+            <p>
+              Organisation et animation de l'université.
+            </p>
+            <div className="audioPlayer__player">
+              <audio ref={audioPlayer21} src={audio21} preload="metadata" onLoadedData={() => onLoadedMetadata(21)} />
+
+              {/* Buttons for desktop */}
+              <div className="audioPlayer__player-btn displayNoneMobile">
+                <button type="button" onClick={() => backThirty(21)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(21)} className="audioPlayer__main-btn">
+                  {isPlaying21 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(21)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
+              </div>
+
+              <div className="audioPlayer__player-bar">
+                {/* current time */}
+                <div className="audioPlayer__currentTime">{calculateTime(currentTime21)}</div>
+                {/* Progress bar */}
+                <div>
+                  <input type="range" className="audioPlayer__progressBar" defaultValue="0" ref={progressBar21} onChange={() => changeRange(21)} />
+                </div>
+                {/* duration */}
+                <div className="audioPlayer__duration">{(duration21 && !Number.isNaN(duration21)) && calculateTime(duration21)}</div>
+              </div>
+
+              {/* Buttons for mobile */}
+              <div className="audioPlayer__player-btn displayNoneDesktop">
+                <button type="button" onClick={() => backThirty(21)} className="audioPlayer__btn"><TbPlayerTrackPrevFilled /> </button>
+                <button type="button" onClick={() => togglePlayPause(21)} className="audioPlayer__main-btn">
+                  {isPlaying21 ? <TbPlayerPauseFilled /> : <TbPlayerPlayFilled /> }
+                </button>
+                <button type="button" onClick={() => forwardThirty(21)} className="audioPlayer__btn"><TbPlayerTrackNextFilled /> </button>
               </div>
             </div>
           </article>

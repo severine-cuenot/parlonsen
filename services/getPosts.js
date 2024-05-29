@@ -5,7 +5,7 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 const getPosts = async () => {
   const query = gql`
   query MyQuery {
-    postsConnection(first: 1000) {
+    postsConnection(first: 2000) {
       edges {
         node {
           createdAt

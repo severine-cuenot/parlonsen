@@ -1,17 +1,64 @@
 @use '../../styles/vars';
 
 .post {
+  &__frame {
+    background-color: vars.$lightGrey;
+  }
+
   &__block {
     color: vars.$dark;
     display: flex;
     flex-direction: column;
-    // flex-wrap: wrap;
+    
+  }
+  &__tab-block {
+    background-color: vars.$white;
+  }
+
+  &__tab {
+    color: vars.$dark;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: vars.$mobile) {
+      flex-direction: row;
+      border: none;
+      border-radius: 0 vars.$btnRadius 0 0;
+      font-size: 1.5em;
+      }
+  }
+
+  &__tab-content {
+    border: 1px solid vars.$grey;
+    border-radius: vars.$btnRadius;
+    font-size: 1em;
+    padding: 1em;
+    background-color: vars.$white;
+    margin-bottom: 1em;
+    @media (min-width: vars.$mobile) {
+      border: none;
+      border-radius: 0 vars.$btnRadius 0 0;
+      font-size: 1.5em;
+      margin-bottom: 0;
+    }
+  }
+
+  &__tab-content:focus{
+    background-color: vars.$lightGrey;
+    // border: 1px solid vars.$grey;
+    // border-radius: vars.$btnRadius;
+    color: vars.$orange;
+    @media (min-width: vars.$mobile) {
+      border: none;
+      border-radius: 0 vars.$btnRadius 0 0;
+      
+    }
   }
 
   &__videos-block {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 1em;
   }
 
    &__videoCard {
@@ -22,6 +69,7 @@
     border: 1px solid vars.$lightGrey;
     border-radius: vars.$btnRadius;
     padding: 1.5em;
+    background-color: vars.$white;
 
     @media (min-width: 1100px) {
       width: calc(50% - 0.75em); /* 50% de largeur avec une marge de 0.75em entre les éléments */

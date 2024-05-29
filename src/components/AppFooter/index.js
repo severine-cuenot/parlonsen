@@ -5,6 +5,7 @@ import { HashLink } from 'react-router-hash-link';
 // Imports
 import './style.scss';
 import fbimg from '../../../public/img/facebook.png';
+import ytimg from '../../../public/img/youtube_logo.png';
 
 function AppFooter() {
   const year = new Date().getFullYear();
@@ -17,22 +18,25 @@ function AppFooter() {
           <p>
             Un espace de débat et de projets par les habitant.e.s de la rue et de la ville
           </p>
-          <a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" className="footer__fbimg-dsktop" /></a>
+          <ul>
+            <li><a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" className="footer__fbimg-dsktop" /></a></li>
+            <li><a href="https://www.youtube.com/@telelieu4042" target="_blank" rel="noreferrer"><img src={ytimg} alt="Rejoignez-nous sur Youtube" className="footer__ytimg-dsktop" /></a></li>
+          </ul>
         </div>
         <nav className="footer__left-block">
           <div className="footer__left-block1">
             <ul>
               <h3 className="footer__left-block-title">Explorer</h3>
-              <li><Link to="/unipopia" className="link">Unipopia</Link></li>
-              <li><Link to="/lieu" className="link">Le Lîeu</Link></li>
               <li><Link to="/parlonsen" className="link">Le Parlons-en</Link></li>
+              <li><Link to="/lieu" className="link">Le Lîeu</Link></li>
+              <li><Link to="/unipopia" className="link">Unipopia</Link></li>
             </ul>
             <ul>
               <h3 className="footer__left-block-title">Contenu multimédia</h3>
               <li><Link to="/multimedia/video" className="link">Vidéos</Link></li>
               <li><Link to="/multimedia/ecrit" className="link">Ecrits</Link></li>
               <li><Link to="/multimedia/podcast" className="link">Podcasts</Link></li>
-              <li><Link to="/multimedia/multimedia" className="link">Photos</Link></li>
+              <li><Link to="/multimedia/multimedia" className="link">Images</Link></li>
             </ul>
           </div>
           <div className="footer__left-block3">
@@ -41,6 +45,7 @@ function AppFooter() {
               <li><Link to="/about" className="link">Nous trouver</Link></li>
               <li><HashLink to="/about#nouscontacter" className="link">Nous contacter</HashLink></li>
               <li><a href="https://www.facebook.com/p/Le-Lîeu-100070756573019/" target="_blank" rel="noreferrer"><img src={fbimg} alt="Rejoignez-nous sur Facebook" className="footer__fbimg-mobile" /></a></li>
+              <li><a href="https://www.youtube.com/@telelieu4042" target="_blank" rel="noreferrer"><img src={ytimg} alt="Rejoignez-nous sur Youtube" className="footer__ytimg-mobile" /></a></li>
             </ul>
             <ul>
               <h3 className="footer__left-block-title">Légal</h3>

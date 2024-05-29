@@ -52,7 +52,9 @@ function About() {
             </ul>
             <h3 className="about__map-subtitle">N'hésitez pas à faire un tour sur ces sites&nbsp;:</h3>
             <ul>
-              <li>&diams; <em>Unipopia&nbsp;:</em> <a href="https://unipopia.org/" target="_blank" rel="noreferrer" className="about__link">www.unipopia.org</a></li>
+              <li>&diams; <a href="https://unipopia.org/" target="_blank" rel="noreferrer" className="about__link">Unipopia</a></li>
+              <li>&diams; <a href="https://www.facebook.com/profile.php?id=100068312592785" target="_blank" rel="noreferrer" className="about__link">Association Mon Chien Ma Vie</a></li>
+              <li>&diams; <a href="https://solivet.org/" target="_blank" rel="noreferrer" className="about__link">Solivet</a></li>
             </ul>
             <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="about" /></Link>
           </div>

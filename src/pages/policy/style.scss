@@ -22,6 +22,9 @@
   &__text a:hover {
     font-weight: 700;
   }
+  &__lastParagraph {
+    margin: 1.5em 0 3em;
+  }
 }
 
 .policy h1 {
@@ -38,7 +41,5 @@
 .policy u {
   text-decoration: underline;
 }
-.policy ul {
-  margin-bottom: 3em;
-}
+
 

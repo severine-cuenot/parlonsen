@@ -1,0 +1,58 @@
+@use '../../styles/vars';
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+  @media (min-width: vars.$mobile) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+
+  &__leftBlock {
+    // display: none;
+    @media (min-width: vars.$mobile) {
+      width: 45%;
+    }
+  }
+
+  &__leftBlock img {
+  display: block;
+    width: auto;
+    max-height: 300px;
+    margin: auto;
+    @media (min-width: vars.$mobile) {
+    width: auto;
+    max-height: 550px;
+    }
+  }
+
+  &__rightBlock {
+    color: vars.$dark
+  }
+
+  &__rightBlock p {
+    margin-bottom: 0.5em;
+    font-size: 0.8em;
+    @media (min-width: vars.$mobile) {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+  }
+
+  &__header h2 {
+    font-size: 3em;
+    margin: 0.5em 0;
+    text-align: center;
+    @media (min-width: vars.$mobile) {
+      font-size: 5em;
+      margin-bottom: 1em;
+    }
+  }
+  
+}
+
+

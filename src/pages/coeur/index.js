@@ -37,7 +37,7 @@ function Coeur() {
         </header>
         <CoeurCard posts={postList} />
       </section>
-      <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="about" /></Link>
+      <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="coeur" /></Link>
     </Container>
   );
 }

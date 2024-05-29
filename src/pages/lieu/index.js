@@ -65,6 +65,9 @@ function Lieu() {
           <nav className="lieu__nav">
             <ul>
               <li>
+                &diams; Cliquez <a href="http://www.fabriquedesolutions.net/" className="lieu__nav-link" target="_blank" rel="noreferrer">ici</a> pour voir l'ancien site de la Piscine, le lieu avant le Lîeu...
+              </li>
+              <li>
                 &diams; Télécharger le dossier du projet <a href={projet} className="lieu__nav-link" target="_blank" rel="noreferrer">ici</a>.
               </li>
               <li>

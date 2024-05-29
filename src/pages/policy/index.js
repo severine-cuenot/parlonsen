@@ -14,8 +14,6 @@ function Policy() {
   const emailPart2 = 2 ** 6;
   const emailPart3 = String.fromCharCode(emailPart2);
   const emailPart4 = 'parlonsengrenoble.org';
-  // const emailPart5 = emailPart1 + String.fromCharCode(emailPart2) + emailPart4;
-  // const emailLink = `mailto:${emailPart5}`;
   const emailText = emailPart1 + emailPart3 + emailPart4;
 
   return (
@@ -25,20 +23,18 @@ function Policy() {
           <h1>Mentions légales</h1>
         </header>
         <p>
-          Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il est précisé aux utilisateurs du site <em>Parlons-en&nbsp;!</em> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.
+          Conformément aux dispositions de la loi n°2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il est précisé aux utilisateurs du site <em>Parlons-en&nbsp;!</em> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.
         </p>
         <h2 className="header">édition du site</h2>
         <p>
-          Le présent site, accessible à l'URL <u>https://parlonsengrenoble.org/</u> (le "Site"), est édité par&nbsp;: L'association <em>Parlons-en</em>, enregistrée auprès de la Préfecture de Grenoble sous le numéro , ayant son siège situé à 17, rue Abbé Grégoire, 38000 Grenoble, représentée par Claire Cuenot dûment habilitée.
+          Le présent site, accessible à l'URL <u>https://parlonsengrenoble.org/</u> (le "Site"), est édité par&nbsp;: L'association <em>Parlons-en</em>, enregistrée auprès de la Préfecture de Grenoble sous le numéro RNA W381017450, ayant son siège situé à 17, rue Abbé Grégoire, 38000 Grenoble, représentée par Claire Cuenot dûment habilitée.
         </p>
         <h2 className="header">Hébergement</h2>
         <p>
           Le Site est hébergé par la société <em>O2Switch</em>, située 222 Boulevard Gustave Flaubert, 63000 Clermont-Ferrand, (contact téléphonique&nbsp;: (+33) 4 44 44 60 40).
         </p>
         <h2 className="header">Directeur de publication</h2>
-
-        <p>Le Directeur de la publication du Site est  .</p>
-
+        <p>Le Directeur de la publication du Site est Claire Cuenot.</p>
         <h2 className="header">Nous contacter</h2>
         <p>
           <ul>
@@ -47,6 +43,19 @@ function Policy() {
             <li>Par courrier&nbsp;: 17, rue Abbé Grégoire, 38000 Grenoble</li>
           </ul>
         </p>
+        <h2 className="header">Accès au site</h2>
+        <p>
+          Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découlant d'une nécessité de maintenance. En cas de modification, interruption ou suspension du Site, l'Editeur ne saurait être tenu responsable.
+        </p>
+
+        <h2 className="header">Collecte des données</h2>
+        <p>
+          Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure où il ne collecte aucune donnée concernant les utilisateurs.
+        </p>
+        <p className="policy__lastParagraph">
+          Toute utilisation, reproduction, diffusion, commercialisation, modification de tout ou partie du Site, sans autorisation de l'Editeur est prohibée et pourra entraîner des actions et poursuites judiciaires telles que notamment prévues par le Code de la propriété intellectuelle et le Code civil.
+        </p>
+
         <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="credits" /></Link>
       </section>
     </Container>

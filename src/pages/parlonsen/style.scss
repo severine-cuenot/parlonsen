@@ -7,9 +7,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5em 0;
+    padding: 1.5em;
     background-color: vars.$dark;
+    font-size: 0.8em;
     // background-image: url(../../../public/img/reunion.jpg);
+    @media (min-width: vars.$mobile) {
+      font-size: inherit;
+    }
   }
   &__main-block {
     color: vars.$dark;
@@ -78,4 +82,13 @@
   &__article li {
     list-style: inside;
   }
+
+  &__rapports {
+    margin: 2em 0;
+  }
+
+  &__rapports ul {
+    margin-top: 2em;
+  }
+  
 }

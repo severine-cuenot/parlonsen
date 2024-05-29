@@ -19,6 +19,20 @@ import banSinges from '../../../public/img/ban_singes.jpg';
 import imgPlaquettes from '../../../public/img/mini_plaquettes_parlonsen.png';
 import hautparleur from '../../../public/img/hautparleur.png';
 import plaquette from '../../../public/pdf/plaquetteparlonsen_web.pdf';
+import rapport1 from '../../../public/pdf/projetassociatif_2021.pdf';
+import rapport2 from '../../../public/pdf/RapportMoral2o16.pdf';
+import rapport3 from '../../../public/pdf/RapportFinancier2o16.pdf';
+import rapport4 from '../../../public/pdf/RapportActivites_2017.pdf';
+import rapport5 from '../../../public/pdf/Rapportmoral2017.pdf';
+import rapport6 from '../../../public/pdf/RapportFinancier_2017.pdf';
+import rapport7 from '../../../public/pdf/rapportfinancier2018.pdf';
+import rapport8 from '../../../public/pdf/rapportdactivites_2018.pdf';
+import rapport9 from '../../../public/pdf/rapportfinancier2019.pdf';
+import rapport10 from '../../../public/pdf/rapportactivites2019.pdf';
+import rapport11 from '../../../public/pdf/RapportFinancier_2020.pdf';
+import rapport12 from '../../../public/pdf/RapportActivites_2020.pdf';
+import rapport13 from '../../../public/pdf/RapportActivites2021.pdf';
+import rapport14 from '../../../public/pdf/RapportFinancier2021.pdf';
 
 function Parlonsen() {
   const [postList, setPostList] = useState([]);
@@ -56,10 +70,10 @@ function Parlonsen() {
                 &diams; Pour les dates et thèmes des prochaines rencontres, <HashLink to="/parlonsen#newsParlonsEn" className="parlonsen__nav-link">Cliquez ici</HashLink>.
               </li> */}
               <li>
-                &diams; Pour les comptes-rendus, <Link to="/ecrit" className="parlonsen__nav-link">c'est ici</Link>.
+                &diams; Pour les comptes-rendus, <Link to="/multimedia/ecrit" className="parlonsen__nav-link">c'est ici</Link>.
               </li>
               <li>
-                &diams; Pour les podcasts Parlons-en, <Link to="/podcast" className="parlonsen__nav-link">c'est ici</Link>.
+                &diams; Pour les podcasts Parlons-en, <Link to="/multimedia/podcast" className="parlonsen__nav-link">c'est ici</Link>.
               </li>
               <li>
                 &diams; Et pour les dernières actualités, <a href={pdf1} className="parlonsen__nav-link" target="_blank" rel="noreferrer">c'est sur Facebook</a>.
@@ -93,6 +107,25 @@ function Parlonsen() {
               <li><span className="strong">Repas</span> pour terminer la rencontre</li>
             </ul>
             <img src={hautparleur} alt="Parlons-en !" className="parlonsen__article--img-center" />
+          </article>
+          <article className="parlonsen__rapports">
+            <h2 className="header">Nos rapports</h2>
+            <ul>
+              <li><a href={rapport2} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2016 - Rapport d'activités</a></li>
+              <li><a href={rapport3} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2016 - Rapport financier</a></li>
+              <li><a href={rapport4} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2017 - Rapport d'activités</a></li>
+              <li><a href={rapport5} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2017 - Rapport moral</a></li>
+              <li><a href={rapport6} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2017 - Rapport financier</a></li>
+              <li><a href={rapport7} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2018 - Rapport financier</a></li>
+              <li><a href={rapport8} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2018 - Rapport d'activités</a></li>
+              <li><a href={rapport9} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2019 - Rapport financier</a></li>
+              <li><a href={rapport10} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2019 - Rapport d'activités</a></li>
+              <li><a href={rapport11} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2020 - Rapport financier</a></li>
+              <li><a href={rapport12} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2020 - Rapport d'activités</a></li>
+              <li><a href={rapport1} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2021 - Le projet associatif</a></li>
+              <li><a href={rapport13} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2021 - Rapport d'activités</a></li>
+              <li><a href={rapport14} className="parlonsen__nav-link" target="_blank" rel="noreferrer">2021 - Rapport financier</a></li>
+            </ul>
           </article>
         </section>
         <span id="newsParlonsEn">&nbsp;</span>

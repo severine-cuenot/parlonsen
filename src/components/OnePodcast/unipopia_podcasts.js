@@ -19,7 +19,7 @@ import Container from '../Container';
 import './style.scss';
 
 // imports MP3
-import audio1 from '../../../public/mp3/201711_sdf_habitants_police.mp3';
+import audio1 from '../../../public/mp3/unipopia1.mp3';
 import audio2 from '../../../public/mp3/201802_relations_rue.mp3';
 import audio3 from '../../../public/mp3/20180314_jeunes_rue_chiens.mp3';
 import audio4 from '../../../public/mp3/201804_rue_systemeD.mp3';
@@ -41,7 +41,7 @@ import audio20 from '../../../public/mp3/202104_jeunes_en_galeres.mp3';
 import audio21 from '../../../public/mp3/202105_travail.mp3';
 import audio22 from '../../../public/mp3/202106_la_mort.mp3';
 
-function OnePodcast() {
+function UnipopiaPodcats() {
   // Player audio1
   const [isPlaying1, setIsPlaying1] = useState(false);
   const [currentTime1, setCurrentTime1] = useState(0);
@@ -1916,4 +1916,4 @@ function OnePodcast() {
   );
 }
 
-export default OnePodcast;
+export default UnipopiaPodcats;

@@ -1,36 +1,37 @@
 /* eslint-disable max-len */
 // React imports
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 // Component imports
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
-import OnePodcast from '../../components/OnePodcast';
+// import OnePodcast from '../../components/OnePodcast';
+import PodcastsTabs from '../../components/PodcastsTabs';
 
 // imports
 // import logoRadio from '../../../public/img/gresivaudan-logo-white.png';
 import jeanno from '../../../public/img/podcast_jean_no.png';
-import getPosts from '../../../services/getPosts';
+// import getPosts from '../../../services/getPosts';
 import './style.scss';
 
 function Podcast() {
-  const [postList, setPostList] = useState([]);
+  // const [postList, setPostList] = useState([]);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const listOfPosts = await getPosts();
-        setPostList(listOfPosts);
-      }
-      catch (error) {
-        console.error('Error fetching posts:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     try {
+  //       const listOfPosts = await getPosts();
+  //       setPostList(listOfPosts);
+  //     }
+  //     catch (error) {
+  //       console.error('Error fetching posts:', error);
+  //     }
+  //   };
 
-    fetchPosts();
-  }, []);
+  //   fetchPosts();
+  // }, []);
   return (
     <Page>
       <header className="podcast__header">
@@ -50,7 +51,8 @@ function Podcast() {
       </header>
       <Container className="container__podcast">
         <section>
-          <OnePodcast posts={postList} />
+          <PodcastsTabs />
+          {/* <OnePodcast posts={postList} /> */}
           <Link to="/"><Button type="button" label="Retourner à l'accueil" btnstyle="podcast1" /></Link>
           <Link to="/multimedia"><Button type="button" label="Retourner à la liste des médias" btnstyle="podcast2" /></Link>
         </section>

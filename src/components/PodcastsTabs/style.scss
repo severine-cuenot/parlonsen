@@ -1,0 +1,184 @@
+@use '../../styles/vars';
+.post__tab-content.active {
+  // Ajoutez vos styles ici, par exemple :
+  background-color: #ddd;
+  font-weight: bold;
+}
+.post {
+  &__frame {
+    background-color: vars.$lightGrey;
+  }
+
+  &__block {
+    color: vars.$dark;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  &__tab-block {
+    background-color: vars.$white;
+  }
+
+  &__tab {
+    color: vars.$dark;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: vars.$mobile) {
+      flex-direction: row;
+      border: none;
+      border-radius: 0 vars.$btnRadius 0 0;
+      font-size: 1.5em;
+      }
+  }
+
+  &__tab-content {
+    border: 1px solid vars.$grey;
+    border-radius: vars.$btnRadius;
+    font-size: 1em;
+    padding: 1em;
+    background-color: vars.$white;
+    margin-bottom: 1em;
+    @media (min-width: vars.$mobile) {
+      border: none;
+      border-radius: 0 vars.$btnRadius 0 0;
+      font-size: 1.5em;
+      margin-bottom: 0;
+    }
+  }
+
+  &__tab-content:focus{
+    background-color: vars.$lightGrey;
+    // border: 1px solid vars.$grey;
+    // border-radius: vars.$btnRadius;
+    color: vars.$orange;
+    @media (min-width: vars.$mobile) {
+      border: none;
+      border-radius: 0 vars.$btnRadius 0 0;
+      
+    }
+  }
+
+  &__videos-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1em;
+  }
+
+   &__videoCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1.5em;
+    border: 1px solid vars.$lightGrey;
+    border-radius: vars.$btnRadius;
+    padding: 1.5em;
+    background-color: vars.$white;
+
+    @media (min-width: 1100px) {
+      width: calc(50% - 0.75em); /* 50% de largeur avec une marge de 0.75em entre les éléments */
+      margin-right: 1.5em; /* Marge à droite pour les éléments à partir du deuxième */
+      &:nth-child(2n) {
+        margin-right: 0; /* Annuler la marge à droite pour les éléments pairs */
+      }
+    }
+
+    @media (max-width: 1100px) {
+      width: calc(100% - 1.5em); /* 100% de largeur avec une marge de 0.75em de chaque côté */
+      margin-right: 0; 
+      margin-left: 0.75em; 
+      margin-bottom: 1.5em; 
+    }
+  }
+
+  &__videoCardTitle {
+    font-size: 1.3em;
+    margin-bottom: 0.6em;
+  }
+
+  &__videoCardDate {
+    font-size: 1em;
+    color: vars.$lightGrey;
+    margin-bottom: 1em;
+  }
+
+  &__videoCardContent {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+    @media (min-width: vars.$mobile) {
+      padding-bottom: 3em;
+    }
+  }
+
+  &__videoCardContent p {
+    margin-bottom: 1.5em;
+  }
+
+  &__videoCardContent img {
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: auto;
+    @media (min-width: vars.$mobile) {
+      width: 30%;
+      max-width: 500px;
+      min-width: 350px;
+      cursor: pointer;
+    }
+  }
+
+  &__videoCardContent a {
+    color: vars.$orange;
+  }
+  
+  &__videoCardContent blockquote {
+    margin-left: 1.5em;
+    font-style: italic;
+    color: vars.$grey;
+    @media (min-width: vars.$tablet) {
+      margin-left: 2em;
+    }
+  }
+
+  &__videoCardContent ul, &__videoCardContent ol {
+    margin-left: 2em;
+    line-height: vars.$lineHeight;
+    @media (min-width: vars.$tablet) {
+      margin-left: 3em;
+    }
+  }
+
+   &__videoCardContent ol > li {
+    list-style:decimal;
+  }
+
+   &__videoCardContent ul > li {
+    list-style: disc;
+  }
+
+  &__video {
+    display: flex;
+    justify-content: center;
+    @media (min-width: vars.$mobile) {
+      justify-content: left;
+    }
+  }
+
+  &__video-block {
+    border: none;
+    aspect-ratio: 16 / 9;
+    height: 100%;
+    width: 100%;
+    @media (min-width: vars.$mobile) {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.wrapper {
+@media (min-width: vars.$mobile) {
+  padding-bottom: 5em;
+}
+}

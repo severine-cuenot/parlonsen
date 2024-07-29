@@ -18,7 +18,7 @@ function VideoCard({ posts }) {
 
   // Filtrer les vidéos en fonction de la catégorie de l'onglet sélectionné
   const filteredVideos = (tabIndex) => {
-    const tabCategories = ['Vidéos-parlonsen', 'Vidéos-silence'];
+    const tabCategories = ['Vidéos-parlonsen', 'Vidéos-silence', 'Vidéos-unipopia'];
     const filteredPosts = posts.filter((post) => post.node.categories.some((category) => category.nom === tabCategories[tabIndex]));
     // Trier les vidéos filtrées par date
     const sortedVideos = filteredPosts.sort((a, b) => {
@@ -33,6 +33,7 @@ function VideoCard({ posts }) {
   const tabs = [
     { buttonContent: 'Les vidéos du Parlons-en' },
     { buttonContent: 'Les vidéos "Silence ! On parle"' },
+    { buttonContent: 'Les vidéos d\'Unipopia' },
   ];
 
   const formatDate = (rawDate) => {

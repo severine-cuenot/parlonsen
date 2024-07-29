@@ -1,6 +1,6 @@
 # Association Parlons-En / Le Lîeu
 
-Future website for Parlons-En association
+Website for Parlons-En association
 
 ## Webpack
 
